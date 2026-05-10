@@ -1,0 +1,550 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width,initial-scale=1.0,viewport-fit=cover">
+<meta name="theme-color" content="#c9963a">
+<meta name="mobile-web-app-capable" content="yes">
+<meta name="apple-mobile-web-app-capable" content="yes">
+<meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+<meta name="apple-mobile-web-app-title" content="CHEERS55">
+<meta name="application-name" content="CHEERS55">
+<meta name="description" content="CHEERS55 – Smart Student Hub powered by TIDO AI · NIT Tanzania">
+<link rel="manifest" href="manifest.json">
+<link rel="apple-touch-icon" href="icons/icon-192.png">
+<link rel="apple-touch-startup-image" href="icons/icon-512.png">
+<link rel="manifest" href="manifest.json"><title>CHEERS55 – Lecturer Portal</title>
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@700;900&family=DM+Sans:wght@400;500;600;700&family=DM+Mono:wght@400;500&display=swap" rel="stylesheet">
+<style>
+:root{--n:#0a1628;--m:#132040;--b:#1a3a6b;--g:#c9963a;--gl:#e8b84b;--cr:#f5f0e8;--w:#fff;--gr:#1a7a4a;--r:#c0392b;--or:#e67e22;--mt:#8a9ab5;--cd:#111e35;--bd:rgba(201,150,58,.25);}
+*{margin:0;padding:0;box-sizing:border-box;-webkit-tap-highlight-color:transparent;}
+html,body{height:100%;overflow:hidden;}
+body{background:var(--n);color:var(--cr);font-family:'DM Sans',sans-serif;display:flex;flex-direction:column;}
+.hdr{background:var(--m);border-bottom:1px solid var(--bd);padding:0 13px;display:flex;align-items:center;gap:9px;height:54px;flex-shrink:0;}
+.hl{font-family:'Playfair Display',serif;font-size:13px;color:var(--w);}
+.hl em{color:var(--g);font-style:normal;}
+.lec-badge{font-size:9px;background:rgba(26,122,74,.2);border:1px solid rgba(26,122,74,.5);color:#4ecb8c;padding:2px 8px;border-radius:8px;font-family:'DM Mono',monospace;}
+.hr{margin-left:auto;display:flex;align-items:center;gap:6px;}
+.hname{font-size:11px;color:var(--mt);font-family:'DM Mono',monospace;max-width:100px;overflow:hidden;text-overflow:ellipsis;white-space:nowrap;}
+.hbtn{width:32px;height:32px;border-radius:50%;background:var(--b);border:none;color:var(--g);font-size:13px;cursor:pointer;display:flex;align-items:center;justify-content:center;flex-shrink:0;}
+.hbtn:hover{background:var(--g);color:var(--n);}
+.nav{display:flex;background:var(--m);border-bottom:1px solid var(--bd);overflow-x:auto;scrollbar-width:none;flex-shrink:0;}
+.nav::-webkit-scrollbar{display:none;}
+.nt{flex:1;min-width:55px;padding:10px 4px;font-size:10px;font-weight:500;color:var(--mt);cursor:pointer;border-bottom:2px solid transparent;transition:all .2s;background:none;border-left:none;border-right:none;border-top:none;font-family:'DM Sans',sans-serif;display:flex;flex-direction:column;align-items:center;gap:2px;}
+.ni{font-size:16px;}
+.nt.on{color:var(--g);border-bottom-color:var(--g);}
+.ct{flex:1;overflow-y:auto;padding:13px;-webkit-overflow-scrolling:touch;padding-bottom:20px;}
+.sec{display:none;}.sec.on{display:block;}
+.stit{font-family:'Playfair Display',serif;font-size:1.1rem;color:var(--w);margin-bottom:3px;}
+.sdsc{font-size:11px;color:var(--mt);margin-bottom:14px;line-height:1.5;}
+/* CARDS */
+.card{background:var(--cd);border:1px solid var(--bd);border-radius:11px;padding:15px;margin-bottom:12px;}
+.card-t{font-family:'Playfair Display',serif;font-size:.95rem;color:var(--w);margin-bottom:3px;}
+.card-d{font-size:11px;color:var(--mt);margin-bottom:13px;line-height:1.5;}
+/* FORM */
+.fg{margin-bottom:11px;}
+.fl{display:block;font-size:10px;color:var(--mt);font-family:'DM Mono',monospace;letter-spacing:1px;text-transform:uppercase;margin-bottom:5px;}
+.fi{width:100%;background:var(--m);border:1px solid var(--bd);border-radius:8px;padding:10px 11px;color:var(--cr);font-family:'DM Sans',sans-serif;font-size:12px;outline:none;transition:border-color .2s;}
+.fi:focus{border-color:var(--g);}
+.fi::placeholder{color:#354a65;}
+select.fi{cursor:pointer;}
+textarea.fi{resize:vertical;min-height:75px;line-height:1.5;}
+/* TYPE GRID */
+.tg{display:grid;grid-template-columns:1fr 1fr;gap:7px;margin-bottom:13px;}
+.tp{padding:11px 7px;border:2px solid var(--bd);border-radius:9px;text-align:center;cursor:pointer;transition:all .2s;background:var(--m);}
+.tp.on{border-color:var(--g);background:rgba(201,150,58,.1);}
+.tpi{font-size:22px;display:block;margin-bottom:4px;}
+.tpn{font-size:11px;font-weight:700;color:var(--cr);}
+/* BUTTONS */
+.btn-g{width:100%;background:linear-gradient(135deg,var(--g),var(--gl));color:var(--n);border:none;padding:12px;border-radius:9px;font-family:'DM Sans',sans-serif;font-weight:700;font-size:13px;cursor:pointer;transition:all .2s;display:flex;align-items:center;justify-content:center;gap:7px;}
+.btn-g:hover{transform:translateY(-1px);box-shadow:0 8px 22px rgba(201,150,58,.4);}
+.btn-out{width:100%;background:transparent;border:1px solid var(--bd);border-radius:9px;padding:11px;color:var(--mt);font-family:'DM Sans',sans-serif;font-size:12px;cursor:pointer;transition:all .2s;margin-top:7px;}
+.btn-out:hover{border-color:var(--g);color:var(--g);}
+/* NOTIF HISTORY */
+.nitem{background:var(--m);border:1px solid var(--bd);border-radius:9px;padding:12px;margin-bottom:8px;display:flex;gap:10px;align-items:flex-start;}
+.nic{font-size:20px;flex-shrink:0;}
+.ntit{font-weight:600;font-size:12px;color:var(--w);margin-bottom:1px;}
+.nbody{font-size:11px;color:var(--mt);line-height:1.4;}
+.ntime{font-size:10px;color:var(--g);font-family:'DM Mono',monospace;margin-top:3px;}
+.nbadge{font-size:9px;padding:2px 7px;border-radius:8px;font-family:'DM Mono',monospace;font-weight:600;flex-shrink:0;margin-left:auto;}
+.nb-a{background:rgba(26,122,74,.2);color:#4ecb8c;border:1px solid var(--gr);}
+.nb-ab{background:rgba(192,57,43,.14);color:#e74c3c;border:1px solid var(--r);}
+.nb-c{background:rgba(230,126,34,.14);color:#f39c12;border:1px solid var(--or);}
+.nb-r{background:rgba(26,58,107,.28);color:#6aa3f8;border:1px solid rgba(26,58,107,.5);}
+/* NOTES */
+.note-item{background:var(--m);border:1px solid var(--bd);border-radius:9px;padding:11px;margin-bottom:7px;display:flex;align-items:center;gap:9px;}
+.ni2{font-size:20px;flex-shrink:0;}
+.ntit2{font-weight:600;font-size:12px;color:var(--w);}
+.nmeta{font-size:10px;color:var(--mt);margin-top:2px;}
+.ndel{margin-left:auto;background:rgba(192,57,43,.14);border:1px solid rgba(192,57,43,.27);border-radius:6px;color:#e74c3c;padding:5px 9px;font-size:11px;cursor:pointer;font-family:'DM Sans',sans-serif;flex-shrink:0;}
+/* STATS */
+.sg{display:grid;grid-template-columns:1fr 1fr;gap:9px;margin-bottom:13px;}
+.st{background:var(--cd);border:1px solid var(--bd);border-radius:9px;padding:12px;text-align:center;}
+.st .n{font-family:'Playfair Display',serif;font-size:1.6rem;color:var(--g);display:block;}
+.st .l{font-size:10px;color:var(--mt);font-family:'DM Mono',monospace;margin-top:1px;}
+/* SETTINGS */
+.set-s{margin-bottom:15px;}
+.set-t{font-family:'DM Mono',monospace;font-size:10px;color:var(--g);letter-spacing:2px;text-transform:uppercase;margin-bottom:8px;}
+.trow{display:flex;align-items:center;gap:9px;padding:10px 12px;background:var(--cd);border:1px solid var(--bd);border-radius:8px;margin-bottom:5px;}
+.ti{flex:1;}
+.tn{font-weight:600;font-size:12px;color:var(--w);}
+.td{font-size:10px;color:var(--mt);margin-top:1px;}
+.tog{position:relative;width:38px;height:20px;background:var(--b);border-radius:10px;cursor:pointer;transition:background .3s;flex-shrink:0;border:none;}
+.tog.on{background:var(--gr);}
+.tog::after{content:'';position:absolute;top:3px;left:3px;width:14px;height:14px;border-radius:50%;background:#fff;transition:transform .3s;}
+.tog.on::after{transform:translateX(18px);}
+/* PROFILE */
+.ph{text-align:center;padding:20px 12px 15px;background:linear-gradient(135deg,var(--b),var(--m));border:1px solid var(--bd);border-radius:12px;margin-bottom:11px;}
+.ppw{position:relative;display:inline-block;margin-bottom:10px;cursor:pointer;}
+.pp{width:78px;height:78px;border-radius:50%;background:linear-gradient(135deg,var(--g),var(--gl));display:flex;align-items:center;justify-content:center;font-family:'Playfair Display',serif;font-size:1.6rem;font-weight:900;color:var(--n);border:3px solid var(--g);overflow:hidden;}
+.pped{position:absolute;bottom:0;right:0;width:23px;height:23px;background:var(--g);border-radius:50%;display:flex;align-items:center;justify-content:center;font-size:10px;border:2px solid var(--m);}
+.pnm{font-family:'Playfair Display',serif;font-size:1.1rem;font-weight:900;color:var(--w);margin-bottom:2px;}
+.pun{font-family:'DM Mono',monospace;font-size:10px;color:var(--mt);margin-bottom:4px;}
+.lec-role-badge{display:inline-block;background:rgba(26,122,74,.2);border:1px solid var(--gr);color:#4ecb8c;font-size:10px;font-weight:700;padding:3px 12px;border-radius:20px;font-family:'DM Mono',monospace;}
+.pcd{background:var(--cd);border:1px solid var(--bd);border-radius:10px;overflow:hidden;}
+.pr{display:flex;justify-content:space-between;align-items:center;padding:9px 12px;border-bottom:1px solid rgba(201,150,58,.06);}
+.pr:last-child{border-bottom:none;}
+.plb{font-size:10px;color:var(--mt);font-family:'DM Mono',monospace;letter-spacing:1px;text-transform:uppercase;}
+.pv{font-size:11px;color:var(--cr);font-weight:500;text-align:right;max-width:58%;word-break:break-word;}
+.pac{width:100%;background:rgba(201,150,58,.09);border:1px solid rgba(201,150,58,.26);color:var(--g);padding:10px;border-radius:8px;font-weight:600;font-size:12px;cursor:pointer;font-family:'DM Sans',sans-serif;transition:background .2s;}
+.pac:hover{background:rgba(201,150,58,.2);}
+/* TOAST */
+.toast{position:fixed;bottom:18px;left:50%;transform:translateX(-50%) translateY(100px);background:var(--cd);border:1px solid var(--g);border-radius:9px;padding:10px 14px;display:flex;align-items:center;gap:7px;z-index:1000;transition:transform .32s ease;max-width:90vw;box-shadow:0 8px 30px rgba(0,0,0,.6);}
+.toast.on{transform:translateX(-50%) translateY(0);}
+#tT{font-weight:700;color:var(--g);font-size:12px;}
+#tM{font-size:11px;color:var(--cr);}
+.empty{text-align:center;padding:36px 14px;color:var(--mt);}
+.eic{font-size:34px;margin-bottom:7px;}
+.emg{font-size:12px;}
+</style>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/gsap.min.js"></script>
+<style>
+#particleCanvas{position:fixed;inset:0;width:100%;height:100%;pointer-events:none;z-index:0;}
+.hdr,.nav,.ct,.toast,.nph,.np,.ov{position:relative;z-index:1;}
+</style>
+</head>
+<body>
+<canvas id="particleCanvas" aria-hidden="true"></canvas>
+<header class="hdr">
+  <svg width="26" height="26" viewBox="0 0 120 120"><circle cx="60" cy="60" r="57" fill="none" stroke="#c9963a" stroke-width="2.5"/><circle cx="60" cy="60" r="49" fill="#0a1628"/><text x="60" y="56" text-anchor="middle" font-family="Georgia,serif" font-size="19" font-weight="bold" fill="#c9963a">C55</text><text x="60" y="69" text-anchor="middle" font-family="Georgia,serif" font-size="8" fill="#e8b84b" letter-spacing="2.5">CHEERS</text></svg>
+  <div><div class="hl">CHEERS<em>55</em></div><div class="lec-badge">👨‍🏫 LECTURER</div></div>
+  <div class="hr">
+    <div class="hname" id="hName">—</div>
+    <button class="hbtn" onclick="doLogout()" title="Sign Out">🚪</button>
+  </div>
+</header>
+<nav class="nav">
+  <button class="nt on" onclick="goTab('notify',this)"><span class="ni">📢</span>Notify</button>
+  <button class="nt" onclick="goTab('notes',this)"><span class="ni">📝</span>Notes</button>
+  <button class="nt" onclick="goTab('history',this)"><span class="ni">📋</span>History</button>
+  <button class="nt" onclick="goTab('profile',this)"><span class="ni">👤</span>Profile</button>
+  <button class="nt" onclick="goTab('settings',this)"><span class="ni">⚙️</span>Settings</button>
+</nav>
+<div class="ct">
+
+  <!-- NOTIFY -->
+  <div class="sec on" id="sec-notify">
+    <h2 class="stit">Notify Students</h2>
+    <p class="sdsc">Send real-time alerts to all CHEERS55 students about your lectures</p>
+    <div class="card">
+      <div class="card-t">Notification Type</div>
+      <div class="card-d">What would you like to tell your students?</div>
+      <div class="tg">
+        <div class="tp on" id="tp-attend" onclick="selType('attend',this)"><span class="tpi">✅</span><div class="tpn">I Will Attend</div></div>
+        <div class="tp" id="tp-absent" onclick="selType('absent',this)"><span class="tpi">❌</span><div class="tpn">I Won't Attend</div></div>
+        <div class="tp" id="tp-cancel" onclick="selType('cancel',this)"><span class="tpi">🚫</span><div class="tpn">Class Cancelled</div></div>
+        <div class="tp" id="tp-reschedule" onclick="selType('reschedule',this)"><span class="tpi">📅</span><div class="tpn">Rescheduled</div></div>
+      </div>
+      <div class="fg">
+        <label class="fl">Module / Subject</label>
+        <select class="fi" id="nMod">
+          <option value="">— Select Module —</option>
+          <option>SPU 07207 – Human Resource Management</option>
+          <option>SPU 07208 – Research Methodology</option>
+          <option>SPU 07209 – Entrepreneurship Skills</option>
+          <option>SPU 07210 – Port Performance and Competition</option>
+          <option>SPU 07211 – Strategic Management & Maritime Strategy</option>
+          <option>SPU 07212 – Fleet Management</option>
+          <option>SPU 07213 – Maritime Transport Management</option>
+          <option value="custom">Other / Custom Module</option>
+        </select>
+      </div>
+      <div class="fg" id="customModFg" style="display:none;">
+        <label class="fl">Custom Module Name</label>
+        <input class="fi" type="text" id="customMod" placeholder="Enter module name">
+      </div>
+      <div class="fg">
+        <label class="fl">Lecture Date & Time</label>
+        <input class="fi" type="datetime-local" id="nDT">
+      </div>
+      <div class="fg" id="reschedFg" style="display:none;">
+        <label class="fl">New Date & Time (Rescheduled To)</label>
+        <input class="fi" type="datetime-local" id="nNewDT">
+      </div>
+      <div class="fg">
+        <label class="fl">Message to Students</label>
+        <textarea class="fi" id="nMsg" placeholder="Write your message to students here…"></textarea>
+      </div>
+      <button class="btn-g" onclick="sendNotif()">📢 Send to All Students</button>
+    </div>
+  </div>
+
+  <!-- NOTES -->
+  <div class="sec" id="sec-notes">
+    <h2 class="stit">Upload Notes</h2>
+    <p class="sdsc">Share lecture notes and study materials with students</p>
+    <div class="card">
+      <div class="card-t">Add New Notes</div>
+      <div class="fg"><label class="fl">Title</label><input class="fi" type="text" id="noTitle" placeholder="e.g. Week 3 – Fleet Management Fundamentals"></div>
+      <div class="fg">
+        <label class="fl">Module</label>
+        <select class="fi" id="noMod">
+          <option value="">— Select Module —</option>
+          <option>SPU 07207 – Human Resource Management</option>
+          <option>SPU 07208 – Research Methodology</option>
+          <option>SPU 07209 – Entrepreneurship Skills</option>
+          <option>SPU 07210 – Port Performance and Competition</option>
+          <option>SPU 07211 – Strategic Management & Maritime Strategy</option>
+          <option>SPU 07212 – Fleet Management</option>
+          <option>SPU 07213 – Maritime Transport Management</option>
+        </select>
+      </div>
+      <div class="fg"><label class="fl">Notes Content</label><textarea class="fi" id="noContent" placeholder="Paste your lecture notes here…" style="min-height:110px;"></textarea></div>
+      <div class="fg">
+        <label class="fl">Attach File (optional)</label>
+        <div style="border:1.5px dashed rgba(201,150,58,.34);border-radius:8px;padding:16px;text-align:center;cursor:pointer;background:rgba(201,150,58,.04);" onclick="document.getElementById('noFile').click()">
+          <div style="font-size:22px;margin-bottom:5px;">📎</div>
+          <div style="font-size:12px;color:var(--cr);font-weight:600;">Tap to attach file</div>
+          <div style="font-size:10px;color:var(--mt);margin-top:2px;">PDF, DOCX, PPTX · Max 10MB</div>
+        </div>
+        <input type="file" id="noFile" accept=".pdf,.doc,.docx,.ppt,.pptx,.txt" style="display:none;" onchange="onNoteFile(event)">
+        <div id="noFileName" style="font-size:10px;color:var(--g);margin-top:4px;font-family:'DM Mono',monospace;"></div>
+      </div>
+      <button class="btn-g" onclick="uploadNote()">📤 Publish to Students</button>
+    </div>
+    <div>
+      <div style="font-family:'DM Mono',monospace;font-size:10px;color:var(--g);letter-spacing:2px;margin-bottom:9px;">PUBLISHED NOTES</div>
+      <div id="notesList"><div class="empty"><div class="eic">📭</div><div class="emg">No notes published yet</div></div></div>
+    </div>
+  </div>
+
+  <!-- HISTORY -->
+  <div class="sec" id="sec-history">
+    <h2 class="stit">Notification History</h2>
+    <p class="sdsc">All notifications you have sent to students</p>
+    <div id="histList"><div class="empty"><div class="eic">📭</div><div class="emg">No notifications sent yet</div></div></div>
+  </div>
+
+  <!-- PROFILE -->
+  <div class="sec" id="sec-profile">
+    <div class="ph">
+      <div class="ppw" onclick="document.getElementById('picF').click()">
+        <div class="pp" id="profPP"><span id="profIn"></span><img id="profImg" style="display:none;width:100%;height:100%;object-fit:cover;border-radius:50%;"></div>
+        <div class="pped">📷</div>
+      </div>
+      <input type="file" id="picF" accept="image/*" style="display:none;" onchange="onPic(event)">
+      <div class="pnm" id="pNm">—</div>
+      <div class="pun" id="pUn">—</div>
+      <div class="lec-role-badge">👨‍🏫 Lecturer Account</div>
+    </div>
+    <div class="pcd" style="margin-bottom:11px;">
+      <div class="pr"><span class="plb">Full Name</span><span class="pv" id="pN">—</span></div>
+      <div class="pr"><span class="plb">Username</span><span class="pv" id="pU">—</span></div>
+      <div class="pr"><span class="plb">Phone</span><span class="pv" id="pPh">—</span></div>
+      <div class="pr"><span class="plb">Department</span><span class="pv" id="pDept">—</span></div>
+      <div class="pr"><span class="plb">Modules</span><span class="pv" id="pMods">—</span></div>
+      <div class="pr"><span class="plb">Member Since</span><span class="pv" id="pSi">—</span></div>
+      <div class="pr"><span class="plb">Notifications Sent</span><span class="pv" id="pNS">0</span></div>
+      <div class="pr"><span class="plb">Notes Published</span><span class="pv" id="pNP">0</span></div>
+    </div>
+    <div class="pcd">
+      <div style="font-family:'DM Mono',monospace;font-size:10px;color:var(--g);letter-spacing:2px;padding:9px 12px;border-bottom:1px solid rgba(201,150,58,.06);">ACCOUNT ACTIONS</div>
+      <div style="padding:10px 12px;display:flex;flex-direction:column;gap:7px;">
+        <button class="pac" onclick="goTab('settings',null)">⚙️ Notification Settings</button>
+        <button class="pac" style="background:rgba(192,57,43,.09);border-color:rgba(192,57,43,.25);color:#e74c3c;" onclick="doLogout()">🚪 Sign Out</button>
+      </div>
+    </div>
+  </div>
+
+  <!-- SETTINGS -->
+  <div class="sec" id="sec-settings">
+    <h2 class="stit">Lecturer Settings</h2>
+    <p class="sdsc">Configure your notification preferences and portal behaviour</p>
+    <div class="set-s">
+      <div class="set-t">Notification Preferences</div>
+      <div class="trow"><div class="ti"><div class="tn">Confirm Before Sending</div><div class="td">Show confirmation dialog before sending alerts</div></div><button class="tog on" onclick="this.classList.toggle('on')"></button></div>
+      <div class="trow"><div class="ti"><div class="tn">Send Copy to Me</div><div class="td">Receive a copy of your own notifications</div></div><button class="tog on" onclick="this.classList.toggle('on')"></button></div>
+      <div class="trow"><div class="ti"><div class="tn">Student Reply Alerts</div><div class="td">Notify me when students acknowledge alerts</div></div><button class="tog" onclick="this.classList.toggle('on')"></button></div>
+    </div>
+    <div class="set-s">
+      <div class="set-t">Notes Settings</div>
+      <div class="trow"><div class="ti"><div class="tn">Auto-Notify on New Notes</div><div class="td">Alert students when you publish new notes</div></div><button class="tog on" onclick="this.classList.toggle('on')"></button></div>
+      <div class="trow"><div class="ti"><div class="tn">Allow Student Comments</div><div class="td">Students can comment on published notes</div></div><button class="tog" onclick="this.classList.toggle('on')"></button></div>
+    </div>
+    <div class="set-s">
+      <div class="set-t">Portal Display</div>
+      <div class="trow"><div class="ti"><div class="tn">Show Delivery Stats</div><div class="td">Track how many students received notifications</div></div><button class="tog on" onclick="this.classList.toggle('on')"></button></div>
+      <div class="trow"><div class="ti"><div class="tn">Quick Send Mode</div><div class="td">Skip confirmation and send immediately</div></div><button class="tog" onclick="this.classList.toggle('on')"></button></div>
+    </div>
+    <div class="set-s">
+      <div class="set-t">Push Notifications</div>
+      <div class="trow"><div class="ti"><div class="tn" id="pushLbl">Enable Push Alerts</div><div class="td">Receive alerts for student activity</div></div><button class="tog" id="pushTg" onclick="reqPush()"></button></div>
+    </div>
+    <div class="set-s">
+      <div class="set-t">Activity Summary</div>
+      <div class="sg">
+        <div class="st"><span class="n" id="stN">0</span><span class="l">Notifications</span></div>
+        <div class="st"><span class="n" id="stP">0</span><span class="l">Notes Published</span></div>
+        <div class="st"><span class="n" id="stA">0</span><span class="l">Attendance</span></div>
+        <div class="st"><span class="n" id="stC">0</span><span class="l">Cancellations</span></div>
+      </div>
+    </div>
+    <button class="btn-out" style="color:#e74c3c;border-color:rgba(192,57,43,.28);" onclick="doLogout()">🚪 Sign Out</button>
+  </div>
+
+</div>
+<div class="toast" id="toast"><div><div id="tT"></div><div id="tM"></div></div></div>
+<script src="shared.js"></script>
+<script>
+// AUTH GUARD
+const usr = getCurrentUser();
+if (!usr || usr.role !== 'lecturer') { window.location.href = 'login.html'; }
+document.getElementById('hName').textContent = usr ? usr.fullName.split(' ').slice(0,2).join(' ') : '—';
+
+// TABS
+function goTab(id, el) {
+  document.querySelectorAll('.nt').forEach(t => t.classList.remove('on'));
+  document.querySelectorAll('.sec').forEach(s => s.classList.remove('on'));
+  if (el) el.classList.add('on');
+  else document.querySelectorAll('.nt').forEach((t,i) => { if(['notify','notes','history','profile','settings'][i]===id) t.classList.add('on'); });
+  document.getElementById('sec-'+id).classList.add('on');
+  if (id === 'history') renderHistory();
+  if (id === 'profile') buildProfile();
+  if (id === 'settings') buildStats();
+}
+
+// NOTIFY TYPE
+let notifType = 'attend';
+const placeholders = {
+  attend: 'Dear students, I will be attending today\'s lecture as scheduled. Please be on time.',
+  absent: 'Dear students, I regret that I will not be able to attend today\'s lecture. We will reschedule.',
+  cancel: 'Dear students, today\'s lecture has been cancelled. I apologize for the inconvenience.',
+  reschedule: 'Dear students, today\'s lecture has been rescheduled. Please see the new time below.'
+};
+function selType(type, el) {
+  notifType = type;
+  ['attend','absent','cancel','reschedule'].forEach(t => document.getElementById('tp-'+t).classList.remove('on'));
+  el.classList.add('on');
+  document.getElementById('reschedFg').style.display = type === 'reschedule' ? 'block' : 'none';
+  document.getElementById('nMsg').placeholder = placeholders[type] || '';
+}
+document.getElementById('nMod').addEventListener('change', function() {
+  document.getElementById('customModFg').style.display = this.value === 'custom' ? 'block' : 'none';
+});
+
+// SEND NOTIFICATION
+function sendNotif() {
+  let module = document.getElementById('nMod').value;
+  if (module === 'custom') module = document.getElementById('customMod').value.trim();
+  const msg = document.getElementById('nMsg').value.trim();
+  const dt = document.getElementById('nDT').value;
+  if (!module) { showToast('❌','Select Module','Please select a module first'); return; }
+  if (!msg) { showToast('❌','Message Required','Write a message for your students'); return; }
+  const notif = {
+    id: 'N' + Date.now(), type: notifType, module, datetime: dt,
+    newDatetime: notifType === 'reschedule' ? document.getElementById('nNewDT').value : '',
+    message: msg, lecturer: usr.fullName, lecturerId: usr.username,
+    sentAt: new Date().toISOString()
+  };
+  // Save to lecturer history
+  const hist = getJSON('c55_lhist_' + usr.username, []);
+  hist.unshift(notif);
+  setJSON('c55_lhist_' + usr.username, hist);
+  // Save to global (students read this)
+  const gn = getJSON(KEYS.globalNotifs, []);
+  gn.unshift(notif);
+  setJSON(KEYS.globalNotifs, gn.slice(0, 100));
+  const icons = {attend:'✅',absent:'❌',cancel:'🚫',reschedule:'📅'};
+  const labels = {attend:'Attendance Confirmed',absent:'Absence Notified',cancel:'Cancellation Sent',reschedule:'Reschedule Sent'};
+  showToast(icons[notifType], labels[notifType], 'All students have been notified');
+  // Reset form
+  document.getElementById('nMod').value = '';
+  document.getElementById('nMsg').value = '';
+  document.getElementById('nDT').value = '';
+}
+
+// NOTES
+let noteFile = null;
+function onNoteFile(e) {
+  const f = e.target.files[0]; if(!f) return;
+  if (f.size > 10*1024*1024) { showToast('❌','Too large','Max 10MB'); return; }
+  noteFile = f; document.getElementById('noFileName').textContent = '📎 ' + f.name;
+}
+function uploadNote() {
+  const title = document.getElementById('noTitle').value.trim();
+  const module = document.getElementById('noMod').value;
+  const content = document.getElementById('noContent').value.trim();
+  if (!title) { showToast('❌','Title Required','Enter a title for these notes'); return; }
+  if (!module) { showToast('❌','Select Module','Choose the module these notes belong to'); return; }
+  if (!content && !noteFile) { showToast('❌','Content Required','Add notes content or attach a file'); return; }
+  const note = { id: 'NOTE'+Date.now(), title, module, content, fileName: noteFile ? noteFile.name : '', lecturer: usr.fullName, lecturerId: usr.username, publishedAt: new Date().toISOString() };
+  const notes = getJSON('c55_lnotes_' + usr.username, []);
+  notes.unshift(note); setJSON('c55_lnotes_' + usr.username, notes);
+  const gn = getJSON(KEYS.globalNotes, []);
+  gn.unshift(note); setJSON(KEYS.globalNotes, gn.slice(0, 200));
+  showToast('📝','Notes Published!','Students can now access these notes');
+  document.getElementById('noTitle').value = ''; document.getElementById('noMod').value = '';
+  document.getElementById('noContent').value = ''; document.getElementById('noFileName').textContent = '';
+  noteFile = null; renderNotes();
+}
+function renderNotes() {
+  const notes = getJSON('c55_lnotes_' + usr.username, []);
+  const el = document.getElementById('notesList');
+  if (!notes.length) { el.innerHTML='<div class="empty"><div class="eic">📭</div><div class="emg">No notes published yet</div></div>'; return; }
+  el.innerHTML = notes.map(n => `<div class="note-item"><div class="ni2">📄</div><div style="flex:1;min-width:0;"><div class="ntit2">${n.title}</div><div class="nmeta">${n.module.split('–')[0].trim()} · ${new Date(n.publishedAt).toLocaleDateString('en-GB',{day:'numeric',month:'short'})}${n.fileName?` · 📎 ${n.fileName}`:''}</div></div><button class="ndel" onclick="delNote('${n.id}')">🗑</button></div>`).join('');
+}
+function delNote(id) {
+  if(!confirm('Delete this note?')) return;
+  let notes = getJSON('c55_lnotes_' + usr.username, []);
+  notes = notes.filter(n => n.id !== id); setJSON('c55_lnotes_' + usr.username, notes);
+  let gn = getJSON(KEYS.globalNotes, []);
+  gn = gn.filter(n => n.id !== id); setJSON(KEYS.globalNotes, gn);
+  renderNotes(); showToast('🗑','Deleted','Note removed');
+}
+
+// HISTORY
+function renderHistory() {
+  const hist = getJSON('c55_lhist_' + usr.username, []);
+  const el = document.getElementById('histList');
+  if (!hist.length) { el.innerHTML='<div class="empty"><div class="eic">📭</div><div class="emg">No notifications sent yet</div></div>'; return; }
+  const ic={attend:'✅',absent:'❌',cancel:'🚫',reschedule:'📅'};
+  const bc={attend:'nb-a',absent:'nb-ab',cancel:'nb-c',reschedule:'nb-r'};
+  const lb={attend:'ATTENDING',absent:'ABSENT',cancel:'CANCELLED',reschedule:'RESCHEDULED'};
+  el.innerHTML = hist.map(n => `<div class="nitem"><div class="nic">${ic[n.type]||'📢'}</div><div style="flex:1;min-width:0;"><div style="display:flex;align-items:flex-start;gap:5px;flex-wrap:wrap;"><div class="ntit">${n.module?.split('–')[1]?.trim()||n.module}</div><span class="nbadge ${bc[n.type]||''}">${lb[n.type]||n.type?.toUpperCase()}</span></div><div class="nbody">${n.message?.slice(0,90)||''}${(n.message?.length||0)>90?'…':''}</div><div class="ntime">${new Date(n.sentAt).toLocaleString('en-GB',{day:'numeric',month:'short',hour:'2-digit',minute:'2-digit'})}</div></div></div>`).join('');
+}
+
+// PROFILE
+function buildProfile() {
+  if (!usr) return;
+  const fn = usr.fullName, init = fn.split(' ').map(n=>n[0]).join('').slice(0,2).toUpperCase();
+  document.getElementById('profIn').textContent = init;
+  document.getElementById('pNm').textContent = fn;
+  document.getElementById('pUn').textContent = '@' + usr.username;
+  document.getElementById('pN').textContent = fn;
+  document.getElementById('pU').textContent = '@' + usr.username;
+  document.getElementById('pPh').textContent = usr.phone;
+  document.getElementById('pDept').textContent = usr.dept || '—';
+  document.getElementById('pMods').textContent = usr.modules || '—';
+  document.getElementById('pSi').textContent = new Date(usr.createdAt||Date.now()).toLocaleDateString('en-GB',{year:'numeric',month:'long'});
+  const hist = getJSON('c55_lhist_' + usr.username, []);
+  const notes = getJSON('c55_lnotes_' + usr.username, []);
+  document.getElementById('pNS').textContent = hist.length;
+  document.getElementById('pNP').textContent = notes.length;
+  const sv = localStorage.getItem('c55_pic_' + usr.username);
+  if (sv) { document.getElementById('profImg').src=sv; document.getElementById('profImg').style.display='block'; document.getElementById('profIn').style.display='none'; }
+}
+function onPic(e) {
+  const f = e.target.files[0]; if(!f) return;
+  if (f.size > 3*1024*1024) { showToast('❌','Too large','Max 3MB'); return; }
+  const r = new FileReader();
+  r.onload = ev => { const d=ev.target.result; document.getElementById('profImg').src=d; document.getElementById('profImg').style.display='block'; document.getElementById('profIn').style.display='none'; localStorage.setItem('c55_pic_'+usr.username, d); showToast('📷','Updated!','Profile picture saved'); };
+  r.readAsDataURL(f);
+}
+
+// STATS
+function buildStats() {
+  const hist = getJSON('c55_lhist_' + usr.username, []);
+  const notes = getJSON('c55_lnotes_' + usr.username, []);
+  document.getElementById('stN').textContent = hist.length;
+  document.getElementById('stP').textContent = notes.length;
+  document.getElementById('stA').textContent = hist.filter(h=>h.type==='attend').length;
+  document.getElementById('stC').textContent = hist.filter(h=>h.type==='cancel').length;
+}
+
+// PUSH
+async function reqPush() {
+  if (!('Notification' in window)) { showToast('❌','Not Supported','Push not available here'); return; }
+  const r = await Notification.requestPermission();
+  const btn = document.getElementById('pushTg');
+  if (r === 'granted') { btn.classList.add('on'); document.getElementById('pushLbl').textContent='Push Active'; showToast('🔔','Enabled!','You will receive activity alerts'); }
+  else { btn.classList.remove('on'); showToast('❌','Denied','Enable in browser settings'); }
+}
+
+// AUTH
+function doLogout() { if(confirm('Sign out of CHEERS55?')) { clearCurrentUser(); window.location.href='login.html'; } }
+
+// INIT
+window.addEventListener('load', () => {
+  if (!usr || usr.role !== 'lecturer') { window.location.href='login.html'; return; }
+  renderNotes();
+  buildProfile();
+  buildStats();
+  // Set default datetime to now
+  const now = new Date(); now.setMinutes(now.getMinutes()-now.getTimezoneOffset());
+  document.getElementById('nDT').value = now.toISOString().slice(0,16);
+  if (Notification.permission === 'granted') document.getElementById('pushTg').classList.add('on');
+});
+</script>
+<script>
+// ── LECTURER PORTAL PARTICLES ─────────────────────────────────────
+(function(){
+  const CFG={count:28,minSize:0.8,maxSize:3.5,minSpeed:0.06,maxSpeed:0.28,minOpacity:0.03,maxOpacity:0.4,
+    colors:['rgba(201,150,58,','rgba(232,184,75,','rgba(78,203,140,','rgba(255,255,255,','rgba(106,163,248,']};
+  let canvas,ctx,W,H,pts=[],mouse={x:-9999,y:-9999},sVY=0,lSY=0,gsapOK=false;
+  class P{
+    constructor(){this.reset(true);}
+    reset(init){
+      this.x=Math.random()*W; this.y=init?Math.random()*H:(Math.random()>0.5?-10:H+10);
+      this.sz=CFG.minSize+Math.random()*(CFG.maxSize-CFG.minSize);
+      this.dp=(this.sz-CFG.minSize)/(CFG.maxSize-CFG.minSize);
+      const spd=CFG.minSpeed+Math.random()*(CFG.maxSpeed-CFG.minSpeed),ang=Math.random()*Math.PI*2;
+      this.vx=Math.cos(ang)*spd; this.vy=Math.sin(ang)*spd*0.6-0.04;
+      this.cb=CFG.colors[Math.floor(Math.random()*CFG.colors.length)];
+      this.ba=(CFG.minOpacity+Math.random()*(CFG.maxOpacity-CFG.minOpacity))*(0.3+this.dp*0.7);
+      this.a=this.ba; this.at=this.ba; this.bl=(1-this.dp)*7; this.cx=0; this.cy=0;
+      this.wb=Math.random()*Math.PI*2; this.ws=0.005+Math.random()*0.015; this.wa=0.08+Math.random()*0.45;
+      if(gsapOK&&typeof gsap!=='undefined'){if(this.tw)this.tw.kill();const d=3+Math.random()*8;this.tw=gsap.to(this,{at:this.ba*Math.random(),duration:d,ease:'sine.inOut',repeat:-1,yoyo:true,delay:Math.random()*d});}
+    }
+    update(){
+      this.wb+=this.ws; this.x+=this.vx+Math.sin(this.wb)*this.wa; this.y+=this.vy+Math.cos(this.wb*0.7)*this.wa*0.5;
+      this.y-=sVY*0.3*(0.2+this.dp*0.8);
+      const dx=this.x-mouse.x,dy=this.y-mouse.y,d=Math.sqrt(dx*dx+dy*dy);
+      if(d<70){const f=(1-d/70)*0.015;this.cx+=(dx*f*50-this.cx)*0.08;this.cy+=(dy*f*50-this.cy)*0.08;}
+      else{this.cx*=0.95;this.cy*=0.95;}
+      this.a+=(this.at-this.a)*0.03;
+      const M=this.sz+20;
+      if(this.x<-M)this.x=W+M; if(this.x>W+M)this.x=-M;
+      if(this.y<-M||this.y>H+M)this.reset(false);
+    }
+    draw(){
+      const px=this.x+this.cx,py=this.y+this.cy;
+      ctx.save();
+      if(this.bl>0.5)ctx.filter=`blur(${this.bl.toFixed(1)}px)`;
+      const g=ctx.createRadialGradient(px,py,0,px,py,this.sz*3.2);
+      g.addColorStop(0,this.cb+this.a*0.9+')'); g.addColorStop(0.5,this.cb+this.a*0.35+')'); g.addColorStop(1,this.cb+'0)');
+      ctx.fillStyle=g; ctx.beginPath(); ctx.arc(px,py,this.sz*3.2,0,Math.PI*2); ctx.fill();
+      ctx.filter='none'; ctx.fillStyle=this.cb+Math.min(this.a*2.2,0.85)+')';
+      ctx.beginPath(); ctx.arc(px,py,this.sz*0.4,0,Math.PI*2); ctx.fill();
+      ctx.restore();
+    }
+  }
+  function resize(){const dpr=window.devicePixelRatio||1;W=window.innerWidth;H=window.innerHeight;canvas.width=W*dpr;canvas.height=H*dpr;canvas.style.width=W+'px';canvas.style.height=H+'px';ctx.scale(dpr,dpr);}
+  function init(){
+    canvas=document.getElementById('particleCanvas'); if(!canvas)return;
+    ctx=canvas.getContext('2d'); resize();
+    window.addEventListener('resize',resize,{passive:true});
+    window.addEventListener('mousemove',e=>{mouse.x=e.clientX;mouse.y=e.clientY;},{passive:true});
+    window.addEventListener('touchmove',e=>{mouse.x=e.touches[0].clientX;mouse.y=e.touches[0].clientY;},{passive:true});
+    const ct=document.querySelector('.ct');
+    if(ct)ct.addEventListener('scroll',()=>{sVY=ct.scrollTop-lSY;lSY=ct.scrollTop;},{passive:true});
+    gsapOK=typeof gsap!=='undefined';
+    for(let i=0;i<CFG.count;i++)setTimeout(()=>pts.push(new P()),i*80);
+    if(gsapOK)gsap.fromTo(canvas,{opacity:0},{opacity:1,duration:3,ease:'power2.out',delay:0.4});
+    (function loop(){requestAnimationFrame(loop);sVY*=0.88;ctx.clearRect(0,0,W,H);pts.sort((a,b)=>a.dp-b.dp).forEach(p=>{p.update();p.draw();});})();
+  }
+  if(document.readyState==='loading')document.addEventListener('DOMContentLoaded',init);
+  else init();
+})();
+</script>
+</body>
+</html>

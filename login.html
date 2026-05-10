@@ -1,0 +1,453 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width,initial-scale=1.0,viewport-fit=cover">
+<meta name="theme-color" content="#c9963a">
+<meta name="mobile-web-app-capable" content="yes">
+<meta name="apple-mobile-web-app-capable" content="yes">
+<meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+<meta name="apple-mobile-web-app-title" content="CHEERS55">
+<meta name="application-name" content="CHEERS55">
+<meta name="description" content="CHEERS55 – Smart Student Hub powered by TIDO AI · NIT Tanzania">
+<link rel="manifest" href="manifest.json">
+<link rel="apple-touch-icon" href="icons/icon-192.png">
+<link rel="apple-touch-startup-image" href="icons/icon-512.png">
+<meta name="viewport" content="width=device-width,initial-scale=1.0">
+<meta name="theme-color" content="#c9963a">
+<meta name="apple-mobile-web-app-capable" content="yes">
+<link rel="manifest" href="manifest.json">
+<link rel="apple-touch-icon" href="icons/icon-192.png">
+<title>CHEERS55 – Sign In</title>
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@700;900&family=DM+Sans:wght@400;500;600;700&family=DM+Mono:wght@400;500&display=swap" rel="stylesheet">
+<style>
+:root{--navy:#0a1628;--mid:#132040;--blue:#1a3a6b;--gold:#c9963a;--gl:#e8b84b;--cream:#f5f0e8;--w:#fff;--green:#1a7a4a;--red:#c0392b;--muted:#8a9ab5;--card:#111e35;--bdr:rgba(201,150,58,.25);}
+*{margin:0;padding:0;box-sizing:border-box;-webkit-tap-highlight-color:transparent;}
+body{min-height:100vh;background:var(--navy);color:var(--cream);font-family:'DM Sans',sans-serif;display:flex;flex-direction:column;align-items:center;justify-content:center;padding:20px 16px;position:relative;overflow-x:hidden;}
+body::before{content:'';position:fixed;inset:0;background:radial-gradient(ellipse at 20% 10%,rgba(201,150,58,.14) 0%,transparent 50%),radial-gradient(ellipse at 80% 90%,rgba(26,58,107,.35) 0%,transparent 50%);pointer-events:none;}
+.wrap{width:100%;max-width:400px;position:relative;z-index:1;}
+/* BRAND */
+.brand{text-align:center;margin-bottom:24px;}
+.brand-logo{display:block;width:82px;height:82px;margin:0 auto 12px;filter:drop-shadow(0 0 22px rgba(201,150,58,.5));animation:glow 3s ease-in-out infinite;}
+@keyframes glow{0%,100%{filter:drop-shadow(0 0 18px rgba(201,150,58,.4))}50%{filter:drop-shadow(0 0 36px rgba(201,150,58,.75))}}
+.brand-name{font-family:'Playfair Display',serif;font-size:2rem;font-weight:900;color:var(--w);letter-spacing:2px;}
+.brand-name em{color:var(--gold);font-style:normal;}
+.brand-sub{font-size:10px;letter-spacing:3px;color:var(--muted);text-transform:uppercase;font-family:'DM Mono',monospace;margin-top:3px;}
+.tido-pill{display:inline-flex;align-items:center;gap:6px;background:rgba(201,150,58,.1);border:1px solid rgba(201,150,58,.3);border-radius:20px;padding:4px 14px;margin-top:8px;font-size:11px;color:var(--gl);font-family:'DM Mono',monospace;}
+.tido-dot{width:7px;height:7px;border-radius:50%;background:var(--gold);animation:blink 1.4s ease-in-out infinite;}
+@keyframes blink{0%,100%{opacity:1}50%{opacity:.25}}
+/* ROLE */
+.roles{display:grid;grid-template-columns:1fr 1fr;gap:9px;margin-bottom:16px;}
+.role{padding:13px 8px;border:2px solid var(--bdr);border-radius:12px;background:var(--card);cursor:pointer;text-align:center;transition:all .22s;font-family:'DM Sans',sans-serif;}
+.role.on{border-color:var(--gold);background:rgba(201,150,58,.1);}
+.role-ic{font-size:26px;display:block;margin-bottom:5px;}
+.role-nm{font-size:13px;font-weight:700;color:var(--cream);}
+.role-sm{font-size:10px;color:var(--muted);margin-top:2px;font-family:'DM Mono',monospace;}
+/* TABS */
+.tabs{display:flex;background:var(--mid);border:1px solid var(--bdr);border-radius:12px;padding:4px;margin-bottom:16px;}
+.tb{flex:1;padding:10px;border:none;border-radius:9px;font-family:'DM Sans',sans-serif;font-size:13px;font-weight:600;cursor:pointer;transition:all .22s;color:var(--muted);background:transparent;}
+.tb.on{background:linear-gradient(135deg,var(--gold),var(--gl));color:var(--navy);}
+/* CARD */
+.card{background:var(--card);border:1px solid var(--bdr);border-radius:16px;padding:22px 20px;box-shadow:0 18px 55px rgba(0,0,0,.45);}
+.ct{font-family:'Playfair Display',serif;font-size:1.3rem;color:var(--w);margin-bottom:4px;}
+.ct em{color:var(--gold);font-style:normal;}
+.cs{font-size:12px;color:var(--muted);margin-bottom:18px;line-height:1.5;}
+/* FORM */
+.fg{margin-bottom:12px;}
+.fl{display:flex;align-items:center;justify-content:space-between;font-size:11px;color:var(--muted);font-family:'DM Mono',monospace;letter-spacing:1px;text-transform:uppercase;margin-bottom:6px;}
+.fi{width:100%;background:var(--mid);border:1px solid var(--bdr);border-radius:9px;padding:11px 13px;color:var(--cream);font-family:'DM Sans',sans-serif;font-size:13px;outline:none;transition:border-color .2s;}
+.fi:focus{border-color:var(--gold);}
+.fi::placeholder{color:#354a65;}
+.fi.err{border-color:var(--red);}
+.iw{position:relative;}
+.ii{position:absolute;right:12px;top:50%;transform:translateY(-50%);font-size:15px;cursor:pointer;color:var(--muted);}
+.ii:hover{color:var(--gold);}
+select.fi{cursor:pointer;}
+/* STRENGTH */
+.sbar{display:flex;gap:4px;margin-top:7px;}
+.sseg{flex:1;height:3px;border-radius:2px;background:rgba(255,255,255,.1);transition:background .3s;}
+.slbl{font-size:10px;color:var(--muted);margin-top:3px;font-family:'DM Mono',monospace;}
+.rl{margin-top:7px;display:flex;flex-direction:column;gap:3px;}
+.ri{font-size:11px;color:var(--muted);display:flex;align-items:center;gap:5px;transition:color .2s;}
+.ri.met{color:#4ecb8c;}
+.rd{width:5px;height:5px;border-radius:50%;background:currentColor;flex-shrink:0;}
+/* MSG */
+.msg{border-radius:8px;padding:9px 12px;font-size:12px;margin-bottom:12px;display:none;align-items:center;gap:7px;line-height:1.4;}
+.msg.on{display:flex;}
+.msg.e{background:rgba(192,57,43,.15);border:1px solid rgba(192,57,43,.4);color:#e74c3c;}
+.msg.s{background:rgba(26,122,74,.15);border:1px solid rgba(26,122,74,.4);color:#4ecb8c;}
+/* BTN */
+.btn{width:100%;background:linear-gradient(135deg,var(--gold),var(--gl));color:var(--navy);border:none;padding:13px;border-radius:11px;font-family:'DM Sans',sans-serif;font-weight:700;font-size:14px;cursor:pointer;transition:all .25s;margin-top:6px;display:flex;align-items:center;justify-content:center;gap:8px;}
+.btn:hover{transform:translateY(-2px);box-shadow:0 10px 28px rgba(201,150,58,.4);}
+.btn:disabled{opacity:.6;cursor:not-allowed;transform:none;}
+.lnk{font-size:11px;color:var(--muted);text-align:center;margin-top:13px;line-height:1.6;}
+.lnk a{color:var(--gold);cursor:pointer;}
+.fgt{font-size:11px;color:var(--gold);cursor:pointer;text-decoration:underline;font-family:'DM Mono',monospace;}
+.lec-info{background:rgba(26,58,107,.3);border:1px solid rgba(26,58,107,.5);border-radius:8px;padding:10px 12px;margin-bottom:12px;font-size:12px;color:var(--muted);line-height:1.5;display:none;}
+.lec-info strong{color:var(--gl);}
+/* WELCOME */
+#wov{display:none;position:fixed;inset:0;background:var(--navy);z-index:2000;flex-direction:column;align-items:center;justify-content:center;text-align:center;padding:36px;}
+#wov.on{display:flex;}
+.wlogo{width:80px;height:80px;margin:0 auto 14px;animation:pop .6s ease;}
+@keyframes pop{0%{transform:scale(0);opacity:0}70%{transform:scale(1.15)}100%{transform:scale(1);opacity:1}}
+.wbrand{font-family:'DM Mono',monospace;font-size:.85rem;color:var(--gold);letter-spacing:4px;text-transform:uppercase;margin-bottom:7px;}
+.wname{font-family:'Playfair Display',serif;font-size:clamp(1.8rem,8vw,2.8rem);font-weight:900;color:var(--w);}
+.wname em{color:var(--gl);font-style:normal;}
+.wrole{font-size:12px;color:var(--muted);margin-top:5px;margin-bottom:20px;}
+.wbar{width:180px;height:3px;background:var(--bdr);border-radius:2px;margin:0 auto 13px;overflow:hidden;}
+.wfill{height:100%;background:linear-gradient(90deg,var(--gold),var(--gl));width:0%;transition:width 2.2s ease;border-radius:2px;}
+.wload{font-size:11px;color:var(--muted);font-family:'DM Mono',monospace;}
+/* TOAST */
+.toast{position:fixed;bottom:20px;left:50%;transform:translateX(-50%) translateY(100px);background:var(--card);border:1px solid var(--gold);border-radius:10px;padding:11px 16px;display:flex;align-items:center;gap:9px;z-index:3000;transition:transform .32s ease;max-width:90vw;box-shadow:0 8px 32px rgba(0,0,0,.6);}
+.toast.on{transform:translateX(-50%) translateY(0);}
+#tT{font-weight:700;color:var(--gold);font-size:12px;}
+#tM{font-size:11px;color:var(--cream);}
+</style>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/gsap.min.js"></script>
+<style>
+#particleCanvas{position:fixed;inset:0;width:100%;height:100%;pointer-events:none;z-index:0;}
+.wrap{position:relative;z-index:1;}
+#wov{z-index:2000;}
+</style>
+</head>
+<body>
+<canvas id="particleCanvas" aria-hidden="true"></canvas>
+<div class="wrap">
+
+<!-- BRAND -->
+<div class="brand">
+  <svg class="brand-logo" viewBox="0 0 120 120" xmlns="http://www.w3.org/2000/svg">
+    <circle cx="60" cy="60" r="57" fill="none" stroke="#c9963a" stroke-width="2.5"/>
+    <circle cx="60" cy="60" r="49" fill="#0a1628"/>
+    <path d="M 24 60 A 36 36 0 0 1 96 60" fill="none" stroke="#e8b84b" stroke-width="2" opacity=".45"/>
+    <text x="60" y="56" text-anchor="middle" font-family="Georgia,serif" font-size="21" font-weight="bold" fill="#c9963a">C55</text>
+    <text x="60" y="72" text-anchor="middle" font-family="Georgia,serif" font-size="9.5" fill="#e8b84b" letter-spacing="3">CHEERS</text>
+    <text x="60" y="85" text-anchor="middle" font-family="Georgia,serif" font-size="6" fill="#8a9ab5" letter-spacing="2">NIT TANZANIA</text>
+  </svg>
+  <div class="brand-name">CHEERS<em>55</em></div>
+  <div class="brand-sub">Smart Student Hub</div>
+  <div class="tido-pill"><span class="tido-dot"></span>Powered by TIDO AI</div>
+  <button onclick="showInstallGuide()" id="loginInstallBtn" style="margin-top:10px;background:transparent;border:1px solid rgba(201,150,58,.35);color:var(--g);padding:8px 22px;border-radius:20px;font-family:'DM Sans',sans-serif;font-size:11px;font-weight:600;cursor:pointer;letter-spacing:1px;display:none;">📲 Install as App</button>
+</div>
+
+<!-- ROLE SELECTOR -->
+<div class="roles">
+  <button class="role on" id="r-student" onclick="setRole('student')">
+    <span class="role-ic">🎓</span>
+    <div class="role-nm">Student</div>
+    <div class="role-sm">Lectures & AI tutor</div>
+  </button>
+  <button class="role" id="r-lecturer" onclick="setRole('lecturer')">
+    <span class="role-ic">👨‍🏫</span>
+    <div class="role-nm">Lecturer</div>
+    <div class="role-sm">Notify & update notes</div>
+  </button>
+</div>
+
+<!-- AUTH TABS -->
+<div class="tabs" id="authTabs">
+  <button class="tb on" id="tb-in" onclick="show('login')">Sign In</button>
+  <button class="tb" id="tb-up" onclick="show('register')">Create Account</button>
+</div>
+
+<!-- LOGIN -->
+<div class="card" id="v-login">
+  <div class="ct">Welcome <em>Back</em></div>
+  <div class="cs" id="lsub">Sign in to your CHEERS55 dashboard</div>
+  <div class="msg e" id="lerr"><span>⚠️</span><span id="lerrmsg"></span></div>
+  <div class="fg">
+    <label class="fl">Username or Phone</label>
+    <div class="iw"><input class="fi" type="text" id="lin" placeholder="Enter your username" autocomplete="username"><span class="ii">👤</span></div>
+  </div>
+  <div class="fg">
+    <label class="fl">Password <span class="fgt" onclick="show('reset')">Forgot?</span></label>
+    <div class="iw"><input class="fi" type="password" id="lpw" placeholder="Your password" onkeydown="if(event.key==='Enter')doLogin()"><span class="ii" onclick="eye('lpw',this)">👁</span></div>
+  </div>
+  <button class="btn" id="lbtn" onclick="doLogin()">🔐 Sign In</button>
+  <div class="lnk">No account? <a onclick="show('register')">Create one free</a></div>
+</div>
+
+<!-- REGISTER -->
+<div class="card" id="v-register" style="display:none;">
+  <div class="ct">Join <em>CHEERS55</em></div>
+  <div class="cs" id="rsub">Create your student account</div>
+  <div class="msg e" id="rerr"><span>⚠️</span><span id="rerrmsg"></span></div>
+  <div class="lec-info" id="lecinfo"><strong>👨‍🏫 Lecturer Account:</strong> You will be able to send attendance alerts, upload updated notes, and notify students of any schedule changes directly from your portal.</div>
+  <div class="fg"><label class="fl">Full Name</label><div class="iw"><input class="fi" type="text" id="rname" placeholder="e.g. Dr. John Mwangi"><span class="ii">✍️</span></div></div>
+  <div class="fg"><label class="fl">Username</label><div class="iw"><input class="fi" type="text" id="ruser" placeholder="Choose a username" oninput="ckUser(this)"><span class="ii" id="uic"></span></div></div>
+  <div class="fg"><label class="fl">Phone Number</label><div class="iw"><input class="fi" type="tel" id="rphone" placeholder="e.g. 0744 123 456"><span class="ii">📱</span></div></div>
+  <div id="lecflds" style="display:none;">
+    <div class="fg"><label class="fl">Department</label><input class="fi" type="text" id="rdept" placeholder="e.g. Maritime Transport"></div>
+    <div class="fg"><label class="fl">Modules You Teach</label><input class="fi" type="text" id="rmods" placeholder="e.g. Fleet Management, HRM"></div>
+  </div>
+  <div class="fg">
+    <label class="fl">Password</label>
+    <div class="iw"><input class="fi" type="password" id="rpw" placeholder="Create a strong password" oninput="ckStr(this.value)"><span class="ii" onclick="eye('rpw',this)">👁</span></div>
+    <div class="sbar"><div class="sseg" id="s1"></div><div class="sseg" id="s2"></div><div class="sseg" id="s3"></div><div class="sseg" id="s4"></div></div>
+    <div class="slbl" id="slbl"></div>
+    <div class="rl">
+      <div class="ri" id="rl1"><span class="rd"></span>At least 6 characters</div>
+      <div class="ri" id="rl2"><span class="rd"></span>Contains a number</div>
+      <div class="ri" id="rl3"><span class="rd"></span>Contains uppercase letter</div>
+    </div>
+  </div>
+  <div class="fg"><label class="fl">Confirm Password</label><div class="iw"><input class="fi" type="password" id="rcf" placeholder="Re-enter password" oninput="ckMatch()"><span class="ii" id="mic"></span></div></div>
+  <button class="btn" id="rbtn" onclick="doRegister()">🎓 Create Account</button>
+  <div class="lnk">Already have an account? <a onclick="show('login')">Sign in</a></div>
+</div>
+
+<!-- RESET -->
+<div class="card" id="v-reset" style="display:none;">
+  <div class="ct">Reset <em>Password</em></div>
+  <div class="cs">Enter your username to set a new password</div>
+  <div class="msg e" id="pterr"><span>⚠️</span><span id="pterrmsg"></span></div>
+  <div class="msg s" id="ptsuc"><span>✅</span><span id="ptsucs"></span></div>
+  <div class="fg"><label class="fl">Username</label><input class="fi" type="text" id="ptuser" placeholder="Your username"></div>
+  <div class="fg"><label class="fl">New Password</label><div class="iw"><input class="fi" type="password" id="ptpw" placeholder="New password"><span class="ii" onclick="eye('ptpw',this)">👁</span></div></div>
+  <div class="fg"><label class="fl">Confirm New Password</label><input class="fi" type="password" id="ptcf" placeholder="Confirm new password"></div>
+  <button class="btn" onclick="doReset()">🔑 Reset Password</button>
+  <div class="lnk"><a onclick="show('login')">← Back to Sign In</a></div>
+</div>
+
+</div><!-- /wrap -->
+
+<!-- WELCOME -->
+<div id="wov">
+  <svg class="wlogo" viewBox="0 0 120 120" xmlns="http://www.w3.org/2000/svg">
+    <circle cx="60" cy="60" r="57" fill="none" stroke="#c9963a" stroke-width="2.5"/>
+    <circle cx="60" cy="60" r="49" fill="#0a1628"/>
+    <text x="60" y="56" text-anchor="middle" font-family="Georgia,serif" font-size="21" font-weight="bold" fill="#c9963a">C55</text>
+    <text x="60" y="72" text-anchor="middle" font-family="Georgia,serif" font-size="9.5" fill="#e8b84b" letter-spacing="3">CHEERS</text>
+  </svg>
+  <div class="wbrand">CHEERS55</div>
+  <div class="wname">Hello, <em id="wn">Friend</em>!</div>
+  <div class="wrole" id="wr">Student · NIT</div>
+  <div class="wbar"><div class="wfill" id="wf"></div></div>
+  <div class="wload" id="wl">Loading your dashboard…</div>
+</div>
+
+<div class="toast" id="toast"><div><div id="tT"></div><div id="tM"></div></div></div>
+
+<script src="shared.js"></script>
+<script>
+let role = 'student';
+
+function setRole(r) {
+  role = r;
+  document.getElementById('r-student').classList.toggle('on', r === 'student');
+  document.getElementById('r-lecturer').classList.toggle('on', r === 'lecturer');
+  document.getElementById('lsub').textContent = r === 'lecturer' ? 'Sign in to your lecturer portal' : 'Sign in to your CHEERS55 dashboard';
+  document.getElementById('rsub').textContent = r === 'lecturer' ? 'Create your lecturer account' : 'Create your student account';
+  document.getElementById('lecinfo').style.display = r === 'lecturer' ? 'block' : 'none';
+  document.getElementById('lecflds').style.display = r === 'lecturer' ? 'block' : 'none';
+}
+
+function show(v) {
+  ['login','register','reset'].forEach(x => document.getElementById('v-'+x).style.display = x === v ? 'block' : 'none');
+  document.getElementById('authTabs').style.display = v === 'reset' ? 'none' : 'flex';
+  document.getElementById('tb-in').classList.toggle('on', v === 'login');
+  document.getElementById('tb-up').classList.toggle('on', v === 'register');
+}
+
+function eye(id, ic) { const i = document.getElementById(id); const s = i.type === 'password'; i.type = s ? 'text' : 'password'; ic.textContent = s ? '🙈' : '👁'; }
+
+function ckStr(p) {
+  const c = ['#c0392b','#e67e22','#f1c40f','#1a7a4a']; const l = ['','Weak','Fair','Good','Strong'];
+  let sc = 0; if(p.length>=6) sc++; if(p.length>=10) sc++; if(/[A-Z]/.test(p)) sc++; if(/[0-9]/.test(p)) sc++;
+  ['s1','s2','s3','s4'].forEach((sid,i) => document.getElementById(sid).style.background = i < sc ? c[sc-1] : 'rgba(255,255,255,.1)');
+  document.getElementById('slbl').textContent = p ? l[sc] : '';
+  [[' rl1', p.length>=6],[' rl2',/[0-9]/.test(p)],[' rl3',/[A-Z]/.test(p)]].forEach(([id,met]) => document.getElementById(id.trim()).classList.toggle('met', met));
+}
+function ckUser(inp) { const v = inp.value.trim().toLowerCase(); const ic = document.getElementById('uic'); if(v.length<3){ic.textContent='';return;} ic.textContent = getUsers().some(u=>u.username===v) ? '❌' : '✅'; }
+function ckMatch() { const p1=document.getElementById('rpw').value; const p2=document.getElementById('rcf').value; document.getElementById('mic').textContent = p2 ? (p1===p2?'✅':'❌') : ''; }
+
+function doRegister() {
+  const name=document.getElementById('rname').value.trim();
+  const uname=document.getElementById('ruser').value.trim().toLowerCase();
+  const phone=document.getElementById('rphone').value.trim();
+  const pass=document.getElementById('rpw').value;
+  const conf=document.getElementById('rcf').value;
+  const e=(msg)=>{const el=document.getElementById('rerr');document.getElementById('rerrmsg').textContent=msg;el.classList.add('on');};
+  document.getElementById('rerr').classList.remove('on');
+  if(!name) return e('Enter your full name');
+  if(!uname||uname.length<3) return e('Username must be at least 3 characters');
+  if(!/^[a-z0-9_]+$/.test(uname)) return e('Username: letters, numbers and _ only');
+  if(!phone||phone.length<10) return e('Enter a valid phone number');
+  if(pass.length<6) return e('Password must be at least 6 characters');
+  if(pass!==conf) return e('Passwords do not match');
+  const users=getUsers();
+  if(users.some(u=>u.username===uname)) return e('Username already taken — choose another');
+  const nu={username:uname,fullName:name,phone,role,dept:role==='lecturer'?document.getElementById('rdept').value.trim():'',modules:role==='lecturer'?document.getElementById('rmods').value.trim():'',passwordHash:hashPwd(pass),createdAt:new Date().toISOString(),premium:false};
+  users.push(nu); saveUsers(users); setCurrentUser(nu);
+  localStorage.setItem(KEYS.lastUser, uname);
+  const btn=document.getElementById('rbtn'); btn.disabled=true; btn.textContent='Creating account…';
+  showToast('🎉','Welcome!', `Account created, ${name.split(' ')[0]}!`);
+  setTimeout(() => welcome(nu), 900);
+}
+
+function doLogin() {
+  const id=document.getElementById('lin').value.trim().toLowerCase();
+  const pass=document.getElementById('lpw').value;
+  const e=(msg)=>{const el=document.getElementById('lerr');document.getElementById('lerrmsg').textContent=msg;el.classList.add('on');};
+  document.getElementById('lerr').classList.remove('on');
+  if(!id) return e('Enter your username or phone');
+  if(!pass) return e('Enter your password');
+  const users=getUsers();
+  const user=users.find(u=>u.username===id||u.phone?.replace(/\s/g,'')===id.replace(/\s/g,''));
+  if(!user||user.passwordHash!==hashPwd(pass)) { e('Incorrect username or password'); document.getElementById('lpw').classList.add('err'); setTimeout(()=>document.getElementById('lpw').classList.remove('err'),2000); return; }
+  if(user.role&&user.role!==role) return e(`This is a ${user.role} account. Please select the correct role above.`);
+  setCurrentUser(user); localStorage.setItem(KEYS.lastUser, user.username);
+  const btn=document.getElementById('lbtn'); btn.disabled=true; btn.textContent='Signing in…';
+  setTimeout(() => welcome(user), 700);
+}
+
+function doReset() {
+  const uname=document.getElementById('ptuser').value.trim().toLowerCase();
+  const pass=document.getElementById('ptpw').value;
+  const conf=document.getElementById('ptcf').value;
+  const ee=(m)=>{document.getElementById('pterrmsg').textContent=m;document.getElementById('pterr').classList.add('on');};
+  document.getElementById('pterr').classList.remove('on'); document.getElementById('ptsuc').classList.remove('on');
+  if(!uname) return ee('Enter your username');
+  if(pass.length<6) return ee('Password must be at least 6 characters');
+  if(pass!==conf) return ee('Passwords do not match');
+  const users=getUsers(); const idx=users.findIndex(u=>u.username===uname);
+  if(idx===-1) return ee('Username not found');
+  users[idx].passwordHash=hashPwd(pass); saveUsers(users);
+  document.getElementById('ptsucs').textContent='Password updated! You can now sign in.';
+  document.getElementById('ptsuc').classList.add('on');
+  setTimeout(()=>show('login'), 2000);
+}
+
+function welcome(user) {
+  const fn=user.fullName.split(' ')[0];
+  document.getElementById('wn').textContent=fn;
+  document.getElementById('wr').textContent=(user.role==='lecturer'?'Lecturer 👨‍🏫':'Student 🎓')+' · NIT HDSPLM I';
+  document.getElementById('wov').classList.add('on');
+  setTimeout(()=>document.getElementById('wf').style.width='100%', 80);
+  const steps = user.role==='lecturer' ? ['Verifying lecturer…','Loading portal…','Ready!'] : ['Verifying account…','Loading timetable…','Starting TIDO AI…','Ready!'];
+  let i=0; const iv=setInterval(()=>{ if(i<steps.length) document.getElementById('wl').textContent=steps[i++]; else clearInterval(iv); }, 560);
+  setTimeout(()=>{ window.location.href = user.role==='lecturer' ? 'lecturer.html' : 'index.html'; }, 2500);
+}
+
+window.addEventListener('load', () => {
+  const u=getCurrentUser(); if(u){ window.location.href=u.role==='lecturer'?'lecturer.html':'index.html'; return; }
+  const lu=localStorage.getItem(KEYS.lastUser); if(lu) document.getElementById('lin').value=lu;
+});
+
+// PWA install on login page
+let _dip = null;
+window.addEventListener('beforeinstallprompt', e => {
+  e.preventDefault(); _dip = e;
+  const btn = document.getElementById('loginInstallBtn');
+  if (btn) btn.style.display = 'inline-block';
+});
+window.addEventListener('appinstalled', () => {
+  const btn = document.getElementById('loginInstallBtn');
+  if (btn) btn.style.display = 'none';
+  showToast('🎉','Installed!','CHEERS55 is now on your home screen');
+});
+function showInstallGuide() {
+  if (_dip) {
+    _dip.prompt();
+    _dip.userChoice.then(r => { if(r.outcome==='accepted'){ _dip=null; } });
+  } else {
+    const ua = navigator.userAgent.toLowerCase();
+    if (/iphone|ipad|ipod/.test(ua)) {
+      alert('📱 To install on iPhone:\n\n1. Tap the Share button ⬆️ at the bottom of Safari\n2. Scroll down and tap "Add to Home Screen"\n3. Tap Add\n\n✅ CHEERS55 will appear on your home screen!');
+    } else if (/android/.test(ua)) {
+      alert('📱 To install on Android:\n\n1. Tap the 3-dot menu ⋮ in Chrome\n2. Tap "Add to Home screen" or "Install app"\n3. Tap Install\n\n✅ CHEERS55 will appear on your home screen!');
+    } else {
+      alert('💻 To install on Computer:\n\n1. Open in Chrome or Edge\n2. Click the install icon ⊕ in the address bar\n3. Click Install\n\n✅ CHEERS55 will open as its own app window!');
+    }
+  }
+}
+if (window.matchMedia('(display-mode: standalone)').matches || window.navigator.standalone) {
+  const btn = document.getElementById('loginInstallBtn');
+  if (btn) btn.style.display = 'none';
+}
+</script>
+<script>
+// ── LOGIN PAGE PARTICLES ──────────────────────────────────────────
+(function(){
+  const CFG={count:32,minSize:1.0,maxSize:4.0,minSpeed:0.07,maxSpeed:0.32,minOpacity:0.04,maxOpacity:0.48,colors:['rgba(201,150,58,','rgba(232,184,75,','rgba(106,163,248,','rgba(255,255,255,','rgba(78,203,140,']};
+  let canvas,ctx,W,H,particles=[],mouse={x:-9999,y:-9999},scrollVY=0,lastSY=0,gsapOK=false;
+
+  class P{
+    constructor(){this.reset(true);}
+    reset(init){
+      this.x=Math.random()*W;
+      this.y=init?Math.random()*H:(Math.random()>0.5?-10:H+10);
+      this.size=CFG.minSize+Math.random()*(CFG.maxSize-CFG.minSize);
+      this.depth=(this.size-CFG.minSize)/(CFG.maxSize-CFG.minSize);
+      const spd=CFG.minSpeed+Math.random()*(CFG.maxSpeed-CFG.minSpeed);
+      const ang=Math.random()*Math.PI*2;
+      this.vx=Math.cos(ang)*spd; this.vy=Math.sin(ang)*spd*0.6-0.04;
+      this.colorBase=CFG.colors[Math.floor(Math.random()*CFG.colors.length)];
+      this.baseAlpha=(CFG.minOpacity+Math.random()*(CFG.maxOpacity-CFG.minOpacity))*(0.4+this.depth*0.6);
+      this.alpha=this.baseAlpha; this.alphaTarget=this.baseAlpha;
+      this.blurAmt=(1-this.depth)*8; this.cx=0; this.cy=0;
+      this.wobble=Math.random()*Math.PI*2; this.wobbleSpeed=0.004+Math.random()*0.016; this.wobbleAmp=0.1+Math.random()*0.5;
+      if(gsapOK&&typeof gsap!=='undefined'){
+        if(this.tw)this.tw.kill();
+        const dur=3+Math.random()*7;
+        this.tw=gsap.to(this,{alphaTarget:this.baseAlpha*Math.random(),duration:dur,ease:'sine.inOut',repeat:-1,yoyo:true,delay:Math.random()*dur});
+      }
+    }
+    update(){
+      this.wobble+=this.wobbleSpeed;
+      this.x+=this.vx+Math.sin(this.wobble)*this.wobbleAmp;
+      this.y+=this.vy+Math.cos(this.wobble*0.7)*this.wobbleAmp*0.5;
+      this.y-=scrollVY*0.35*(0.2+this.depth*0.8);
+      const dx=this.x-mouse.x,dy=this.y-mouse.y,dist=Math.sqrt(dx*dx+dy*dy);
+      if(dist<80){const f=(1-dist/80)*0.016;this.cx+=(dx*f*55-this.cx)*0.08;this.cy+=(dy*f*55-this.cy)*0.08;}
+      else{this.cx*=0.95;this.cy*=0.95;}
+      this.alpha+=(this.alphaTarget-this.alpha)*0.03;
+      const M=this.size+20;
+      if(this.x<-M)this.x=W+M; if(this.x>W+M)this.x=-M;
+      if(this.y<-M||this.y>H+M)this.reset(false);
+    }
+    draw(){
+      const px=this.x+this.cx,py=this.y+this.cy;
+      ctx.save();
+      if(this.blurAmt>0.5)ctx.filter=`blur(${this.blurAmt.toFixed(1)}px)`;
+      const g=ctx.createRadialGradient(px,py,0,px,py,this.size*3.5);
+      g.addColorStop(0,this.colorBase+this.alpha*0.9+')');
+      g.addColorStop(0.5,this.colorBase+this.alpha*0.4+')');
+      g.addColorStop(1,this.colorBase+'0)');
+      ctx.fillStyle=g; ctx.beginPath(); ctx.arc(px,py,this.size*3.5,0,Math.PI*2); ctx.fill();
+      ctx.filter='none';
+      ctx.fillStyle=this.colorBase+Math.min(this.alpha*2.5,0.9)+')';
+      ctx.beginPath(); ctx.arc(px,py,this.size*0.45,0,Math.PI*2); ctx.fill();
+      ctx.restore();
+    }
+  }
+
+  function resize(){
+    const dpr=window.devicePixelRatio||1;
+    W=window.innerWidth; H=window.innerHeight;
+    canvas.width=W*dpr; canvas.height=H*dpr;
+    canvas.style.width=W+'px'; canvas.style.height=H+'px';
+    ctx.scale(dpr,dpr);
+  }
+
+  function init(){
+    canvas=document.getElementById('particleCanvas');
+    if(!canvas)return;
+    ctx=canvas.getContext('2d');
+    resize();
+    window.addEventListener('resize',resize,{passive:true});
+    window.addEventListener('mousemove',e=>{mouse.x=e.clientX;mouse.y=e.clientY;},{passive:true});
+    window.addEventListener('touchmove',e=>{mouse.x=e.touches[0].clientX;mouse.y=e.touches[0].clientY;},{passive:true});
+    window.addEventListener('scroll',()=>{scrollVY=window.scrollY-lastSY;lastSY=window.scrollY;},{passive:true});
+    gsapOK=typeof gsap!=='undefined';
+    for(let i=0;i<CFG.count;i++)setTimeout(()=>particles.push(new P()),i*70);
+    if(gsapOK)gsap.fromTo(canvas,{opacity:0},{opacity:1,duration:3,ease:'power2.out',delay:0.3});
+    (function loop(){requestAnimationFrame(loop);scrollVY*=0.88;ctx.clearRect(0,0,W,H);particles.sort((a,b)=>a.depth-b.depth).forEach(p=>{p.update();p.draw();});})();
+  }
+
+  if(document.readyState==='loading')document.addEventListener('DOMContentLoaded',init);
+  else init();
+})();
+</script>
+</body>
+</html>

@@ -12,345 +12,1863 @@
 <meta name="description" content="CHEERS55 – Smart Student Hub powered by TIDO AI · NIT Tanzania">
 <link rel="manifest" href="manifest.json">
 <link rel="apple-touch-icon" href="icons/icon-192.png">
-<link rel="apple-touch-startup-image" href="icons/icon-512.png"><title>CHEERS55 – Premium</title>
+<link rel="apple-touch-startup-image" href="icons/icon-512.png"><title>CHEERS55 – Dashboard</title>
 <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@700;900&family=DM+Sans:wght@400;500;600;700&family=DM+Mono:wght@400;500&display=swap" rel="stylesheet">
 <style>
 :root{--n:#0a1628;--m:#132040;--b:#1a3a6b;--g:#c9963a;--gl:#e8b84b;--cr:#f5f0e8;--w:#fff;--gr:#1a7a4a;--r:#c0392b;--mt:#8a9ab5;--cd:#111e35;--bd:rgba(201,150,58,.25);}
-*{margin:0;padding:0;box-sizing:border-box;}
-body{background:var(--n);color:var(--cr);font-family:'DM Sans',sans-serif;min-height:100vh;padding:0 0 60px;}
-body::before{content:'';position:fixed;inset:0;background:radial-gradient(ellipse at 20% 10%,rgba(201,150,58,.13) 0%,transparent 50%),radial-gradient(ellipse at 80% 90%,rgba(26,58,107,.3) 0%,transparent 50%);pointer-events:none;z-index:0;}
-.wrap{max-width:440px;margin:0 auto;padding:0 15px;position:relative;z-index:1;}
-.phdr{display:flex;align-items:center;gap:10px;padding:16px 0;}
-.bk{background:var(--cd);border:1px solid var(--bd);color:var(--cr);width:36px;height:36px;border-radius:50%;display:flex;align-items:center;justify-content:center;cursor:pointer;font-size:15px;text-decoration:none;}
-.ptit{font-family:'Playfair Display',serif;font-size:1.1rem;color:var(--w);}
-.ptit em{color:var(--g);font-style:normal;}
-/* HERO */
-.hero{text-align:center;padding:24px 16px;background:linear-gradient(135deg,var(--b),var(--m));border:1px solid var(--bd);border-radius:14px;margin-bottom:16px;}
-.crown{font-size:48px;display:block;margin-bottom:10px;animation:flt 3s ease-in-out infinite;}
-@keyframes flt{0%,100%{transform:translateY(0)}50%{transform:translateY(-7px)}}
-.hbadge{display:inline-block;background:linear-gradient(135deg,var(--g),var(--gl));color:var(--n);font-family:'DM Mono',monospace;font-size:10px;font-weight:700;letter-spacing:2px;padding:4px 14px;border-radius:20px;margin-bottom:12px;}
-.htit{font-family:'Playfair Display',serif;font-size:1.8rem;font-weight:900;color:var(--w);margin-bottom:7px;}
-.htit em{color:var(--gl);font-style:normal;}
-.hdsc{font-size:12px;color:var(--mt);line-height:1.6;}
-/* PRICE */
-.price-card{background:var(--cd);border:2px solid var(--g);border-radius:14px;padding:20px;margin-bottom:16px;position:relative;overflow:hidden;}
-.price-card::before{content:'BEST VALUE';position:absolute;top:13px;right:-18px;background:var(--g);color:var(--n);font-size:9px;font-weight:700;letter-spacing:2px;padding:3px 26px;transform:rotate(35deg);font-family:'DM Mono',monospace;}
-.prow{display:flex;align-items:flex-end;gap:6px;margin-bottom:4px;}
-.pamt{font-family:'Playfair Display',serif;font-size:2.6rem;font-weight:900;color:var(--g);line-height:1;}
-.pcur{font-size:1.1rem;color:var(--g);margin-bottom:5px;}
-.pper{font-size:11px;color:var(--mt);margin-bottom:13px;}
-.pnote{background:rgba(26,122,74,.14);border:1px solid rgba(26,122,74,.3);border-radius:7px;padding:7px 11px;font-size:11px;color:#4ecb8c;display:flex;align-items:center;gap:7px;}
-/* FEATURES */
-.sec-lbl{font-family:'DM Mono',monospace;font-size:10px;color:var(--g);letter-spacing:2px;text-transform:uppercase;margin-bottom:11px;}
-.feat-list{display:flex;flex-direction:column;gap:8px;margin-bottom:16px;}
-.fi{background:var(--cd);border:1px solid var(--bd);border-radius:9px;padding:12px;display:flex;align-items:flex-start;gap:10px;transition:border-color .2s;}
-.fi.prem{border-color:rgba(201,150,58,.38);}
-.fic{font-size:20px;flex-shrink:0;}
-.fn{font-weight:600;font-size:12px;color:var(--w);margin-bottom:1px;}
-.fd{font-size:10px;color:var(--mt);line-height:1.4;}
-.ftag{margin-left:auto;font-size:9px;font-weight:700;letter-spacing:1px;padding:2px 7px;border-radius:9px;white-space:nowrap;font-family:'DM Mono',monospace;flex-shrink:0;}
-.ftag.p{background:rgba(201,150,58,.14);color:var(--gl);border:1px solid rgba(201,150,58,.3);}
-.ftag.f{background:rgba(100,120,150,.14);color:var(--mt);border:1px solid rgba(100,120,150,.3);}
-/* COMPARE */
-.cmp{background:var(--cd);border:1px solid var(--bd);border-radius:12px;overflow:hidden;margin-bottom:16px;}
-.cmp-h{display:grid;grid-template-columns:1fr 70px 70px;background:var(--m);padding:10px 13px;border-bottom:1px solid var(--bd);}
-.cmp-h span{font-size:10px;font-family:'DM Mono',monospace;color:var(--mt);text-align:center;}
-.cmp-h span:first-child{text-align:left;color:var(--g);}
-.cmp-r{display:grid;grid-template-columns:1fr 70px 70px;padding:9px 13px;border-bottom:1px solid rgba(201,150,58,.05);align-items:center;}
-.cmp-r:last-child{border-bottom:none;}
-.cmp-l{font-size:11px;color:var(--cr);}
-.cmp-c{text-align:center;font-size:13px;}
-.cy{color:#4ecb8c;}.cn{color:#333;}.cp{color:var(--gl);}
-/* PAYMENT */
-.pay-card{background:var(--cd);border:1px solid var(--bd);border-radius:13px;padding:18px;margin-bottom:14px;}
-.pay-t{font-family:'Playfair Display',serif;font-size:1rem;color:var(--w);margin-bottom:14px;}
-.net-grid{display:grid;grid-template-columns:1fr 1fr;gap:8px;margin-bottom:14px;}
-.net-btn{padding:12px 8px;border:2px solid var(--bd);border-radius:9px;background:var(--m);cursor:pointer;text-align:center;transition:all .22s;font-family:'DM Sans',sans-serif;}
-.net-btn.on{border-color:var(--g);background:rgba(201,150,58,.1);}
-.net-ic{font-size:22px;display:block;margin-bottom:4px;}
-.net-nm{font-size:12px;font-weight:700;color:var(--cr);}
-.net-sm{font-size:10px;color:var(--mt);margin-top:1px;font-family:'DM Mono',monospace;}
-/* PAY FORM */
-.pay-form{display:none;}
-.pay-form.on{display:block;}
-.divr{display:flex;align-items:center;gap:8px;margin:12px 0;}
+*{margin:0;padding:0;box-sizing:border-box;-webkit-tap-highlight-color:transparent;}
+html,body{height:100%;overflow:hidden;}
+body{background:var(--n);color:var(--cr);font-family:'DM Sans',sans-serif;display:flex;flex-direction:column;}
+/* ── PWA INSTALL ── */
+#installBanner{display:none;background:linear-gradient(135deg,var(--g),var(--gl));color:var(--n);padding:10px 13px;align-items:center;gap:8px;font-size:12px;font-weight:700;flex-shrink:0;position:sticky;top:0;z-index:300;}
+#installBanner.on{display:flex;}
+.ibtn{margin-left:auto;background:var(--n);color:var(--g);border:none;padding:7px 16px;border-radius:7px;font-weight:800;font-size:12px;cursor:pointer;font-family:'DM Sans',sans-serif;white-space:nowrap;flex-shrink:0;}
+.ixbtn{background:none;border:none;font-size:18px;cursor:pointer;color:var(--n);flex-shrink:0;padding:0 4px;}
+/* INSTALL MODAL */
+#installModal{display:none;position:fixed;inset:0;background:rgba(0,0,0,.75);z-index:500;align-items:flex-end;justify-content:center;}
+#installModal.on{display:flex;}
+.imodal{background:var(--m);border:1px solid var(--bd);border-radius:20px 20px 0 0;padding:28px 20px 36px;width:100%;max-width:480px;}
+.imodal-title{font-family:'Playfair Display',serif;font-size:1.3rem;color:var(--w);margin-bottom:4px;text-align:center;}
+.imodal-title em{color:var(--g);font-style:normal;}
+.imodal-sub{font-size:12px;color:var(--mt);text-align:center;margin-bottom:20px;line-height:1.5;}
+.imodal-tabs{display:flex;gap:6px;margin-bottom:18px;}
+.imtab{flex:1;padding:9px 6px;border:1px solid var(--bd);border-radius:9px;background:var(--n);cursor:pointer;text-align:center;font-size:12px;font-weight:600;color:var(--mt);transition:all .2s;font-family:'DM Sans',sans-serif;}
+.imtab.on{background:rgba(201,150,58,.15);border-color:var(--g);color:var(--g);}
+.isteps{display:flex;flex-direction:column;gap:10px;}
+.istep{display:flex;align-items:flex-start;gap:12px;}
+.istep-n{background:var(--g);color:var(--n);width:26px;height:26px;border-radius:50%;display:flex;align-items:center;justify-content:center;font-weight:800;font-size:12px;flex-shrink:0;margin-top:1px;}
+.istep-tx{font-size:13px;color:var(--cr);line-height:1.5;}
+.istep-tx strong{color:var(--gl);}
+.istep-ic{font-size:18px;flex-shrink:0;margin-top:2px;}
+.imodal-or{text-align:center;font-size:11px;color:var(--mt);margin:14px 0;font-family:'DM Mono',monospace;}
+.imodal-close{width:100%;background:var(--g);color:var(--n);border:none;padding:14px;border-radius:11px;font-weight:700;font-size:14px;cursor:pointer;margin-top:18px;font-family:'DM Sans',sans-serif;}
+.imodal-already{font-size:11px;color:#4ecb8c;text-align:center;margin-top:10px;display:none;}
+#cover{flex:1;display:flex;flex-direction:column;align-items:center;justify-content:center;padding:0 20px 24px;text-align:center;background:radial-gradient(ellipse at 30% 20%,rgba(26,58,107,.4) 0%,transparent 55%),var(--n);overflow-y:auto;}
+.sea-scene{width:100%;max-width:400px;margin:0 auto 8px;position:relative;}
+.sea-svg{width:100%;height:auto;display:block;border-radius:16px;box-shadow:0 8px 40px rgba(0,0,0,.6),0 0 0 1px rgba(201,150,58,.2);}
+#captain{transform-origin:180px 175px;}
+@keyframes captainBob{0%,100%{transform:translateY(0)}50%{transform:translateY(-3px)}}
+@keyframes armWave{0%,100%{transform:rotate(-10deg)}25%{transform:rotate(20deg)}50%{transform:rotate(-5deg)}75%{transform:rotate(25deg)}}
+.cvl{width:88px;height:88px;margin-bottom:14px;filter:drop-shadow(0 0 24px rgba(201,150,58,.55));animation:glow 3s ease-in-out infinite;}
+@keyframes glow{0%,100%{filter:drop-shadow(0 0 18px rgba(201,150,58,.4))}50%{filter:drop-shadow(0 0 38px rgba(201,150,58,.75))}}
+.cvpill{display:inline-flex;align-items:center;gap:6px;background:rgba(201,150,58,.1);border:1px solid rgba(201,150,58,.35);border-radius:20px;padding:4px 14px;margin-bottom:13px;font-size:11px;color:var(--gl);font-family:'DM Mono',monospace;}
+.tdot{width:6px;height:6px;border-radius:50%;background:var(--g);animation:blink 1.4s ease-in-out infinite;}
+@keyframes blink{0%,100%{opacity:1}50%{opacity:.2}}
+.cvt{font-family:'Playfair Display',serif;font-size:clamp(1.9rem,7vw,3rem);font-weight:900;color:var(--w);line-height:1.1;margin-bottom:4px;}
+.cvt em{color:var(--g);font-style:normal;}
+.cvsb{font-size:11px;color:var(--mt);letter-spacing:1px;margin-bottom:3px;}
+.cvco{font-family:'Playfair Display',serif;font-size:clamp(.85rem,3vw,1.1rem);color:var(--gl);margin-bottom:24px;}
+.cvd{width:60px;height:2px;background:linear-gradient(90deg,transparent,var(--g),transparent);margin:0 auto 24px;}
+.cvbtn{background:linear-gradient(135deg,var(--g),var(--gl));color:var(--n);border:none;padding:13px 40px;font-family:'DM Sans',sans-serif;font-weight:700;font-size:13px;letter-spacing:1.5px;text-transform:uppercase;cursor:pointer;clip-path:polygon(8px 0%,100% 0%,calc(100% - 8px) 100%,0% 100%);transition:all .3s;}
+.cvbtn:hover{transform:translateY(-2px);box-shadow:0 10px 32px rgba(201,150,58,.5);}
+.cvsts{margin-top:26px;display:flex;gap:26px;}
+.cvst{text-align:center;}
+.cvst .n{font-family:'Playfair Display',serif;font-size:1.6rem;color:var(--g);display:block;}
+.cvst .l{font-size:10px;color:var(--mt);text-transform:uppercase;letter-spacing:1px;}
+/* APP */
+#app{display:none;flex:1;flex-direction:column;overflow:hidden;}
+#app.on{display:flex;}
+.hdr{background:var(--m);border-bottom:1px solid var(--bd);padding:0 12px;display:flex;align-items:center;gap:9px;height:54px;flex-shrink:0;}
+.htit{font-family:'Playfair Display',serif;font-size:13px;color:var(--w);}
+.htit em{color:var(--g);font-style:normal;}
+.hbg{font-size:9px;background:rgba(201,150,58,.12);border:1px solid rgba(201,150,58,.3);color:var(--gl);padding:2px 7px;border-radius:8px;font-family:'DM Mono',monospace;}
+.hr{margin-left:auto;display:flex;align-items:center;gap:6px;}
+.clk{font-family:'DM Mono',monospace;font-size:11px;color:var(--gl);background:rgba(201,150,58,.1);padding:4px 8px;border-radius:4px;}
+.hbtn{width:32px;height:32px;border-radius:50%;background:var(--b);border:none;color:var(--g);font-size:13px;cursor:pointer;display:flex;align-items:center;justify-content:center;position:relative;flex-shrink:0;}
+.hbtn:hover{background:var(--g);color:var(--n);}
+.ndot{position:absolute;top:4px;right:4px;width:7px;height:7px;border-radius:50%;background:var(--r);border:2px solid var(--m);display:none;}
+/* NAV */
+.nav{display:flex;background:var(--m);border-bottom:1px solid var(--bd);overflow-x:auto;scrollbar-width:none;flex-shrink:0;}
+.nav::-webkit-scrollbar{display:none;}
+.nt{flex:1;min-width:48px;padding:9px 3px;font-size:9px;font-weight:500;color:var(--mt);cursor:pointer;border-bottom:2px solid transparent;transition:all .2s;background:none;border-left:none;border-right:none;border-top:none;font-family:'DM Sans',sans-serif;display:flex;flex-direction:column;align-items:center;gap:2px;}
+.ni{font-size:15px;}
+.nt.on{color:var(--g);border-bottom-color:var(--g);}
+/* CONTENT */
+.ct{flex:1;overflow-y:auto;padding:13px;-webkit-overflow-scrolling:touch;padding-bottom:20px;}
+.sec{display:none;}.sec.on{display:block;}
+.stit{font-family:'Playfair Display',serif;font-size:1.1rem;color:var(--w);margin-bottom:3px;}
+.sdsc{font-size:11px;color:var(--mt);margin-bottom:13px;line-height:1.5;}
+/* TODAY */
+.tdh{background:linear-gradient(135deg,var(--b),var(--m));border:1px solid var(--bd);border-radius:11px;padding:15px;margin-bottom:12px;}
+.tdl{font-size:10px;letter-spacing:2px;text-transform:uppercase;color:var(--g);font-family:'DM Mono',monospace;margin-bottom:3px;}
+.tdd{font-family:'Playfair Display',serif;font-size:1.5rem;color:var(--w);}
+.tddt{font-size:10px;color:var(--mt);margin-bottom:10px;}
+.nxb{background:rgba(201,150,58,.1);border:1px solid rgba(201,150,58,.25);border-radius:7px;padding:10px 11px;display:flex;align-items:center;gap:9px;}
+.nxi{flex:1;min-width:0;}
+.nxl{font-size:9px;color:var(--mt);text-transform:uppercase;letter-spacing:1px;}
+.nxn{font-weight:600;color:var(--w);font-size:12px;white-space:nowrap;overflow:hidden;text-overflow:ellipsis;}
+.nxt{font-family:'DM Mono',monospace;color:var(--g);font-size:10px;}
+.cdb{background:var(--g);color:var(--n);padding:4px 9px;border-radius:6px;font-family:'DM Mono',monospace;font-size:11px;font-weight:700;flex-shrink:0;}
+.cdb.live{background:var(--gr);color:#fff;}
+/* LEC CARDS */
+.ll{display:flex;flex-direction:column;gap:7px;}
+.lc{background:var(--cd);border:1px solid var(--bd);border-radius:9px;padding:11px;display:grid;grid-template-columns:46px 1fr auto;gap:9px;align-items:start;}
+.lc.live{border-color:var(--gr);border-left-width:3px;}
+.lc.past{opacity:.4;}
+.lct{font-family:'DM Mono',monospace;font-size:10px;color:var(--g);line-height:1.5;}
+.lcc{font-size:9px;color:var(--mt);font-family:'DM Mono',monospace;margin-bottom:2px;}
+.lcn{font-weight:600;color:var(--w);font-size:12px;margin-bottom:2px;line-height:1.3;}
+.lcl{font-size:10px;color:var(--mt);margin-bottom:3px;}
+.lcr{display:inline-flex;align-items:center;gap:3px;font-size:9px;color:var(--gl);background:rgba(201,150,58,.1);padding:2px 6px;border-radius:4px;}
+.pill{font-size:9px;font-weight:600;letter-spacing:1px;padding:2px 7px;border-radius:20px;text-transform:uppercase;white-space:nowrap;}
+.p-live{background:rgba(26,122,74,.2);color:#4ecb8c;border:1px solid var(--gr);}
+.p-up{background:rgba(201,150,58,.13);color:var(--gl);border:1px solid rgba(201,150,58,.3);}
+.p-dn{background:rgba(100,100,120,.2);color:#555;border:1px solid #333;}
+/* DAYS */
+.dys{margin-bottom:16px;}
+.dyh{display:flex;align-items:center;gap:7px;margin-bottom:7px;}
+.dyn{font-family:'Playfair Display',serif;font-size:.9rem;color:var(--g);}
+.dyl{flex:1;height:1px;background:var(--bd);}
+.dyc{font-size:10px;color:var(--mt);font-family:'DM Mono',monospace;}
+/* MODULES */
+.mg{display:grid;grid-template-columns:repeat(auto-fill,minmax(240px,1fr));gap:10px;}
+.mc{background:var(--cd);border:1px solid var(--bd);border-radius:10px;overflow:hidden;transition:transform .2s,border-color .2s;}
+.mc:hover{transform:translateY(-2px);border-color:var(--g);}
+.mh{padding:11px;border-bottom:1px solid var(--bd);}
+.mco{font-family:'DM Mono',monospace;font-size:9px;color:var(--g);margin-bottom:2px;}
+.mn{font-weight:600;color:var(--w);font-size:11px;line-height:1.3;}
+.ml{font-size:10px;color:var(--mt);margin-top:2px;}
+.mb{padding:9px 11px;}
+.rl{display:flex;align-items:center;gap:7px;padding:7px 8px;border-radius:6px;background:rgba(201,150,58,.07);border:1px solid rgba(201,150,58,.14);margin-bottom:5px;text-decoration:none;color:var(--cr);font-size:11px;transition:background .2s;}
+.rl:hover{background:rgba(201,150,58,.17);}
+/* TT UPLOAD */
+.ttm{display:flex;gap:6px;margin-bottom:14px;background:var(--m);border:1px solid var(--bd);border-radius:10px;padding:3px;}
+.ttmb{flex:1;padding:8px 4px;border:none;border-radius:8px;font-family:'DM Sans',sans-serif;font-size:11px;font-weight:600;cursor:pointer;transition:all .22s;color:var(--mt);background:transparent;}
+.ttmb.on{background:linear-gradient(135deg,var(--g),var(--gl));color:var(--n);}
+.upc{background:var(--cd);border:1px solid var(--bd);border-radius:12px;padding:17px;}
+.uph{text-align:center;margin-bottom:14px;}
+.upbi{font-size:40px;display:block;margin-bottom:8px;animation:flt 3s ease-in-out infinite;}
+@keyframes flt{0%,100%{transform:translateY(0)}50%{transform:translateY(-6px)}}
+.upt{font-family:'Playfair Display',serif;font-size:1.1rem;color:var(--w);margin-bottom:4px;}
+.upd{font-size:11px;color:var(--mt);line-height:1.5;}
+.fmtr{display:flex;flex-wrap:wrap;gap:5px;justify-content:center;margin-bottom:12px;}
+.fp{background:rgba(201,150,58,.1);border:1px solid rgba(201,150,58,.26);color:var(--gl);font-size:10px;padding:3px 9px;border-radius:20px;font-family:'DM Mono',monospace;}
+.dz{border:2px dashed rgba(201,150,58,.36);border-radius:11px;padding:22px 13px;text-align:center;cursor:pointer;transition:all .2s;background:rgba(201,150,58,.04);margin-bottom:12px;}
+.dz:hover,.dz.dov{border-color:var(--g);background:rgba(201,150,58,.1);}
+.dzi{font-size:28px;margin-bottom:7px;}
+.dzm{font-weight:600;color:var(--cr);font-size:12px;margin-bottom:2px;}
+.dzs{font-size:10px;color:var(--mt);}
+.divr{display:flex;align-items:center;gap:8px;margin:11px 0;}
 .divl{flex:1;height:1px;background:var(--bd);}
 .divt{font-size:10px;color:var(--mt);font-family:'DM Mono',monospace;white-space:nowrap;}
-.fg{margin-bottom:11px;}
-.fl{display:block;font-size:10px;color:var(--mt);font-family:'DM Mono',monospace;letter-spacing:1px;text-transform:uppercase;margin-bottom:5px;}
-.fip{width:100%;background:var(--m);border:1px solid var(--bd);border-radius:8px;padding:10px 11px;color:var(--cr);font-family:'DM Sans',sans-serif;font-size:13px;outline:none;transition:border-color .2s;}
-.fip:focus{border-color:var(--g);}
-.fip::placeholder{color:#354a65;}
-/* PAYING NUMBER BOX */
-.pay-num-box{background:var(--n);border:2px solid var(--g);border-radius:10px;padding:14px;text-align:center;margin:12px 0;}
-.pay-num-lbl{font-size:10px;color:var(--mt);font-family:'DM Mono',monospace;letter-spacing:1px;margin-bottom:5px;}
-.pay-num{font-family:'DM Mono',monospace;font-size:24px;font-weight:700;color:var(--g);letter-spacing:3px;}
-.pay-num-sub{font-size:10px;color:var(--mt);margin-top:3px;}
-.steps{display:flex;flex-direction:column;gap:8px;margin-bottom:14px;}
-.step{display:flex;align-items:flex-start;gap:10px;}
-.step-n{background:var(--g);color:var(--n);width:22px;height:22px;border-radius:50%;display:flex;align-items:center;justify-content:center;font-weight:700;font-size:11px;flex-shrink:0;}
-.step-tx{font-size:12px;color:var(--cr);line-height:1.5;margin-top:2px;}
-/* PAY BUTTON */
-.pay-btn{width:100%;background:linear-gradient(135deg,var(--g),var(--gl));color:var(--n);border:none;padding:14px;border-radius:10px;font-family:'DM Sans',sans-serif;font-weight:700;font-size:14px;cursor:pointer;transition:all .3s;display:flex;align-items:center;justify-content:center;gap:8px;margin-bottom:9px;}
-.pay-btn:hover{transform:translateY(-2px);box-shadow:0 10px 28px rgba(201,150,58,.4);}
-.pay-btn:disabled{opacity:.6;cursor:not-allowed;transform:none;}
-.pay-note{font-size:10px;color:var(--mt);text-align:center;line-height:1.5;}
-/* SUCCESS */
-#successScreen{display:none;text-align:center;padding:30px 15px;}
-.sic{font-size:65px;margin-bottom:14px;animation:pop .5s ease;display:block;}
-@keyframes pop{0%{transform:scale(0)}70%{transform:scale(1.2)}100%{transform:scale(1)}}
-.stit{font-family:'Playfair Display',serif;font-size:1.6rem;color:var(--g);margin-bottom:8px;}
-.sdsc{font-size:13px;color:var(--mt);line-height:1.6;margin-bottom:20px;}
-.sfeats{background:var(--cd);border:1px solid var(--bd);border-radius:11px;padding:16px;margin-bottom:20px;text-align:left;}
-.sf{display:flex;align-items:center;gap:9px;padding:7px 0;border-bottom:1px solid rgba(201,150,58,.07);font-size:12px;color:var(--cr);}
-.sf:last-child{border-bottom:none;}
-.open-btn{width:100%;background:var(--g);color:var(--n);border:none;padding:14px;border-radius:10px;font-weight:700;font-size:14px;cursor:pointer;font-family:'DM Sans',sans-serif;}
+.mnbtn{width:100%;background:transparent;border:1px solid var(--bd);border-radius:8px;padding:9px;color:var(--mt);font-family:'DM Sans',sans-serif;font-size:11px;font-weight:600;cursor:pointer;transition:all .2s;}
+.mnbtn:hover{border-color:var(--g);color:var(--g);}
+/* PROC */
+.prc{background:var(--cd);border:1px solid var(--bd);border-radius:12px;padding:24px 15px;text-align:center;}
+.psp{position:relative;width:65px;height:65px;margin:0 auto 14px;display:flex;align-items:center;justify-content:center;}
+.sr{position:absolute;inset:0;border-radius:50%;border:3px solid transparent;border-top-color:var(--g);border-right-color:var(--gl);animation:spin 1s linear infinite;}
+@keyframes spin{to{transform:rotate(360deg)}}
+.sic{font-size:25px;z-index:1;}
+.ptit{font-family:'Playfair Display',serif;font-size:1rem;color:var(--w);margin-bottom:13px;}
+.psts{display:flex;flex-direction:column;gap:6px;text-align:left;margin-bottom:12px;}
+.ps{font-size:11px;color:var(--mt);padding:7px 9px;border-radius:6px;background:var(--m);border:1px solid var(--bd);transition:all .4s;}
+.ps.act{color:var(--gl);border-color:rgba(201,150,58,.4);background:rgba(201,150,58,.08);}
+.ps.done{color:#4ecb8c;border-color:rgba(26,122,74,.4);}
+/* MANUAL */
+.mnc{background:var(--cd);border:1px solid var(--bd);border-radius:12px;padding:15px;}
+.mhdr{display:grid;grid-template-columns:68px 1fr 50px 50px 62px 24px;gap:4px;font-size:9px;color:var(--mt);font-family:'DM Mono',monospace;letter-spacing:1px;text-transform:uppercase;margin-bottom:4px;padding:0 1px;}
+.mrow{display:grid;grid-template-columns:68px 1fr 50px 50px 62px 24px;gap:4px;margin-bottom:4px;align-items:center;}
+.mcel{background:var(--m);border:1px solid var(--bd);border-radius:5px;padding:6px 5px;color:var(--cr);font-family:'DM Sans',sans-serif;font-size:11px;outline:none;width:100%;}
+.mcel:focus{border-color:var(--g);}
+.mdel{background:rgba(192,57,43,.14);border:1px solid rgba(192,57,43,.28);border-radius:5px;color:#e74c3c;cursor:pointer;font-size:12px;width:24px;height:28px;display:flex;align-items:center;justify-content:center;}
+.arb{width:100%;background:rgba(201,150,58,.08);border:1px dashed rgba(201,150,58,.36);border-radius:7px;padding:8px;color:var(--g);font-family:'DM Sans',sans-serif;font-size:11px;font-weight:600;cursor:pointer;margin:7px 0;}
+.svb{width:100%;background:linear-gradient(135deg,var(--g),var(--gl));border:none;border-radius:8px;padding:11px;color:var(--n);font-family:'DM Sans',sans-serif;font-size:12px;font-weight:700;cursor:pointer;}
+/* CUSTOM TT */
+.cttd{background:linear-gradient(135deg,var(--b),var(--m));border:1px solid var(--bd);border-radius:10px;padding:11px 12px;margin-bottom:12px;display:flex;align-items:center;justify-content:space-between;gap:8px;}
+.cttn{font-family:'Playfair Display',serif;font-size:.9rem;color:var(--w);}
+.cttm{font-size:10px;color:var(--mt);margin-top:2px;font-family:'DM Mono',monospace;}
+.ta{width:30px;height:30px;border-radius:6px;background:rgba(201,150,58,.12);border:1px solid rgba(201,150,58,.25);color:var(--g);font-size:12px;cursor:pointer;display:flex;align-items:center;justify-content:center;}
+.ta.del{background:rgba(192,57,43,.1);border-color:rgba(192,57,43,.26);color:#e74c3c;}
+.aisg{background:linear-gradient(135deg,rgba(26,58,107,.27),var(--m));border:1px solid rgba(201,150,58,.26);border-radius:10px;padding:12px;margin:12px 0;}
+.aisgt{font-family:'DM Mono',monospace;font-size:10px;color:var(--g);letter-spacing:2px;margin-bottom:7px;}
+.aitip{display:flex;gap:6px;padding:5px 0;border-bottom:1px solid rgba(201,150,58,.07);font-size:11px;color:var(--cr);line-height:1.5;}
+.aitip:last-child{border-bottom:none;}
+.upan{width:100%;background:transparent;border:1px dashed rgba(201,150,58,.26);border-radius:8px;padding:9px;color:var(--mt);font-family:'DM Sans',sans-serif;font-size:11px;cursor:pointer;margin-top:4px;}
+.upan:hover{border-color:var(--g);color:var(--g);}
+/* TIDO AI */
+.aich{background:var(--cd);border:1px solid var(--bd);border-radius:11px;padding:11px;height:290px;overflow-y:auto;display:flex;flex-direction:column;gap:9px;margin-bottom:9px;scroll-behavior:smooth;}
+.abub{display:flex;gap:7px;align-items:flex-start;}
+.abub.u{flex-direction:row-reverse;}
+.aav{width:27px;height:27px;border-radius:50%;background:var(--b);display:flex;align-items:center;justify-content:center;font-size:13px;flex-shrink:0;}
+.aav.u{background:var(--g);}
+.amsg{background:var(--m);border:1px solid var(--bd);border-radius:10px;border-top-left-radius:2px;padding:8px 11px;font-size:11px;color:var(--cr);line-height:1.6;max-width:82%;}
+.abub.u .amsg{border-radius:10px;border-top-right-radius:2px;background:var(--b);border-color:rgba(26,58,107,.7);}
+.adts{display:flex;gap:4px;padding:9px 11px;}
+.adt{width:6px;height:6px;border-radius:50%;background:var(--g);animation:bounce 1.2s ease infinite;}
+.adt:nth-child(2){animation-delay:.2s;}.adt:nth-child(3){animation-delay:.4s;}
+@keyframes bounce{0%,60%,100%{transform:translateY(0)}30%{transform:translateY(-6px)}}
+.acs{display:flex;flex-wrap:wrap;gap:6px;margin-bottom:9px;}
+.ach{background:rgba(201,150,58,.09);border:1px solid rgba(201,150,58,.26);color:var(--gl);font-size:10px;padding:5px 9px;border-radius:20px;cursor:pointer;transition:background .2s;white-space:nowrap;}
+.ach:hover{background:rgba(201,150,58,.2);}
+.ainr{display:flex;gap:7px;}
+.ainp{flex:1;background:var(--m);border:1px solid var(--bd);border-radius:10px;padding:10px 12px;color:var(--cr);font-family:'DM Sans',sans-serif;font-size:12px;outline:none;transition:border-color .2s;}
+.ainp:focus{border-color:var(--g);}
+.ainp::placeholder{color:#354a65;}
+.asnd{background:linear-gradient(135deg,var(--g),var(--gl));border:none;color:var(--n);width:42px;height:42px;border-radius:10px;font-size:16px;cursor:pointer;flex-shrink:0;display:flex;align-items:center;justify-content:center;}
+/* DOWNLOADS */
+.dlts{display:flex;gap:5px;margin-bottom:11px;flex-wrap:wrap;}
+.dlt{padding:5px 11px;background:var(--m);border:1px solid var(--bd);border-radius:20px;font-size:10px;font-weight:600;color:var(--mt);cursor:pointer;transition:all .2s;font-family:'DM Mono',monospace;}
+.dlt.on{background:rgba(201,150,58,.13);border-color:rgba(201,150,58,.36);color:var(--g);}
+.dlss{display:grid;grid-template-columns:1fr 1fr 1fr;gap:7px;margin-bottom:13px;}
+.dlst{background:var(--cd);border:1px solid var(--bd);border-radius:8px;padding:9px;text-align:center;}
+.dlst .n{font-family:'Playfair Display',serif;font-size:1.3rem;color:var(--g);display:block;}
+.dlst .l{font-size:9px;color:var(--mt);font-family:'DM Mono',monospace;margin-top:1px;}
+.dli{background:var(--cd);border:1px solid var(--bd);border-radius:9px;padding:11px;display:flex;align-items:center;gap:9px;margin-bottom:7px;transition:border-color .2s;}
+.dli:hover{border-color:var(--g);}
+.dli.sv{border-color:rgba(26,122,74,.36);}
+.dlic{font-size:22px;flex-shrink:0;}
+.dltit{font-weight:600;font-size:11px;color:var(--w);margin-bottom:2px;line-height:1.3;}
+.dlmt{font-size:10px;color:var(--mt);}
+.dlb{margin-left:auto;flex-shrink:0;background:rgba(201,150,58,.09);border:1px solid rgba(201,150,58,.25);color:var(--g);font-size:10px;padding:5px 8px;border-radius:6px;cursor:pointer;font-family:'DM Mono',monospace;white-space:nowrap;transition:background .2s;}
+.dlb:hover{background:rgba(201,150,58,.2);}
+.dlb.done{background:rgba(26,122,74,.16);border-color:var(--gr);color:#4ecb8c;}
+.dlb.opn{background:rgba(26,58,107,.25);border-color:rgba(26,58,107,.5);color:#6aa3f8;}
+/* LEC ALERTS */
+.lab{background:linear-gradient(135deg,rgba(26,58,107,.35),var(--m));border:1px solid rgba(26,58,107,.5);border-radius:10px;padding:12px;margin-bottom:11px;}
+.labh{display:flex;align-items:center;justify-content:space-between;margin-bottom:8px;}
+.labt{font-family:'DM Mono',monospace;font-size:10px;color:var(--g);letter-spacing:2px;}
+.labc{font-size:10px;color:var(--mt);font-family:'DM Mono',monospace;}
+.lai{display:flex;align-items:flex-start;gap:8px;padding:8px 0;border-bottom:1px solid rgba(201,150,58,.06);}
+.lai:last-child{border-bottom:none;}
+.laic{font-size:17px;flex-shrink:0;}
+.lait{font-weight:600;font-size:11px;color:var(--w);margin-bottom:1px;}
+.laib{font-size:10px;color:var(--mt);line-height:1.4;}
+.laim{font-size:10px;color:var(--g);font-family:'DM Mono',monospace;margin-top:2px;}
+.lbg{font-size:9px;padding:2px 6px;border-radius:8px;font-family:'DM Mono',monospace;font-weight:700;flex-shrink:0;margin-left:auto;}
+.lb-a{background:rgba(26,122,74,.2);color:#4ecb8c;border:1px solid var(--gr);}
+.lb-ab{background:rgba(192,57,43,.14);color:#e74c3c;border:1px solid var(--r);}
+.lb-c{background:rgba(230,126,34,.14);color:#f39c12;border:1px solid #e67e22;}
+.lb-r{background:rgba(26,58,107,.28);color:#6aa3f8;border:1px solid rgba(26,58,107,.5);}
+/* CALENDAR */
+.gcc{background:var(--cd);border:1px solid var(--bd);border-radius:10px;padding:16px;margin-bottom:11px;}
+.gcbtn{display:flex;align-items:center;gap:8px;background:white;color:#333;border:none;padding:10px 14px;border-radius:7px;font-size:12px;font-weight:600;cursor:pointer;width:100%;justify-content:center;font-family:'DM Sans',sans-serif;}
+.gcbtn.cn{background:var(--gr);color:white;}
+.syi{display:flex;align-items:center;justify-content:space-between;padding:7px 0;border-bottom:1px solid rgba(201,150,58,.06);}
+.syi:last-child{border-bottom:none;}
+.syb{background:rgba(66,133,244,.12);border:1px solid rgba(66,133,244,.34);color:#6aa3f8;font-size:10px;padding:4px 8px;border-radius:5px;cursor:pointer;font-family:'DM Mono',monospace;white-space:nowrap;}
+.syb.done{background:rgba(26,122,74,.18);border-color:var(--gr);color:#4ecb8c;}
+.icsb{width:100%;background:rgba(201,150,58,.11);border:1px solid var(--g);color:var(--g);padding:10px;border-radius:7px;font-weight:600;font-size:12px;cursor:pointer;font-family:'DM Sans',sans-serif;}
+/* PROFILE */
+.ph{text-align:center;padding:20px 12px 15px;background:linear-gradient(135deg,var(--b),var(--m));border:1px solid var(--bd);border-radius:12px;margin-bottom:11px;}
+.ppw{position:relative;display:inline-block;margin-bottom:10px;cursor:pointer;}
+.pp{width:78px;height:78px;border-radius:50%;background:linear-gradient(135deg,var(--g),var(--gl));display:flex;align-items:center;justify-content:center;font-family:'Playfair Display',serif;font-size:1.6rem;font-weight:900;color:var(--n);border:3px solid var(--g);overflow:hidden;}
+.pped{position:absolute;bottom:0;right:0;width:23px;height:23px;background:var(--g);border-radius:50%;display:flex;align-items:center;justify-content:center;font-size:10px;border:2px solid var(--m);}
+.pnm{font-family:'Playfair Display',serif;font-size:1.15rem;font-weight:900;color:var(--w);margin-bottom:2px;}
+.pun{font-family:'DM Mono',monospace;font-size:10px;color:var(--mt);margin-bottom:7px;}
+.pprem{display:none;background:linear-gradient(135deg,var(--g),var(--gl));color:var(--n);font-size:10px;font-weight:700;padding:3px 11px;border-radius:20px;font-family:'DM Mono',monospace;}
+.pcd{background:var(--cd);border:1px solid var(--bd);border-radius:10px;overflow:hidden;}
+.pr{display:flex;justify-content:space-between;align-items:center;padding:9px 12px;border-bottom:1px solid rgba(201,150,58,.06);}
+.pr:last-child{border-bottom:none;}
+.plb{font-size:10px;color:var(--mt);font-family:'DM Mono',monospace;letter-spacing:1px;text-transform:uppercase;}
+.pv{font-size:11px;color:var(--cr);font-weight:500;text-align:right;max-width:58%;word-break:break-word;}
+.pac{width:100%;background:rgba(201,150,58,.09);border:1px solid rgba(201,150,58,.27);color:var(--g);padding:10px;border-radius:8px;font-weight:600;font-size:12px;cursor:pointer;font-family:'DM Sans',sans-serif;transition:background .2s;}
+.pac:hover{background:rgba(201,150,58,.2);}
+/* SETTINGS */
+.sts{margin-bottom:15px;}
+.stt{font-family:'DM Mono',monospace;font-size:10px;color:var(--g);letter-spacing:2px;text-transform:uppercase;margin-bottom:7px;}
+.tgr{display:flex;align-items:center;gap:9px;padding:10px 12px;background:var(--cd);border:1px solid var(--bd);border-radius:8px;margin-bottom:5px;}
+.tgi{flex:1;}
+.tgn{font-weight:600;font-size:12px;color:var(--w);}
+.tgd{font-size:10px;color:var(--mt);margin-top:1px;}
+.tg{position:relative;width:38px;height:20px;background:var(--b);border-radius:10px;cursor:pointer;transition:background .3s;flex-shrink:0;border:none;}
+.tg.on{background:var(--gr);}
+.tg::after{content:'';position:absolute;top:3px;left:3px;width:14px;height:14px;border-radius:50%;background:#fff;transition:transform .3s;}
+.tg.on::after{transform:translateX(18px);}
+/* GATE */
+.gate{background:linear-gradient(135deg,rgba(26,58,107,.28),var(--m));border:1px solid rgba(201,150,58,.42);border-radius:13px;padding:22px 15px;text-align:center;margin-bottom:12px;}
+.gcr{font-size:40px;display:block;margin-bottom:9px;animation:flt 3s ease-in-out infinite;}
+.gtt{font-family:'Playfair Display',serif;font-size:1.05rem;color:var(--g);margin-bottom:5px;}
+.gds{font-size:12px;color:var(--mt);line-height:1.6;margin-bottom:13px;}
+.gfs{display:flex;flex-direction:column;gap:4px;margin-bottom:15px;text-align:left;}
+.gf{font-size:11px;color:var(--cr);display:flex;align-items:center;gap:6px;}
+.gbtn{display:block;background:linear-gradient(135deg,var(--g),var(--gl));color:var(--n);padding:12px;border-radius:8px;font-weight:700;font-size:13px;text-decoration:none;margin-bottom:5px;border:none;cursor:pointer;width:100%;font-family:'DM Sans',sans-serif;}
+.gnote{font-size:10px;color:var(--mt);}
+/* NOTIF PANEL */
+.ov{position:fixed;inset:0;background:rgba(0,0,0,.5);z-index:200;display:none;}
+.ov.on{display:block;}
+.np{position:fixed;top:0;right:0;width:min(320px,100vw);height:100%;background:var(--m);border-left:1px solid var(--bd);z-index:250;transform:translateX(100%);transition:transform .3s ease;display:flex;flex-direction:column;}
+.np.on{transform:translateX(0);}
+.nph{padding:14px;border-bottom:1px solid var(--bd);display:flex;align-items:center;justify-content:space-between;flex-shrink:0;}
+.npt{font-family:'Playfair Display',serif;color:var(--g);font-size:.9rem;}
+.npc{background:none;border:none;color:var(--mt);font-size:17px;cursor:pointer;}
+.npl{flex:1;overflow-y:auto;}
+.npi{padding:10px 12px;border-bottom:1px solid rgba(201,150,58,.06);display:flex;gap:7px;}
+.npti{font-family:'DM Mono',monospace;font-size:10px;color:var(--g);flex-shrink:0;margin-top:1px;}
+.nptx{font-size:11px;color:var(--cr);line-height:1.4;}
+.npsb{font-size:10px;color:var(--mt);margin-top:1px;}
 /* TOAST */
-.toast{position:fixed;bottom:18px;left:50%;transform:translateX(-50%) translateY(100px);background:var(--cd);border:1px solid var(--g);border-radius:9px;padding:10px 14px;display:flex;align-items:center;gap:8px;z-index:1000;transition:transform .32s;max-width:90vw;box-shadow:0 8px 30px rgba(0,0,0,.6);}
+.toast{position:fixed;bottom:18px;left:50%;transform:translateX(-50%) translateY(100px);background:var(--cd);border:1px solid var(--g);border-radius:9px;padding:10px 14px;display:flex;align-items:center;gap:8px;z-index:1000;transition:transform .32s ease;max-width:90vw;box-shadow:0 8px 30px rgba(0,0,0,.6);}
 .toast.on{transform:translateX(-50%) translateY(0);}
 #tT{font-weight:700;color:var(--g);font-size:12px;}
 #tM{font-size:11px;color:var(--cr);}
+.empty{text-align:center;padding:38px 15px;color:var(--mt);}
+.eic{font-size:34px;margin-bottom:7px;}
+.emg{font-size:12px;}
 </style>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/tesseract.js/4.1.1/tesseract.min.js"></script>
+<!-- GSAP for cinematic animation -->
 <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/gsap.min.js"></script>
 <style>
-#particleCanvas{position:fixed;inset:0;width:100%;height:100%;pointer-events:none;z-index:0;}
-.wrap{position:relative;z-index:1;}
+/* ── PARTICLE CANVAS ── */
+#particleCanvas{
+  position:fixed;
+  inset:0;
+  width:100%;
+  height:100%;
+  pointer-events:none;
+  z-index:0;
+  opacity:1;
+}
+/* Ensure all content sits above particles */
+#installBanner,#installModal,#offlineBanner,
+#cover,#app,#wov,.toast,.ov,.np{
+  position:relative;
+  z-index:1;
+}
+#cover{z-index:2;}
+#app{z-index:2;}
+/* Particle glow filter */
+.particle-glow{
+  position:fixed;
+  border-radius:50%;
+  pointer-events:none;
+  z-index:0;
+}
 </style>
 </head>
 <body>
+<!-- CINEMATIC PARTICLE CANVAS -->
 <canvas id="particleCanvas" aria-hidden="true"></canvas>
-<div class="wrap">
-  <div class="phdr">
-    <a class="bk" href="index.html">←</a>
-    <div class="ptit">NIT <em>Premium</em></div>
-  </div>
-  <div id="mainScreen">
-    <!-- HERO -->
-    <div class="hero">
-      <span class="crown">👑</span>
-      <div class="hbadge">ONE-TIME · LIFETIME ACCESS</div>
-      <h1 class="htit">Go <em>Premium</em></h1>
-      <p class="hdsc">Unlock TIDO AI tutor, offline reading library, past exam papers and more — everything you need to excel at NIT.</p>
+
+<!-- INSTALL BANNER -->
+<div id="installBanner">
+  <span>📱</span>
+  <span>Install CHEERS55 on your phone!</span>
+  <button class="ibtn" id="iBtn" onclick="doInstall()">Install App</button>
+  <button class="ixbtn" onclick="hideBanner()">✕</button>
+</div>
+
+<!-- INSTALL MODAL -->
+<div id="installModal" onclick="if(event.target===this)closeInstallModal()">
+  <div class="imodal">
+    <div class="imodal-title">Install <em>CHEERS55</em></div>
+    <div class="imodal-sub">Add to your home screen for the full app experience — works offline too!</div>
+    <div class="imodal-tabs">
+      <button class="imtab on" id="itab-android" onclick="showInstallTab('android',this)">🤖 Android</button>
+      <button class="imtab" id="itab-ios" onclick="showInstallTab('ios',this)">🍎 iPhone / iPad</button>
+      <button class="imtab" id="itab-pc" onclick="showInstallTab('pc',this)">💻 Computer</button>
     </div>
-    <!-- PRICE -->
-    <div class="price-card">
-      <div class="prow"><span class="pcur">TZS</span><span class="pamt">500</span></div>
-      <div class="pper">One-time payment · Lifetime access · No recurring charges</div>
-      <div class="pnote">✅ Pay once, use forever — all future updates included</div>
+    <!-- ANDROID -->
+    <div id="iinstr-android" class="isteps">
+      <div class="istep"><div class="istep-n">1</div><div class="istep-tx">Open this page in <strong>Chrome</strong> browser on your Android phone</div></div>
+      <div class="istep"><div class="istep-n">2</div><div class="istep-tx">Tap the <strong>3-dot menu ⋮</strong> in the top right corner of Chrome</div></div>
+      <div class="istep"><div class="istep-n">3</div><div class="istep-tx">Tap <strong>"Add to Home screen"</strong> or <strong>"Install app"</strong></div></div>
+      <div class="istep"><div class="istep-n">4</div><div class="istep-tx">Tap <strong>Install</strong> or <strong>Add</strong> — the CHEERS55 icon appears on your home screen! 🎉</div></div>
     </div>
-    <!-- FEATURES -->
-    <div class="sec-lbl">What's Included</div>
-    <div class="feat-list">
-      <div class="fi"><span class="fic">📅</span><div><div class="fn">Timetable & Notifications</div><div class="fd">Live alerts, countdown, Google Calendar sync</div></div><span class="ftag f">FREE</span></div>
-      <div class="fi"><span class="fic">📚</span><div><div class="fn">Basic Study Resources</div><div class="fd">Textbook links and online course references</div></div><span class="ftag f">FREE</span></div>
-      <div class="fi prem"><span class="fic">🤖</span><div><div class="fn">TIDO AI Tutor — 24/7</div><div class="fd">Ask unlimited questions on all 7 NIT modules, get instant explanations and exam tips</div></div><span class="ftag p">👑 PREMIUM</span></div>
-      <div class="fi prem"><span class="fic">📖</span><div><div class="fn">Offline Reading Library</div><div class="fd">Download core textbooks, lecture notes & revision guides for offline use</div></div><span class="ftag p">👑 PREMIUM</span></div>
-      <div class="fi prem"><span class="fic">📄</span><div><div class="fn">Past Exam Papers 2022–2024</div><div class="fd">Previous exam papers for all 7 modules with model answers</div></div><span class="ftag p">👑 PREMIUM</span></div>
-      <div class="fi prem"><span class="fic">🏆</span><div><div class="fn">Practice Quiz Bank</div><div class="fd">200+ practice questions with answers across all modules</div></div><span class="ftag p">👑 PREMIUM</span></div>
-      <div class="fi prem"><span class="fic">🔮</span><div><div class="fn">All Future Updates</div><div class="fd">New materials and features added every semester — included free</div></div><span class="ftag p">👑 PREMIUM</span></div>
+    <!-- iOS -->
+    <div id="iinstr-ios" class="isteps" style="display:none;">
+      <div class="istep"><div class="istep-ic">⚠️</div><div class="istep-tx">Must use <strong>Safari</strong> browser — Chrome on iPhone cannot install apps</div></div>
+      <div class="istep"><div class="istep-n">1</div><div class="istep-tx">Open this page in <strong>Safari</strong></div></div>
+      <div class="istep"><div class="istep-n">2</div><div class="istep-tx">Tap the <strong>Share button</strong> <span style="background:var(--b);padding:2px 6px;border-radius:4px;">⬆️</span> at the bottom of Safari</div></div>
+      <div class="istep"><div class="istep-n">3</div><div class="istep-tx">Scroll down and tap <strong>"Add to Home Screen"</strong></div></div>
+      <div class="istep"><div class="istep-n">4</div><div class="istep-tx">Tap <strong>Add</strong> — CHEERS55 icon appears on your iPhone home screen! 🎉</div></div>
     </div>
-    <!-- COMPARE -->
-    <div class="sec-lbl">Free vs Premium</div>
-    <div class="cmp">
-      <div class="cmp-h"><span>Feature</span><span>Free</span><span>Premium</span></div>
-      <div class="cmp-r"><div class="cmp-l">Timetable & Alerts</div><div class="cmp-c cy">✓</div><div class="cmp-c cy">✓</div></div>
-      <div class="cmp-r"><div class="cmp-l">Calendar Sync</div><div class="cmp-c cy">✓</div><div class="cmp-c cy">✓</div></div>
-      <div class="cmp-r"><div class="cmp-l">Basic Resources</div><div class="cmp-c cy">✓</div><div class="cmp-c cy">✓</div></div>
-      <div class="cmp-r"><div class="cmp-l">🤖 TIDO AI Tutor</div><div class="cmp-c cn">✗</div><div class="cmp-c cp">✓</div></div>
-      <div class="cmp-r"><div class="cmp-l">📖 Offline Library</div><div class="cmp-c cn">✗</div><div class="cmp-c cp">✓</div></div>
-      <div class="cmp-r"><div class="cmp-l">Past Exam Papers</div><div class="cmp-c cn">✗</div><div class="cmp-c cp">✓</div></div>
-      <div class="cmp-r"><div class="cmp-l">Practice Quiz Bank</div><div class="cmp-c cn">✗</div><div class="cmp-c cp">✓</div></div>
-      <div class="cmp-r"><div class="cmp-l">Future Updates</div><div class="cmp-c cn">✗</div><div class="cmp-c cp">✓</div></div>
+    <!-- PC -->
+    <div id="iinstr-pc" class="isteps" style="display:none;">
+      <div class="istep"><div class="istep-n">1</div><div class="istep-tx">Open this page in <strong>Chrome</strong> or <strong>Edge</strong> browser</div></div>
+      <div class="istep"><div class="istep-n">2</div><div class="istep-tx">Look for the <strong>install icon</strong> <span style="background:var(--b);padding:2px 6px;border-radius:4px;">⊕</span> on the right side of the address bar</div></div>
+      <div class="istep"><div class="istep-n">3</div><div class="istep-tx">Click it and select <strong>"Install"</strong> — CHEERS55 opens as its own window like a real app! 🎉</div></div>
     </div>
-    <!-- PAYMENT -->
-    <div class="pay-card">
-      <div class="pay-t">🔐 Secure Payment</div>
-      <div class="sec-lbl" style="margin-bottom:9px;">SELECT YOUR NETWORK</div>
-      <div class="net-grid">
-        <button class="net-btn on" id="nb-mpesa" onclick="selNet('mpesa',this)"><span class="net-ic">📱</span><div class="net-nm">M-Pesa</div><div class="net-sm">Vodacom</div></button>
-        <button class="net-btn" id="nb-tigo" onclick="selNet('tigo',this)"><span class="net-ic">💚</span><div class="net-nm">Tigo Pesa</div><div class="net-sm">Tigo</div></button>
-        <button class="net-btn" id="nb-airtel" onclick="selNet('airtel',this)"><span class="net-ic">🔴</span><div class="net-nm">Airtel Money</div><div class="net-sm">Airtel</div></button>
-        <button class="net-btn" id="nb-halo" onclick="selNet('halo',this)"><span class="net-ic">🟡</span><div class="net-nm">Halotel</div><div class="net-sm">HaloPesa</div></button>
-      </div>
-      <!-- PAYMENT FORM (shared for all networks) -->
-      <div class="pay-form on" id="payForm">
-        <div class="sec-lbl" style="margin-bottom:8px;" id="netLabel">M-PESA PAYMENT</div>
-        <div class="steps">
-          <div class="step"><div class="step-n">1</div><div class="step-tx">Open your <span id="netName" style="color:var(--gl);font-weight:600;">M-Pesa</span> app or dial its USSD code</div></div>
-          <div class="step"><div class="step-n">2</div><div class="step-tx">Select <strong style="color:var(--gl);">Send Money</strong> or <strong style="color:var(--gl);">Lipa Pesa</strong></div></div>
-          <div class="step"><div class="step-n">3</div><div class="step-tx">Send <strong style="color:#4ecb8c;">TZS 500</strong> to this number:<div class="pay-num-box"><div class="pay-num-lbl">CHEERS55 PAYMENT NUMBER</div><div class="pay-num">142274076</div><div class="pay-num-sub">All networks accepted</div></div></div></div>
-          <div class="step"><div class="step-n">4</div><div class="step-tx">Enter your PIN and confirm the payment</div></div>
-          <div class="step"><div class="step-n" style="background:var(--gr);color:#fff;">5</div><div class="step-tx">Come back here and enter your phone number and transaction ID to activate Premium</div></div>
-        </div>
-        <div class="fg"><label class="fl">Your Phone Number (Used to Pay)</label><input class="fip" type="tel" id="payPhone" placeholder="e.g. 0744 123 456" maxlength="13"></div>
-        <div class="fg"><label class="fl">Your Full Name</label><input class="fip" type="text" id="payName" placeholder="Name as on your mobile money account"></div>
-        <div class="fg"><label class="fl">Transaction ID / Reference</label><input class="fip" type="text" id="payTxId" placeholder="e.g. ABC123456 (from your payment SMS)" style="font-family:'DM Mono',monospace;letter-spacing:1px;"><div style="font-size:10px;color:var(--mt);margin-top:4px;">📩 This is in the SMS you received after paying</div></div>
-        <button class="pay-btn" id="payBtn" onclick="confirmPayment()"><span id="payBtnIc">📱</span> Confirm TZS 500 & Unlock Premium</button>
-        <p class="pay-note">After submitting, your Premium access will be activated · All networks · <strong style="color:var(--g);">142274076</strong></p>
-      </div>
-    </div>
-    <p style="text-align:center;font-size:11px;color:var(--mt);line-height:1.6;margin-bottom:28px;">Questions? Contact <strong style="color:var(--g);">support@cheers55.app</strong><br>30-day money-back guarantee if not satisfied</p>
-  </div>
-  <!-- SUCCESS -->
-  <div id="successScreen">
-    <span class="sic">🎉</span>
-    <h2 class="stit">Welcome to Premium,<br><span id="succName" style="color:var(--gl);">Student</span>!</h2>
-    <p class="sdsc">Your payment of <strong style="color:#4ecb8c;">TZS 500</strong> has been received. You now have lifetime access to all premium features.</p>
-    <div class="sfeats">
-      <div class="sf">🤖 TIDO AI Tutor — Unlimited questions 24/7</div>
-      <div class="sf">📖 Offline Reading Library — 15+ resources</div>
-      <div class="sf">📄 Past Exam Papers — All 7 modules</div>
-      <div class="sf">🏆 Practice Quiz Bank — 200+ questions</div>
-      <div class="sf">🔮 All Future Updates — Free forever</div>
-    </div>
-    <button class="open-btn" onclick="location.href='index.html'">Open CHEERS55 Dashboard →</button>
+    <div class="imodal-already" id="imodalAlready">✅ You can install this app right now — tap the button below!</div>
+    <button id="iModalInstallBtn" class="imodal-close" onclick="doInstall()" style="display:none;">📲 Install CHEERS55 Now</button>
+    <button class="imodal-close" id="iModalCloseBtn" onclick="closeInstallModal()">Got it — I'll install it!</button>
   </div>
 </div>
+
+<!-- COVER -->
+<div id="cover">
+
+  <!-- ANIMATED SEA SCENE -->
+  <div class="sea-scene">
+    <svg class="sea-svg" viewBox="0 0 360 320" xmlns="http://www.w3.org/2000/svg">
+      <defs>
+        <!-- Sky gradient -->
+        <linearGradient id="sky" x1="0" y1="0" x2="0" y2="1">
+          <stop offset="0%" stop-color="#05101e"/>
+          <stop offset="60%" stop-color="#0a1628"/>
+          <stop offset="100%" stop-color="#0d2244"/>
+        </linearGradient>
+        <!-- Sea gradient -->
+        <linearGradient id="sea" x1="0" y1="0" x2="0" y2="1">
+          <stop offset="0%" stop-color="#0a2a4a"/>
+          <stop offset="100%" stop-color="#051525"/>
+        </linearGradient>
+        <!-- Gold shimmer -->
+        <radialGradient id="glow" cx="50%" cy="50%" r="50%">
+          <stop offset="0%" stop-color="#c9963a" stop-opacity="0.3"/>
+          <stop offset="100%" stop-color="#c9963a" stop-opacity="0"/>
+        </radialGradient>
+        <!-- Skin tone -->
+        <linearGradient id="skin" x1="0" y1="0" x2="0" y2="1">
+          <stop offset="0%" stop-color="#d4956a"/>
+          <stop offset="100%" stop-color="#c07a50"/>
+        </linearGradient>
+        <!-- Uniform -->
+        <linearGradient id="uniform" x1="0" y1="0" x2="0" y2="1">
+          <stop offset="0%" stop-color="#1a3a6b"/>
+          <stop offset="100%" stop-color="#0d2244"/>
+        </linearGradient>
+      </defs>
+
+      <!-- SKY -->
+      <rect width="360" height="320" fill="url(#sky)"/>
+
+      <!-- STARS -->
+      <g id="stars">
+        <circle cx="30" cy="25" r="1.2" fill="#fff" opacity="0.8"><animate attributeName="opacity" values="0.8;0.2;0.8" dur="2.3s" repeatCount="indefinite"/></circle>
+        <circle cx="80" cy="15" r="0.9" fill="#fff" opacity="0.7"><animate attributeName="opacity" values="0.7;0.1;0.7" dur="1.8s" repeatCount="indefinite"/></circle>
+        <circle cx="140" cy="20" r="1.1" fill="#fff" opacity="0.9"><animate attributeName="opacity" values="0.9;0.3;0.9" dur="2.7s" repeatCount="indefinite"/></circle>
+        <circle cx="200" cy="10" r="0.8" fill="#fff" opacity="0.6"><animate attributeName="opacity" values="0.6;0.1;0.6" dur="3.1s" repeatCount="indefinite"/></circle>
+        <circle cx="260" cy="18" r="1.3" fill="#fff" opacity="0.8"><animate attributeName="opacity" values="0.8;0.2;0.8" dur="2.0s" repeatCount="indefinite"/></circle>
+        <circle cx="310" cy="28" r="0.9" fill="#fff" opacity="0.5"><animate attributeName="opacity" values="0.5;0.1;0.5" dur="2.5s" repeatCount="indefinite"/></circle>
+        <circle cx="55" cy="50" r="0.8" fill="#e8b84b" opacity="0.6"><animate attributeName="opacity" values="0.6;0.2;0.6" dur="3.4s" repeatCount="indefinite"/></circle>
+        <circle cx="320" cy="45" r="1.0" fill="#e8b84b" opacity="0.5"><animate attributeName="opacity" values="0.5;0.1;0.5" dur="2.9s" repeatCount="indefinite"/></circle>
+        <circle cx="170" cy="38" r="0.7" fill="#fff" opacity="0.7"><animate attributeName="opacity" values="0.7;0.2;0.7" dur="1.6s" repeatCount="indefinite"/></circle>
+        <circle cx="340" cy="12" r="1.1" fill="#fff" opacity="0.8"><animate attributeName="opacity" values="0.8;0.3;0.8" dur="2.2s" repeatCount="indefinite"/></circle>
+      </g>
+
+      <!-- MOON -->
+      <g transform="translate(300,38)">
+        <circle r="18" fill="#e8b84b" opacity="0.18"><animate attributeName="r" values="18;20;18" dur="4s" repeatCount="indefinite"/></circle>
+        <circle r="13" fill="#f5dc7a"/>
+        <circle cx="4" cy="-3" r="10" fill="#0a1628"/>
+      </g>
+
+      <!-- DISTANT SHIP SILHOUETTE -->
+      <g transform="translate(290,148)" opacity="0.35">
+        <rect x="-18" y="-8" width="36" height="8" rx="2" fill="#0d2244"/>
+        <rect x="-4" y="-20" width="3" height="12" fill="#0d2244"/>
+        <rect x="4" y="-16" width="2" height="8" fill="#0d2244"/>
+        <path d="M -20 0 L 20 0 L 14 6 L -14 6 Z" fill="#0d2244"/>
+        <animateTransform attributeName="transform" type="translate" values="290,148;294,146;290,148" dur="8s" repeatCount="indefinite"/>
+      </g>
+
+      <!-- OCEAN WAVES (animated) -->
+      <g id="oceanWaves">
+        <!-- Main water body -->
+        <rect x="0" y="195" width="360" height="125" fill="url(#sea)"/>
+        <!-- Wave layer 1 -->
+        <path id="wave1" d="M0,200 Q30,192 60,200 Q90,208 120,200 Q150,192 180,200 Q210,208 240,200 Q270,192 300,200 Q330,208 360,200 L360,210 L0,210 Z" fill="#0e3355" opacity="0.8">
+          <animate attributeName="d" dur="3s" repeatCount="indefinite"
+            values="M0,200 Q30,192 60,200 Q90,208 120,200 Q150,192 180,200 Q210,208 240,200 Q270,192 300,200 Q330,208 360,200 L360,210 L0,210 Z;
+                    M0,204 Q30,196 60,204 Q90,212 120,204 Q150,196 180,204 Q210,212 240,204 Q270,196 300,204 Q330,212 360,204 L360,210 L0,210 Z;
+                    M0,200 Q30,192 60,200 Q90,208 120,200 Q150,192 180,200 Q210,208 240,200 Q270,192 300,200 Q330,208 360,200 L360,210 L0,210 Z"/>
+        </path>
+        <!-- Wave layer 2 -->
+        <path d="M0,210 Q45,202 90,210 Q135,218 180,210 Q225,202 270,210 Q315,218 360,210 L360,220 L0,220 Z" fill="#0a2a4a" opacity="0.7">
+          <animate attributeName="d" dur="4s" repeatCount="indefinite"
+            values="M0,210 Q45,202 90,210 Q135,218 180,210 Q225,202 270,210 Q315,218 360,210 L360,220 L0,220 Z;
+                    M0,207 Q45,215 90,207 Q135,199 180,207 Q225,215 270,207 Q315,199 360,207 L360,220 L0,220 Z;
+                    M0,210 Q45,202 90,210 Q135,218 180,210 Q225,202 270,210 Q315,218 360,210 L360,220 L0,220 Z"/>
+        </path>
+        <!-- Foam lines -->
+        <g opacity="0.4">
+          <path d="M20,205 Q40,202 60,205" stroke="#8ab4d4" stroke-width="1.5" fill="none">
+            <animate attributeName="opacity" values="0.4;0.1;0.4" dur="2.5s" repeatCount="indefinite"/>
+          </path>
+          <path d="M140,208 Q170,204 200,208" stroke="#8ab4d4" stroke-width="1.5" fill="none">
+            <animate attributeName="opacity" values="0.3;0.1;0.3" dur="3s" repeatCount="indefinite"/>
+          </path>
+          <path d="M270,205 Q300,201 330,205" stroke="#8ab4d4" stroke-width="1.5" fill="none">
+            <animate attributeName="opacity" values="0.4;0.1;0.4" dur="2s" repeatCount="indefinite"/>
+          </path>
+        </g>
+        <!-- Gold moon reflection on water -->
+        <ellipse cx="305" cy="210" rx="18" ry="5" fill="#e8b84b" opacity="0.12">
+          <animate attributeName="rx" values="18;22;18" dur="3s" repeatCount="indefinite"/>
+          <animate attributeName="opacity" values="0.12;0.06;0.12" dur="3s" repeatCount="indefinite"/>
+        </ellipse>
+      </g>
+
+      <!-- SHIP DECK (captain stands on) -->
+      <g id="ship">
+        <animateTransform attributeName="transform" type="translate" values="0,0;0,-3;0,1;0,-2;0,0" dur="5s" repeatCount="indefinite"/>
+
+        <!-- Hull -->
+        <path d="M90,215 L270,215 L255,240 L105,240 Z" fill="#0d2244"/>
+        <path d="M95,215 L265,215 L252,238 L108,238 Z" fill="#132040"/>
+        <!-- Hull detail stripe -->
+        <path d="M100,222 L260,222" stroke="#c9963a" stroke-width="1.5" opacity="0.6"/>
+        <!-- Deck -->
+        <rect x="100" y="200" width="160" height="15" rx="2" fill="#1a3a6b"/>
+        <rect x="100" y="200" width="160" height="4" fill="#1e4080"/>
+        <!-- Deck planks -->
+        <line x1="140" y1="200" x2="140" y2="215" stroke="#0d2244" stroke-width="0.8" opacity="0.5"/>
+        <line x1="180" y1="200" x2="180" y2="215" stroke="#0d2244" stroke-width="0.8" opacity="0.5"/>
+        <line x1="220" y1="200" x2="220" y2="215" stroke="#0d2244" stroke-width="0.8" opacity="0.5"/>
+        <!-- Railing posts -->
+        <rect x="105" y="193" width="2" height="9" fill="#c9963a" opacity="0.7"/>
+        <rect x="253" y="193" width="2" height="9" fill="#c9963a" opacity="0.7"/>
+        <!-- Railing rope -->
+        <path d="M106,194 Q180,190 254,194" stroke="#c9963a" stroke-width="1.2" fill="none" opacity="0.6"/>
+        <!-- Anchor chain -->
+        <path d="M115,215 Q112,225 110,235" stroke="#8a9ab5" stroke-width="1.5" fill="none" opacity="0.5" stroke-dasharray="2,2"/>
+        <!-- Porthole -->
+        <circle cx="230" cy="228" r="6" fill="#0a1628" stroke="#c9963a" stroke-width="1.5"/>
+        <circle cx="230" cy="228" r="3" fill="#1a3a6b"/>
+        <circle cx="220" cy="228" r="5" fill="#0a1628" stroke="#8a9ab5" stroke-width="1" opacity="0.7"/>
+        <!-- Flag mast -->
+        <rect x="178" y="150" width="2" height="52" fill="#8a9ab5"/>
+        <!-- Waving flag -->
+        <path id="flag" d="M180,153 Q200,157 220,153 Q200,160 180,163 Z" fill="#c9963a">
+          <animate attributeName="d" dur="1.5s" repeatCount="indefinite"
+            values="M180,153 Q200,157 220,153 Q200,160 180,163 Z;
+                    M180,153 Q205,158 225,154 Q205,162 180,165 Z;
+                    M180,153 Q200,157 220,153 Q200,160 180,163 Z"/>
+        </path>
+        <text x="193" y="160" font-size="5" fill="#0a1628" font-weight="bold">C55</text>
+      </g>
+
+      <!-- ══ CAPTAIN CHARACTER ══ -->
+      <g id="captain">
+        <animateTransform attributeName="transform" type="translate" values="0,0;0,-3;0,1;0,-2;0,0" dur="5s" repeatCount="indefinite"/>
+
+        <!-- Shadow under captain -->
+        <ellipse cx="180" cy="205" rx="22" ry="4" fill="#000" opacity="0.25"/>
+
+        <!-- LEGS -->
+        <rect x="168" y="186" width="9" height="18" rx="3" fill="#0d2244"/>
+        <rect x="183" y="186" width="9" height="18" rx="3" fill="#0d2244"/>
+        <!-- Trouser stripe -->
+        <line x1="172" y1="186" x2="172" y2="204" stroke="#c9963a" stroke-width="1" opacity="0.7"/>
+        <line x1="187" y1="186" x2="187" y2="204" stroke="#c9963a" stroke-width="1" opacity="0.7"/>
+        <!-- SHOES -->
+        <ellipse cx="172" cy="204" rx="7" ry="3" fill="#1a0a00"/>
+        <ellipse cx="188" cy="204" rx="7" ry="3" fill="#1a0a00"/>
+
+        <!-- BODY / UNIFORM JACKET -->
+        <rect x="160" y="155" width="40" height="34" rx="6" fill="url(#uniform)"/>
+        <!-- Jacket lapels -->
+        <path d="M180,158 L172,170 L168,155 Z" fill="#1a3a6b"/>
+        <path d="M180,158 L188,170 L192,155 Z" fill="#1a3a6b"/>
+        <!-- Gold buttons -->
+        <circle cx="180" cy="164" r="2" fill="#c9963a"/>
+        <circle cx="180" cy="172" r="2" fill="#c9963a"/>
+        <circle cx="180" cy="180" r="2" fill="#c9963a"/>
+        <!-- Epaulettes -->
+        <rect x="157" y="155" width="10" height="5" rx="2" fill="#c9963a"/>
+        <rect x="193" y="155" width="10" height="5" rx="2" fill="#c9963a"/>
+        <circle cx="162" cy="157" r="2" fill="#e8b84b"/>
+        <circle cx="198" cy="157" r="2" fill="#e8b84b"/>
+        <!-- Chest badge / medal -->
+        <circle cx="172" cy="163" r="3.5" fill="#c9963a" opacity="0.9"/>
+        <circle cx="172" cy="163" r="1.5" fill="#e8b84b"/>
+
+        <!-- WAVING ARM (RIGHT) -->
+        <g id="waveArm">
+          <animateTransform attributeName="transform" type="rotate" values="-10,203,160;15,203,160;-5,203,160;20,203,160;-10,203,160" dur="2s" repeatCount="indefinite"/>
+          <!-- Upper arm -->
+          <rect x="199" y="155" width="8" height="20" rx="4" fill="url(#uniform)" transform="rotate(30,203,160)"/>
+          <!-- Forearm -->
+          <rect x="202" y="168" width="7" height="18" rx="3" fill="url(#skin)" transform="rotate(-20,205,168)"/>
+          <!-- HAND waving -->
+          <ellipse cx="206" cy="182" rx="5" ry="4" fill="url(#skin)" transform="rotate(-30,206,180)"/>
+          <!-- Fingers -->
+          <ellipse cx="204" cy="179" rx="1.5" ry="3" fill="url(#skin)" transform="rotate(-40,204,179)"/>
+          <ellipse cx="208" cy="178" rx="1.5" ry="3" fill="url(#skin)" transform="rotate(-20,208,178)"/>
+          <ellipse cx="210" cy="180" rx="1.5" ry="2.5" fill="url(#skin)" transform="rotate(10,210,180)"/>
+        </g>
+
+        <!-- LEFT ARM at side -->
+        <rect x="153" y="155" width="8" height="22" rx="4" fill="url(--uniform)"/>
+        <rect x="153" y="155" width="8" height="22" rx="4" fill="#1a3a6b"/>
+        <!-- Left hand -->
+        <ellipse cx="157" cy="179" rx="5" ry="4" fill="url(#skin)"/>
+
+        <!-- NECK -->
+        <rect x="174" y="142" width="12" height="14" rx="4" fill="url(#skin)"/>
+        <!-- Collar / tie -->
+        <path d="M174,144 L180,152 L186,144" fill="none" stroke="#8a9ab5" stroke-width="1.5"/>
+        <path d="M178,148 L180,156 L182,148" fill="#c9963a"/>
+
+        <!-- HEAD -->
+        <ellipse cx="180" cy="136" rx="17" ry="16" fill="url(#skin)"/>
+        <!-- Ear left -->
+        <ellipse cx="163" cy="136" rx="4" ry="5" fill="#c07a50"/>
+        <!-- Ear right -->
+        <ellipse cx="197" cy="136" rx="4" ry="5" fill="#c07a50"/>
+
+        <!-- FACE -->
+        <!-- Eyes -->
+        <ellipse cx="174" cy="133" rx="3.5" ry="3" fill="#1a0a00"/>
+        <ellipse cx="186" cy="133" rx="3.5" ry="3" fill="#1a0a00"/>
+        <!-- Eye whites -->
+        <ellipse cx="173" cy="132" rx="1.2" ry="1.2" fill="#fff" opacity="0.7"/>
+        <ellipse cx="185" cy="132" rx="1.2" ry="1.2" fill="#fff" opacity="0.7"/>
+        <!-- Eyebrow left -->
+        <path d="M170,128 Q174,126 178,128" stroke="#5a3010" stroke-width="1.8" fill="none" stroke-linecap="round"/>
+        <!-- Eyebrow right -->
+        <path d="M182,128 Q186,126 190,128" stroke="#5a3010" stroke-width="1.8" fill="none" stroke-linecap="round"/>
+        <!-- SMILE -->
+        <path d="M173,141 Q180,147 187,141" stroke="#8a4020" stroke-width="2" fill="none" stroke-linecap="round">
+          <animate attributeName="d" values="M173,141 Q180,147 187,141;M173,140 Q180,148 187,140;M173,141 Q180,147 187,141" dur="4s" repeatCount="indefinite"/>
+        </path>
+        <!-- Moustache -->
+        <path d="M173,139 Q177,142 180,139 Q183,142 187,139" stroke="#5a3010" stroke-width="1.8" fill="none" stroke-linecap="round"/>
+        <!-- Nose -->
+        <path d="M178,134 Q176,138 179,139 Q181,139 182,138 Q185,138 183,134" stroke="#b06040" stroke-width="1.2" fill="none"/>
+
+        <!-- CAPTAIN CAP -->
+        <g id="captainCap">
+          <!-- Cap brim -->
+          <ellipse cx="180" cy="122" rx="22" ry="5" fill="#0d2244"/>
+          <!-- Cap brim sheen -->
+          <path d="M158,122 Q180,118 202,122" stroke="#1a3a6b" stroke-width="1.5" fill="none"/>
+          <!-- Cap body -->
+          <path d="M160,122 Q162,105 180,103 Q198,105 200,122 Z" fill="#1a3a6b"/>
+          <!-- Cap top flat -->
+          <ellipse cx="180" cy="104" rx="18" ry="5" fill="#0d2244"/>
+          <!-- Gold band on cap -->
+          <path d="M161,118 Q180,114 199,118" stroke="#c9963a" stroke-width="2.5" fill="none" opacity="0.9"/>
+          <!-- Gold band emblem -->
+          <circle cx="180" cy="116" r="4" fill="#c9963a"/>
+          <text x="180" y="118.5" text-anchor="middle" font-size="4" fill="#0a1628" font-weight="bold">⚓</text>
+          <!-- Cap peak -->
+          <path d="M158,122 Q148,124 152,127 Q162,126 165,122 Z" fill="#0d2244"/>
+          <!-- Peak sheen -->
+          <path d="M152,125 Q158,124 164,123" stroke="#1a3a6b" stroke-width="0.8" fill="none" opacity="0.7"/>
+          <!-- Cap top button -->
+          <circle cx="180" cy="103" r="2" fill="#c9963a"/>
+        </g>
+
+        <!-- BINOCULARS in left hand -->
+        <g transform="translate(148,178)" opacity="0.9">
+          <rect x="-8" y="-4" width="7" height="10" rx="2" fill="#1a0a00"/>
+          <rect x="1" y="-4" width="7" height="10" rx="2" fill="#1a0a00"/>
+          <rect x="-1" y="-2" width="2" height="6" fill="#333"/>
+          <circle cx="-4" cy="2" r="2.5" fill="#0a2a4a" stroke="#555" stroke-width="0.8"/>
+          <circle cx="4" cy="2" r="2.5" fill="#0a2a4a" stroke="#555" stroke-width="0.8"/>
+          <!-- Lens glint -->
+          <circle cx="-5" cy="1" r="0.8" fill="#6aa3f8" opacity="0.6"/>
+          <circle cx="3" cy="1" r="0.8" fill="#6aa3f8" opacity="0.6"/>
+        </g>
+
+      </g><!-- end captain -->
+
+      <!-- SPOTLIGHT / GLOW EFFECT on captain -->
+      <ellipse cx="180" cy="165" rx="35" ry="60" fill="url(#glow)" opacity="0.5">
+        <animate attributeName="opacity" values="0.5;0.3;0.5" dur="3s" repeatCount="indefinite"/>
+      </ellipse>
+
+      <!-- CHEERS55 NAMEPLATE on ship -->
+      <rect x="145" y="223" width="70" height="12" rx="2" fill="#c9963a" opacity="0.9"/>
+      <text x="180" y="232" text-anchor="middle" font-family="Georgia,serif" font-size="7" font-weight="bold" fill="#0a1628" letter-spacing="1">CHEERS55</text>
+
+      <!-- FOREGROUND WAVES -->
+      <path d="M0,270 Q40,262 80,270 Q120,278 160,270 Q200,262 240,270 Q280,278 320,270 Q340,266 360,270 L360,320 L0,320 Z" fill="#071520" opacity="0.7">
+        <animate attributeName="d" dur="2.5s" repeatCount="indefinite"
+          values="M0,270 Q40,262 80,270 Q120,278 160,270 Q200,262 240,270 Q280,278 320,270 Q340,266 360,270 L360,320 L0,320 Z;
+                  M0,274 Q40,266 80,274 Q120,282 160,274 Q200,266 240,274 Q280,282 320,274 Q340,270 360,274 L360,320 L0,320 Z;
+                  M0,270 Q40,262 80,270 Q120,278 160,270 Q200,262 240,270 Q280,278 320,270 Q340,266 360,270 L360,320 L0,320 Z"/>
+      </path>
+
+      <!-- WELCOME TEXT BUBBLE -->
+      <g id="speechBubble">
+        <animate attributeName="opacity" values="0;0;1;1;1;0" dur="5s" repeatCount="indefinite"/>
+        <rect x="210" y="100" width="120" height="40" rx="8" fill="#c9963a" opacity="0.95"/>
+        <polygon points="218,140 210,150 228,140" fill="#c9963a" opacity="0.95"/>
+        <text x="270" y="117" text-anchor="middle" font-family="Georgia,serif" font-size="7.5" font-weight="bold" fill="#0a1628">Welcome aboard!</text>
+        <text x="270" y="129" text-anchor="middle" font-family="Georgia,serif" font-size="7" fill="#0a1628">Your voyage starts</text>
+        <text x="270" y="139" text-anchor="middle" font-family="Georgia,serif" font-size="7" fill="#0a1628">here. ⚓</text>
+      </g>
+
+    </svg>
+  </div><!-- end sea-scene -->
+
+  <div class="cvpill"><span class="tdot"></span>TIDO AI – Smart Student Hub</div>
+  <h1 class="cvt">CHEERS<em>55</em></h1>
+  <p class="cvsb">National Institute of Transport</p>
+  <p class="cvco">HDSPLM I – Stream A (305)</p>
+  <div class="cvd"></div>
+  <button class="cvbtn" id="enterBtn" onclick="enterApp()">Enter Dashboard →</button>
+  <button onclick="openInstallModal()" style="margin-top:12px;background:transparent;border:1px solid rgba(201,150,58,.4);color:var(--g);padding:10px 28px;border-radius:20px;font-family:'DM Sans',sans-serif;font-size:12px;font-weight:600;cursor:pointer;letter-spacing:1px;transition:all .2s;" id="cvInstallBtn">📲 Install as App</button>
+  <div class="cvsts">
+    <div class="cvst"><span class="n">7</span><span class="l">Modules</span></div>
+    <div class="cvst"><span class="n">6</span><span class="l">Days/Wk</span></div>
+    <div class="cvst"><span class="n">340</span><span class="l">Capacity</span></div>
+  </div>
+</div>
+<!-- APP -->
+<div id="app">
+  <header class="hdr">
+    <svg width="26" height="26" viewBox="0 0 120 120"><circle cx="60" cy="60" r="57" fill="none" stroke="#c9963a" stroke-width="2.5"/><circle cx="60" cy="60" r="49" fill="#0a1628"/><text x="60" y="56" text-anchor="middle" font-family="Georgia,serif" font-size="19" font-weight="bold" fill="#c9963a">C55</text><text x="60" y="69" text-anchor="middle" font-family="Georgia,serif" font-size="8" fill="#e8b84b" letter-spacing="2.5">CHEERS</text></svg>
+    <div><div class="htit">CHEERS<em>55</em></div><div class="hbg">TIDO AI</div></div>
+    <div class="hr">
+      <div class="clk" id="clk">--:--</div>
+      <button class="hbtn" onclick="openNP()">🔔<div class="ndot" id="ndot"></div></button>
+      <button class="hbtn" onclick="doLogout()">🚪</button>
+    </div>
+  </header>
+  <nav class="nav">
+    <button class="nt on" onclick="goTab('today',this)"><span class="ni">📅</span>Today</button>
+    <button class="nt" onclick="goTab('timetable',this)"><span class="ni">🗓</span>Week</button>
+    <button class="nt" onclick="goTab('modules',this)"><span class="ni">📚</span>Modules</button>
+    <button class="nt" onclick="goTab('ai',this)"><span class="ni">🤖</span>TIDO AI</button>
+    <button class="nt" onclick="goTab('downloads',this)"><span class="ni">⬇️</span>Downloads</button>
+    <button class="nt" onclick="goTab('calendar',this)"><span class="ni">📅</span>Calendar</button>
+    <button class="nt" onclick="goTab('profile',this)"><span class="ni">👤</span>Profile</button>
+    <button class="nt" onclick="goTab('settings',this)"><span class="ni">⚙️</span>Alerts</button>
+  </nav>
+  <div class="ct">
+    <!-- TODAY -->
+    <div class="sec on" id="sec-today">
+      <div id="lecAlerts"></div>
+      <div class="tdh">
+        <div class="tdl">Today's Schedule</div>
+        <div class="tdd" id="tDay">—</div>
+        <div class="tddt" id="tDate"></div>
+        <div class="nxb"><span style="font-size:19px;">⏳</span><div class="nxi"><div class="nxl">Next Up</div><div class="nxn" id="nxN">Loading…</div><div class="nxt" id="nxT"></div></div><div class="cdb" id="cdb">--</div></div>
+      </div>
+      <div class="ll" id="todayLL"></div>
+    </div>
+    <!-- TIMETABLE -->
+    <div class="sec" id="sec-timetable">
+      <div class="ttm"><button class="ttmb on" id="ttmd" onclick="ttMode('d')">🏫 Default</button><button class="ttmb" id="ttmc" onclick="ttMode('c')">📤 Upload New</button></div>
+      <div id="ttdd"><h2 class="stit">Weekly Timetable</h2><p class="sdsc">HDSPLM I – Stream A · LR 01-B18 · Cap. 340</p><div id="fullTT"></div></div>
+      <div id="ttcc" style="display:none;">
+        <div id="tt-uc"><div class="upc"><div class="uph"><span class="upbi">📤</span><h3 class="upt">Upload Any Timetable</h3><p class="upd">Upload a photo, screenshot, CSV or text file — processed instantly, works offline</p></div><div class="fmtr"><span class="fp">📸 Photo</span><span class="fp">🖼️ Screenshot</span><span class="fp">📋 CSV</span><span class="fp">📄 TXT</span><span class="fp">✏️ Manual</span></div><div class="dz" id="dz" onclick="document.getElementById('ttf').click()" ondragover="dov(event)" ondragleave="dol(event)" ondrop="dod(event)"><div class="dzi">📸</div><div class="dzm">Tap to upload photo, screenshot or file</div><div class="dzs">Auto-enhanced · OCR · 3-pass processing · Works on low quality photos</div></div><input type="file" id="ttf" accept="image/*,.csv,.txt" style="display:none;" onchange="onTTf(event)"><div class="divr"><div class="divl"></div><div class="divt">or enter manually</div><div class="divl"></div></div><button class="mnbtn" onclick="showMan()">✏️ Enter Manually</button></div></div>
+<div id="tt-pc" style="display:none;"><div class="prc"><div class="psp"><div class="sr"></div><span class="sic">🤖</span></div><div class="ptit">Processing your timetable…</div><div class="psts"><div class="ps" id="ps1">🖼️ Enhancing image…</div><div class="ps" id="ps2">🔍 Running OCR scan…</div><div class="ps" id="ps3">📅 Extracting data…</div><div class="ps" id="ps4">🏗️ Building schedule…</div></div><div style="background:rgba(201,150,58,.08);border:1px solid rgba(201,150,58,.2);border-radius:8px;padding:10px 12px;margin-top:12px;font-size:11px;color:var(--mt);line-height:1.6;text-align:left;"><strong style='color:var(--gl);'>💡 For best results:</strong><br>• Good lighting, no shadows on text<br>• Photo taken straight-on, not at an angle<br>• Even low-quality photos are enhanced automatically</div></div></div>
+        <div id="tt-mc" style="display:none;"><div class="mnc"><div style="display:flex;align-items:center;gap:7px;margin-bottom:12px;"><button onclick="showUpC()" style="background:none;border:none;color:var(--mt);font-size:15px;cursor:pointer;">←</button><div style="font-family:'Playfair Display',serif;font-size:.9rem;color:var(--w);">Manual Entry</div></div><label style="font-size:10px;color:var(--mt);font-family:'DM Mono',monospace;display:block;margin-bottom:4px;">TIMETABLE NAME</label><input style="width:100%;background:var(--m);border:1px solid var(--bd);border-radius:7px;padding:9px 10px;color:var(--cr);font-family:'DM Sans',sans-serif;font-size:12px;outline:none;margin-bottom:12px;" type="text" id="manName" placeholder="e.g. Semester II 2025/2026"><div class="mhdr"><span>Day</span><span>Subject</span><span>Start</span><span>End</span><span>Room</span><span></span></div><div id="manRows"></div><button class="arb" onclick="addRow()">+ Add Lecture</button><button class="svb" onclick="saveMan()">✅ Save Timetable</button></div></div>
+        <div id="tt-dc" style="display:none;"><div class="cttd"><div><div class="cttn" id="cttN">My Timetable</div><div class="cttm" id="cttM"></div></div><div style="display:flex;gap:5px;flex-shrink:0;"><button class="ta" onclick="expTT()">📅</button><button class="ta del" onclick="delTT()">🗑</button></div></div><div id="cttB"></div><div class="aisg" id="aiSg" style="display:none;"><div class="aisgt">🤖 TIDO AI SUGGESTIONS</div><div id="aiSgB"></div></div><button class="upan" onclick="showUpC()">📤 Upload Another Timetable</button></div>
+      </div>
+    </div>
+    <!-- MODULES -->
+    <div class="sec" id="sec-modules">
+      <h2 class="stit">Modules & Resources</h2><p class="sdsc">Textbooks, free courses & official references</p>
+      <div class="mg" id="modG"></div>
+    </div>
+    <!-- TIDO AI -->
+    <div class="sec" id="sec-ai">
+      <h2 class="stit">🤖 TIDO AI Tutor</h2><p class="sdsc">Ask anything about your NIT modules — works offline, no internet needed</p>
+      <div id="aiGate"></div>
+      <div id="aiApp" style="display:none;">
+        <div class="aich" id="aiCh"><div class="abub"><div class="aav">🤖</div><div class="amsg">Hello! I'm <strong>TIDO AI</strong> — your built-in CHEERS55 tutor. I work completely <strong>offline</strong> with no internet needed! Ask me anything about your 7 NIT modules: Maritime Transport, Fleet Management, Port Operations, HRM, Research Methods, Entrepreneurship, or Maritime Strategy. 🎓</div></div></div>
+        <div class="acs">
+          <span class="ach" onclick="chip(this)">What is fleet management?</span>
+          <span class="ach" onclick="chip(this)">Explain port competition</span>
+          <span class="ach" onclick="chip(this)">Maritime strategy basics</span>
+          <span class="ach" onclick="chip(this)">HRM key concepts</span>
+          <span class="ach" onclick="chip(this)">Research methodology steps</span>
+          <span class="ach" onclick="chip(this)">Entrepreneurship skills</span>
+          <span class="ach" onclick="chip(this)">Maritime transport definition</span>
+          <span class="ach" onclick="chip(this)">What is HRM?</span>
+          <span class="ach" onclick="chip(this)">Types of ships in Tanzania</span>
+          <span class="ach" onclick="chip(this)">What is SWOT analysis?</span>
+          <span class="ach" onclick="chip(this)">Explain research design</span>
+          <span class="ach" onclick="chip(this)">Port of Dar es Salaam</span>
+        </div>
+        <div class="ainr"><input class="ainp" id="aiInp" placeholder="Ask TIDO AI your question…" onkeydown="if(event.key==='Enter')sendAI()"><button class="asnd" onclick="sendAI()">➤</button></div>
+        <div style="font-size:10px;color:var(--mt);text-align:center;margin-top:8px;font-family:'DM Mono',monospace;">✅ Works offline · No API key needed · Built-in knowledge base</div>
+      </div>
+    </div>
+    <!-- DOWNLOADS -->
+    <div class="sec" id="sec-downloads">
+      <h2 class="stit">⬇️ Downloads</h2><p class="sdsc">Books, notes & past papers saved for offline reading</p>
+      <div id="dlGate"></div>
+      <div id="dlApp" style="display:none;">
+        <div class="dlss"><div class="dlst"><span class="n" id="dlCt">0</span><span class="l">Saved</span></div><div class="dlst"><span class="n" id="dlBk">0</span><span class="l">Books</span></div><div class="dlst"><span class="n" id="dlPp">0</span><span class="l">Papers</span></div></div>
+        <div class="dlts"><span class="dlt on" onclick="dlTab('all',this)">All</span><span class="dlt" onclick="dlTab('books',this)">📘 Books</span><span class="dlt" onclick="dlTab('notes',this)">📄 Notes</span><span class="dlt" onclick="dlTab('papers',this)">🗂 Papers</span><span class="dlt" onclick="dlTab('saved',this)">✅ Saved</span></div>
+        <div id="dlList"></div>
+      </div>
+    </div>
+    <!-- CALENDAR -->
+    <div class="sec" id="sec-calendar">
+      <h2 class="stit">Google Calendar</h2><p class="sdsc">Sync your lectures with Google Calendar</p>
+      <div class="gcc"><div style="display:flex;align-items:center;gap:9px;margin-bottom:10px;"><svg width="30" height="30" viewBox="0 0 24 24"><rect width="24" height="24" rx="3" fill="white"/><rect x="3" y="6" width="18" height="15" rx="1" fill="white" stroke="#ddd"/><rect x="3" y="6" width="18" height="4" fill="#4285F4"/><rect x="7" y="3" width="2" height="4" rx="1" fill="#555"/><rect x="15" y="3" width="2" height="4" rx="1" fill="#555"/><text x="12" y="18" text-anchor="middle" font-size="6" font-weight="bold" fill="#1967D2">CAL</text></svg><div><div style="font-family:'Playfair Display',serif;font-size:.9rem;color:var(--w);">Google Calendar</div><div style="font-size:10px;color:var(--mt);" id="calSt">Not connected</div></div></div><p style="font-size:11px;color:var(--mt);margin-bottom:12px;line-height:1.6;">Connect to add all NIT lectures to Google Calendar with 15-minute reminders.</p>
+      <button class="gcbtn" id="gcBtn" onclick="conCal()"><svg width="16" height="16" viewBox="0 0 24 24"><path fill="#4285F4" d="M22.56 12.25c0-.78-.07-1.53-.2-2.25H12v4.26h5.92c-.26 1.37-1.04 2.53-2.21 3.31v2.77h3.57c2.08-1.92 3.28-4.74 3.28-8.09z"/><path fill="#34A853" d="M12 23c2.97 0 5.46-.98 7.28-2.66l-3.57-2.77c-.98.66-2.23 1.06-3.71 1.06-2.86 0-5.29-1.93-6.16-4.53H2.18v2.84C3.99 20.53 7.7 23 12 23z"/><path fill="#FBBC05" d="M5.84 14.09c-.22-.66-.35-1.36-.35-2.09s.13-1.43.35-2.09V7.07H2.18C1.43 8.55 1 10.22 1 12s.43 3.45 1.18 4.93l2.85-2.22.81-.62z"/><path fill="#EA4335" d="M12 5.38c1.62 0 3.06.56 4.21 1.64l3.15-3.15C17.45 2.09 14.97 1 12 1 7.7 1 3.99 3.47 2.18 7.07l3.66 2.84c.87-2.6 3.3-4.53 6.16-4.53z"/></svg>Connect Google Calendar</button></div>
+      <div class="gcc" id="syOpts" style="display:none;"><div style="font-family:'DM Mono',monospace;font-size:10px;color:var(--g);letter-spacing:2px;margin-bottom:10px;">ADD TODAY'S LECTURES</div><div id="syList"></div><button onclick="addAllCal()" style="margin-top:10px;width:100%;background:var(--g);color:var(--n);border:none;padding:10px;border-radius:7px;font-weight:700;font-size:12px;cursor:pointer;font-family:'DM Sans',sans-serif;">📅 Add All Lectures</button></div>
+      <div class="gcc"><div style="font-family:'Playfair Display',serif;font-size:.9rem;color:var(--g);margin-bottom:7px;">📋 Manual Import</div><p style="font-size:11px;color:var(--mt);margin-bottom:10px;line-height:1.6;">Download .ics file — import into Apple Calendar, Outlook, any calendar app.</p><button class="icsb" onclick="dlICS()">⬇️ Download .ics File</button></div>
+    </div>
+    <!-- PROFILE -->
+    <div class="sec" id="sec-profile">
+      <div class="ph"><div class="ppw" onclick="document.getElementById('picF').click()"><div class="pp" id="profPP"><span id="profIn"></span><img id="profImg" style="display:none;width:100%;height:100%;object-fit:cover;border-radius:50%;"></div><div class="pped">📷</div></div><input type="file" id="picF" accept="image/*" style="display:none;" onchange="onPic(event)"><div class="pnm" id="pNm">—</div><div class="pun" id="pUn">—</div><div class="pprem" id="pPrem">👑 Premium Member</div></div>
+      <div class="pcd" style="margin-bottom:11px;"><div class="pr"><span class="plb">Full Name</span><span class="pv" id="pN">—</span></div><div class="pr"><span class="plb">Username</span><span class="pv" id="pU">—</span></div><div class="pr"><span class="plb">Phone</span><span class="pv" id="pPh">—</span></div><div class="pr"><span class="plb">Member Since</span><span class="pv" id="pSi">—</span></div><div class="pr"><span class="plb">Subscription</span><span class="pv" id="pSb">Free</span></div></div>
+      <div class="pcd"><div style="font-family:'DM Mono',monospace;font-size:10px;color:var(--g);letter-spacing:2px;padding:10px 12px;border-bottom:1px solid rgba(201,150,58,.06);">ACCOUNT ACTIONS</div><div style="padding:11px 12px;display:flex;flex-direction:column;gap:7px;"><button class="pac" onclick="location.href='premium.html'">👑 Upgrade to Premium – TZS 500</button><button class="pac" style="background:rgba(26,58,107,.28);border-color:rgba(26,58,107,.44);color:var(--mt);" onclick="goTab('settings',null)">⚙️ Notification Settings</button><button class="pac" style="background:rgba(192,57,43,.09);border-color:rgba(192,57,43,.26);color:#e74c3c;" onclick="doLogout()">🚪 Sign Out</button></div></div>
+    </div>
+    <!-- SETTINGS -->
+    <div class="sec" id="sec-settings">
+      <h2 class="stit">Notification Alerts</h2><p class="sdsc">Manage how you receive lecture reminders</p>
+      <div class="sts"><div class="stt">Reminders</div>
+        <div class="tgr"><div class="tgi"><div class="tgn">15-min Reminder</div><div class="tgd">Alert before each lecture</div></div><button class="tg on" onclick="this.classList.toggle('on')"></button></div>
+        <div class="tgr"><div class="tgi"><div class="tgn">Lecture Start Alert</div><div class="tgd">Notify when lecture begins</div></div><button class="tg on" onclick="this.classList.toggle('on')"></button></div>
+        <div class="tgr"><div class="tgi"><div class="tgn">Daily Summary</div><div class="tgd">Morning overview of today's lectures</div></div><button class="tg" onclick="this.classList.toggle('on')"></button></div>
+        <div class="tgr"><div class="tgi"><div class="tgn">Lecturer Notifications</div><div class="tgd">Alerts from lecturers about classes</div></div><button class="tg on" onclick="this.classList.toggle('on')"></button></div>
+      </div>
+      <div class="sts"><div class="stt">Push Notifications</div>
+        <div class="tgr"><div class="tgi"><div class="tgn" id="pushLbl">Enable Push</div><div class="tgd" id="pushDsc">Alerts even when app is closed</div></div><button class="tg" id="pushTg" onclick="reqPush()"></button></div>
+      </div>
+      <div class="sts"><div class="stt">Today's Upcoming</div><div id="upAlerts"></div></div>
+    </div>
+  </div>
+</div>
+<!-- NOTIF PANEL -->
+<div class="ov" id="ov" onclick="closeNP()"></div>
+<div class="np" id="np"><div class="nph"><div class="npt">🔔 Notifications</div><button class="npc" onclick="closeNP()">✕</button></div><div class="npl" id="npl"><div class="npi"><div class="nptx" style="color:var(--mt)">No notifications yet</div></div></div></div>
 <div class="toast" id="toast"><div><div id="tT"></div><div id="tM"></div></div></div>
 <script src="shared.js"></script>
 <script>
-const nets = { mpesa:{name:'M-Pesa',ic:'📱'}, tigo:{name:'Tigo Pesa',ic:'💚'}, airtel:{name:'Airtel Money',ic:'🔴'}, halo:{name:'HaloPesa',ic:'🟡'} };
-let selNet2 = 'mpesa';
-function selNet(k, el) {
-  selNet2 = k;
-  Object.keys(nets).forEach(n => document.getElementById('nb-'+n).classList.remove('on'));
-  el.classList.add('on');
-  document.getElementById('netLabel').textContent = nets[k].name.toUpperCase() + ' PAYMENT';
-  document.getElementById('netName').textContent = nets[k].name;
-  document.getElementById('payBtnIc').textContent = nets[k].ic;
-}
-function confirmPayment() {
-  const phone = document.getElementById('payPhone').value.trim();
-  const name = document.getElementById('payName').value.trim();
-  const txId = document.getElementById('payTxId').value.trim().toUpperCase();
-  if (!phone || phone.length < 10) { showToast('❌','Invalid number','Enter the phone number you used to pay'); return; }
-  if (!name) { showToast('❌','Name required','Enter your full name'); return; }
-  if (!txId || txId.length < 4) { showToast('❌','Transaction ID required','Enter the reference from your payment SMS'); return; }
-  const btn = document.getElementById('payBtn');
-  btn.disabled = true; btn.innerHTML = '⏳ Verifying payment…';
-  showToast('🔍','Verifying…','Checking your transaction details');
-  // In production: POST to backend to verify via mobile money API
-  // For demo: trust entry and activate after delay
+const TT={Monday:[{code:'SPU 07210',name:'Port Performance and Competition',start:'11:00',end:'13:00',lec:'Mathew Swila',room:'LR 01-B18'},{code:'SPU 07213',name:'Maritime Transport Management',start:'13:00',end:'14:00',lec:'Epimachus Burchard',room:'LR 01-B18'}],Tuesday:[{code:'SPU 07209',name:'Entrepreneurship Skills',start:'08:00',end:'09:00',lec:'Mwanaisha Ally',room:'LR 01-B18'},{code:'SPU 07211',name:'Strategic Management & Maritime Strategy',start:'11:00',end:'13:00',lec:'Machungwa Limbu',room:'LR 01-B18'},{code:'SPU 07207',name:'Human Resource Management',start:'19:00',end:'21:00',lec:'Haika Mzava',room:'LR 01-B18'}],Wednesday:[{code:'SPU 07211',name:'Strategic Management & Maritime Strategy',start:'09:00',end:'11:00',lec:'Machungwa Limbu',room:'LR 01-B18'},{code:'SPU 07209',name:'Entrepreneurship Skills',start:'11:00',end:'13:00',lec:'Mwanaisha Ally',room:'LR 01-B18'}],Thursday:[{code:'SPU 07213',name:'Maritime Transport Management',start:'11:00',end:'13:00',lec:'Epimachus Burchard',room:'LR 01-B18'},{code:'SPU 07207',name:'Human Resource Management',start:'17:00',end:'19:00',lec:'Haika Mzava',room:'LR 01-B18'}],Friday:[{code:'SPU 07212',name:'Fleet Management',start:'08:00',end:'09:00',lec:'Rehema Mzee',room:'LR 01-B18'},{code:'SPU 07208',name:'Research Methodology',start:'11:00',end:'13:00',lec:'Bakari Pandu',room:'LR 01-B18'}],Saturday:[{code:'SPU 07208',name:'Research Methodology',start:'11:00',end:'13:00',lec:'Bakari Pandu',room:'LR 01-B18'},{code:'SPU 07212',name:'Fleet Management',start:'17:00',end:'19:00',lec:'Rehema Mzee',room:'LR 01-B18'},{code:'SPU 07210',name:'Port Performance and Competition',start:'19:00',end:'21:00',lec:'Mathew Swila',room:'LR 01-B18'}]};
+const MODS=[{code:'SPU 07207',name:'Human Resource Management',lec:'Haika Mzava',color:'#1a3a6b',res:[{i:'📘',l:'Textbook',t:"Armstrong's HRM Handbook",u:'https://openlibrary.org/search?q=human+resource+management+armstrong'},{i:'🎓',l:'Course',t:'HRM – Coursera',u:'https://www.coursera.org/learn/everyday-leadership-new-talent-practices'},{i:'🌐',l:'Reference',t:'SHRM Knowledge Centre',u:'https://www.shrm.org'}]},{code:'SPU 07208',name:'Research Methodology',lec:'Bakari Pandu',color:'#1e3d1a',res:[{i:'📗',l:'Textbook',t:'Research Methods – Creswell',u:'https://openlibrary.org/search?q=research+design+creswell'},{i:'🎓',l:'Course',t:'Research Methods – edX',u:'https://www.edx.org/learn/research'},{i:'🌐',l:'Reference',t:'ResearchGate – Transport',u:'https://www.researchgate.net/topic/Transportation'}]},{code:'SPU 07209',name:'Entrepreneurship Skills',lec:'Mwanaisha Ally',color:'#3d2a00',res:[{i:'📙',l:'Textbook',t:'The Lean Startup – Ries',u:'https://openlibrary.org/search?q=lean+startup'},{i:'🎓',l:'Course',t:'Entrepreneurship – Wharton',u:'https://www.coursera.org/specializations/wharton-entrepreneurship'},{i:'🌐',l:'Reference',t:'MIT OpenCourseWare',u:'https://ocw.mit.edu'}]},{code:'SPU 07210',name:'Port Performance & Competition',lec:'Mathew Swila',color:'#0e2d45',res:[{i:'📘',l:'Textbook',t:'Port Management & Operations',u:'https://openlibrary.org/search?q=port+management+operations'},{i:'🌐',l:'Reference',t:'UNCTAD Port Statistics',u:'https://unctadstat.unctad.org'},{i:'📄',l:'Journal',t:'Maritime Policy & Management',u:'https://www.tandfonline.com/journals/tmpm20'}]},{code:'SPU 07211',name:'Strategic Management & Maritime Strategy',lec:'Machungwa Limbu',color:'#2a0e45',res:[{i:'📕',l:'Textbook',t:'Competitive Strategy – Porter',u:'https://openlibrary.org/search?q=competitive+strategy+porter'},{i:'🎓',l:'Course',t:'Business Strategy – Coursera',u:'https://www.coursera.org/learn/uva-darden-foundations-of-business-strategy'},{i:'🌐',l:'Reference',t:'IMO Knowledge Centre',u:'https://www.imo.org/en/KnowledgeCentre'}]},{code:'SPU 07212',name:'Fleet Management',lec:'Rehema Mzee',color:'#0e3028',res:[{i:'📘',l:'Textbook',t:'Maritime Economics – Stopford',u:'https://openlibrary.org/search?q=maritime+economics+stopford'},{i:'🌐',l:'Reference',t:"Lloyd's List Intelligence",u:'https://lloydslist.maritimeintelligence.informa.com/'},{i:'🎓',l:'Course',t:'Maritime – FutureLearn',u:'https://www.futurelearn.com/search?q=maritime'}]},{code:'SPU 07213',name:'Maritime Transport Management',lec:'Epimachus Burchard',color:'#0e1e3a',res:[{i:'📗',l:'Textbook',t:'Maritime Economics – Stopford',u:'https://openlibrary.org/search?q=maritime+economics'},{i:'🌐',l:'Reference',t:'UNCTAD Shipping & Trade',u:'https://unctad.org/topic/transport-and-trade-logistics'},{i:'📄',l:'Journal',t:'Journal of Maritime Research',u:'https://www.jmr.unican.es/'}]}];
+const DL=[{id:'b1',cat:'books',i:'🚢',t:'Maritime Economics 3rd Ed.',a:'Martin Stopford',m:'SPU 07213',s:'8.2 MB'},{id:'b2',cat:'books',i:'🏗️',t:'Port Management & Operations',a:'Patrick Alderton',m:'SPU 07210',s:'6.4 MB'},{id:'b3',cat:'books',i:'👔',t:"Armstrong's HRM Handbook 15th Ed.",a:'Michael Armstrong',m:'SPU 07207',s:'9.1 MB'},{id:'b4',cat:'books',i:'💡',t:'Competitive Strategy – Porter',a:'Michael E. Porter',m:'SPU 07211',s:'5.7 MB'},{id:'n1',cat:'notes',i:'📄',t:'Fleet Management – Full Notes',a:'Rehema Mzee · NIT',m:'SPU 07212',s:'2.1 MB'},{id:'n2',cat:'notes',i:'📄',t:'Research Methodology – Summaries',a:'Bakari Pandu · NIT',m:'SPU 07208',s:'1.8 MB'},{id:'n3',cat:'notes',i:'📄',t:'Entrepreneurship Skills – Notes',a:'Mwanaisha Ally · NIT',m:'SPU 07209',s:'1.5 MB'},{id:'n4',cat:'notes',i:'📄',t:'Maritime Strategy – Revision Guide',a:'Machungwa Limbu · NIT',m:'SPU 07211',s:'2.3 MB'},{id:'n5',cat:'notes',i:'📄',t:'HRM – Key Concepts & Cases',a:'Haika Mzava · NIT',m:'SPU 07207',s:'1.9 MB'},{id:'p1',cat:'papers',i:'🗂️',t:'SPU 07210 – 2024 Final + Answers',a:'NIT Examinations',m:'SPU 07210',s:'1.2 MB'},{id:'p2',cat:'papers',i:'🗂️',t:'SPU 07213 – 2023 & 2024 Finals',a:'NIT Examinations',m:'SPU 07213',s:'1.4 MB'},{id:'p3',cat:'papers',i:'🗂️',t:'SPU 07208 – Papers 2022–2024',a:'NIT Examinations',m:'SPU 07208',s:'1.6 MB'},{id:'p4',cat:'papers',i:'🗂️',t:'SPU 07207 – HRM Papers 2022–2024',a:'NIT Examinations',m:'SPU 07207',s:'1.3 MB'},{id:'p5',cat:'papers',i:'🗂️',t:'All Modules – Combined Past Papers',a:'NIT Examinations',m:'All',s:'7.8 MB'},{id:'q1',cat:'notes',i:'❓',t:'Full Quiz Bank – 200+ Questions',a:'NIT Study Group',m:'All',s:'2.4 MB'}];
+const DAYS=['Sunday','Monday','Tuesday','Wednesday','Thursday','Friday','Saturday'];
+let usr=null,appNotifs=[],firedA=new Set(),savedDL=new Set(getJSON(KEYS.downloads,[])),calConn=false,syncedL=new Set(),dlFilter='all',mrCt=0;
+// ── PWA INSTALL SYSTEM ────────────────────────────────────────────
+let _dip = null; // deferred install prompt
+
+// Capture install prompt (Android/Chrome/Edge)
+window.addEventListener('beforeinstallprompt', e => {
+  e.preventDefault();
+  _dip = e;
+  // Show banner after 3 seconds if not already installed
   setTimeout(() => {
-    const usr = getCurrentUser();
-    const pData = { unlocked:true, method:nets[selNet2].name, phone, name, txId, amount:500, currency:'TZS', paymentNumber:'142274076', unlockedBy:usr?.username||'unknown', date:new Date().toISOString() };
-    setJSON(KEYS.premium, pData);
-    // Update user record
-    try { const users=getUsers(); const idx=users.findIndex(u=>u.username===usr?.username); if(idx!==-1){users[idx].premium=true;saveUsers(users);} } catch(e){}
-    const fn = usr ? usr.fullName.split(' ')[0] : 'Student';
-    document.getElementById('succName').textContent = fn;
-    document.getElementById('mainScreen').style.display = 'none';
-    document.getElementById('successScreen').style.display = 'block';
-    window.scrollTo(0,0);
-  }, 2000);
-}
-// Check already premium
-window.addEventListener('load', () => {
-  const usr = getCurrentUser();
-  if (!usr) { window.location.href='login.html'; return; }
-  if (isPremium()) {
-    document.getElementById('succName').textContent = usr.fullName.split(' ')[0];
-    document.getElementById('mainScreen').style.display='none';
-    document.getElementById('successScreen').style.display='block';
-  }
+    if (!window.matchMedia('(display-mode: standalone)').matches) {
+      document.getElementById('installBanner').classList.add('on');
+      // Also show install btn on modal
+      const mb = document.getElementById('iModalInstallBtn');
+      if (mb) mb.style.display = 'block';
+      const ma = document.getElementById('imodalAlready');
+      if (ma) ma.style.display = 'block';
+    }
+  }, 3000);
 });
-</script>
-<script>
-// ── PREMIUM PAGE PARTICLES — gold-heavy for premium feel ──────────
-(function(){
-  const CFG={count:36,minSize:0.9,maxSize:5.2,minSpeed:0.05,maxSpeed:0.30,minOpacity:0.03,maxOpacity:0.52,
-    colors:['rgba(201,150,58,','rgba(232,184,75,','rgba(201,150,58,','rgba(255,215,100,','rgba(255,255,255,','rgba(232,184,75,']};
-  let canvas,ctx,W,H,pts=[],mouse={x:-9999,y:-9999},sVY=0,lSY=0,gsapOK=false,scrollEl=null;
-  class P{
-    constructor(){this.reset(true);}
-    reset(init){
-      this.x=Math.random()*W; this.y=init?Math.random()*H:(Math.random()>0.5?-10:H+10);
-      this.sz=CFG.minSize+Math.random()*(CFG.maxSize-CFG.minSize);
-      this.dp=(this.sz-CFG.minSize)/(CFG.maxSize-CFG.minSize);
-      const spd=CFG.minSpeed+Math.random()*(CFG.maxSpeed-CFG.minSpeed),ang=Math.random()*Math.PI*2;
-      this.vx=Math.cos(ang)*spd; this.vy=Math.sin(ang)*spd*0.55-0.03;
-      this.cb=CFG.colors[Math.floor(Math.random()*CFG.colors.length)];
-      this.ba=(CFG.minOpacity+Math.random()*(CFG.maxOpacity-CFG.minOpacity))*(0.4+this.dp*0.6);
-      this.a=this.ba; this.at=this.ba; this.bl=(1-this.dp)*9; this.cx=0; this.cy=0;
-      this.wb=Math.random()*Math.PI*2; this.ws=0.003+Math.random()*0.014; this.wa=0.09+Math.random()*0.5;
-      // Premium: some particles slowly rotate/spiral
-      this.spiral=Math.random()<0.25; this.spiralR=0; this.spiralSpeed=0.008+Math.random()*0.012;
-      if(gsapOK&&typeof gsap!=='undefined'){
-        if(this.tw)this.tw.kill();
-        const d=4+Math.random()*9;
-        // Gold particles breathe more dramatically
-        this.tw=gsap.to(this,{at:this.ba*(0.05+Math.random()*0.85),duration:d,ease:'sine.inOut',repeat:-1,yoyo:true,delay:Math.random()*d});
+
+// Fired when app is actually installed
+window.addEventListener('appinstalled', () => {
+  _dip = null;
+  hideBanner();
+  closeInstallModal();
+  showToast('🎉', 'CHEERS55 Installed!', 'Open it from your home screen anytime');
+});
+
+async function doInstall() {
+  if (_dip) {
+    _dip.prompt();
+    const { outcome } = await _dip.userChoice;
+    if (outcome === 'accepted') {
+      _dip = null;
+      hideBanner();
+      closeInstallModal();
+    }
+  } else {
+    // No prompt available — show instructions
+    openInstallModal();
+  }
+}
+
+function hideBanner() {
+  document.getElementById('installBanner').classList.remove('on');
+}
+
+function openInstallModal() {
+  document.getElementById('installModal').classList.add('on');
+  // Auto-detect platform and show right tab
+  const ua = navigator.userAgent.toLowerCase();
+  if (/iphone|ipad|ipod/.test(ua)) {
+    showInstallTab('ios', document.getElementById('itab-ios'));
+  } else if (/android/.test(ua)) {
+    showInstallTab('android', document.getElementById('itab-android'));
+  } else {
+    showInstallTab('pc', document.getElementById('itab-pc'));
+  }
+  // If install prompt available, show the install button
+  if (_dip) {
+    const mb = document.getElementById('iModalInstallBtn');
+    if (mb) mb.style.display = 'block';
+    const ma = document.getElementById('imodalAlready');
+    if (ma) ma.style.display = 'block';
+    document.getElementById('iModalCloseBtn').textContent = 'Or follow steps above';
+  }
+}
+
+function closeInstallModal() {
+  document.getElementById('installModal').classList.remove('on');
+}
+
+function showInstallTab(tab, el) {
+  document.querySelectorAll('.imtab').forEach(t => t.classList.remove('on'));
+  if (el) el.classList.add('on');
+  ['android','ios','pc'].forEach(t => {
+    const el2 = document.getElementById('iinstr-'+t);
+    if (el2) el2.style.display = t === tab ? 'flex' : 'none';
+    if (el2 && t === tab) el2.style.flexDirection = 'column';
+  });
+}
+
+// Already installed? Hide install button
+if (window.matchMedia('(display-mode: standalone)').matches || window.navigator.standalone === true) {
+  const cvb = document.getElementById('cvInstallBtn');
+  if (cvb) cvb.style.display = 'none';
+}
+// HELPERS
+const toM=t=>{const[h,m]=t.split(':').map(Number);return h*60+m;};
+const fCD=d=>{if(d<=0)return'NOW';const h=Math.floor(d/60),m=d%60;return h>0?`${h}h ${m}m`:`${m}m`;};
+const st=(s,e,n)=>n>=toM(s)&&n<toM(e)?'live':n<toM(s)?'up':'dn';
+const DAYS_ORD=['Monday','Tuesday','Wednesday','Thursday','Friday','Saturday','Sunday'];
+// CLOCK
+function tick(){const n=new Date();document.getElementById('clk').textContent=n.toTimeString().slice(0,5);updToday(n);chkAlerts(n);}
+setInterval(tick,1000);
+// TODAY
+function updToday(n){
+  const day=DAYS[n.getDay()],mins=n.getHours()*60+n.getMinutes();
+  document.getElementById('tDay').textContent=day;
+  document.getElementById('tDate').textContent=n.toLocaleDateString('en-GB',{weekday:'long',year:'numeric',month:'long',day:'numeric'});
+  const lecs=TT[day]||[];
+  let on=null,nx=null;
+  for(const l of lecs){if(st(l.start,l.end,mins)==='live'){on=l;break;}if(mins<toM(l.start)&&!nx)nx=l;}
+  const f=on||nx;
+  if(f){const live=!!on,d=live?0:toM(f.start)-mins;document.getElementById('nxN').textContent=f.name;document.getElementById('nxT').textContent=`${f.start}–${f.end} · ${f.room}`;const cb=document.getElementById('cdb');cb.textContent=live?'LIVE NOW':fCD(d);cb.className='cdb'+(live?' live':'');}
+  else{document.getElementById('nxN').textContent=lecs.length?'All done today 🎉':'No lectures today';document.getElementById('nxT').textContent='';document.getElementById('cdb').textContent='—';}
+  const c=document.getElementById('todayLL');const k=lecs.map(l=>l.code+st(l.start,l.end,mins)).join();if(c._k===k)return;c._k=k;
+  if(!lecs.length){c.innerHTML='<div class="empty"><div class="eic">🌴</div><div class="emg">No lectures on '+day+'</div></div>';return;}
+  const P={live:'<span class="pill p-live">● LIVE</span>',up:'<span class="pill p-up">UPCOMING</span>',dn:'<span class="pill p-dn">DONE</span>'};
+  c.innerHTML=lecs.map(l=>{const s=st(l.start,l.end,mins);return`<div class="lc ${s==='live'?'live':''} ${s==='dn'?'past':''}"><div class="lct">${l.start}<br><span style="color:var(--mt)">│</span><br>${l.end}</div><div><div class="lcc">${l.code}</div><div class="lcn">${l.name}</div><div class="lcl">👤 ${l.lec}</div><div class="lcr">📍 ${l.room}</div></div>${P[s]}</div>`;}).join('');
+}
+// ALERTS
+function chkAlerts(n){
+  const day=DAYS[n.getDay()],mins=n.getHours()*60+n.getMinutes();
+  (TT[day]||[]).forEach(l=>{const sm=toM(l.start),d=sm-mins;const k15=`${day}-${l.code}-15`,k0=`${day}-${l.code}-0`;if(d===15&&!firedA.has(k15)){firedA.add(k15);addN('⏰','15-min Reminder',`${l.name} at ${l.start}`);showToast('⏰','15-min Reminder',l.name);}if(d===0&&!firedA.has(k0)){firedA.add(k0);addN('🔔','Starting Now!',`${l.name} · ${l.room}`);showToast('🔔','Starting Now!',l.name);}});
+  buildUpcoming(n);chkLecNotifs();
+}
+function addN(ic,ti,ms){const t=new Date().toTimeString().slice(0,5);appNotifs.unshift({ic,ti,ms,t});renderNP();document.getElementById('ndot').style.display='block';}
+function renderNP(){const el=document.getElementById('npl');if(!appNotifs.length){el.innerHTML='<div class="npi"><div class="nptx" style="color:var(--mt)">No notifications yet</div></div>';return;}el.innerHTML=appNotifs.slice(0,15).map(n=>`<div class="npi"><div class="npti">${n.t}</div><div><div class="nptx">${n.ic} <strong>${n.ti}</strong></div><div class="npsb">${n.ms}</div></div></div>`).join('');}
+function openNP(){document.getElementById('np').classList.add('on');document.getElementById('ov').classList.add('on');document.getElementById('ndot').style.display='none';renderNP();}
+function closeNP(){document.getElementById('np').classList.remove('on');document.getElementById('ov').classList.remove('on');}
+function chkLecNotifs(){const gn=getJSON(KEYS.globalNotifs,[]);const el=document.getElementById('lecAlerts');if(!gn.length){el.innerHTML='';return;}const ic={attend:'✅',absent:'❌',cancel:'🚫',reschedule:'📅'};const bc={attend:'lb-a',absent:'lb-ab',cancel:'lb-c',reschedule:'lb-r'};const lb={attend:'ATTENDING',absent:'ABSENT',cancel:'CANCELLED',reschedule:'RESCHEDULED'};el.innerHTML=`<div class="lab"><div class="labh"><div class="labt">📢 LECTURER ALERTS</div><div class="labc">${gn.length} alert${gn.length>1?'s':''}</div></div>${gn.slice(0,3).map(n=>`<div class="lai"><div class="laic">${ic[n.type]||'📢'}</div><div style="flex:1;min-width:0;"><div style="display:flex;align-items:flex-start;gap:5px;flex-wrap:wrap;"><div class="lait">${n.module?.split('–')[1]?.trim()||n.module||'Lecture'}</div><span class="lbg ${bc[n.type]||''}">${lb[n.type]||n.type?.toUpperCase()||''}</span></div><div class="laib">${(n.message||'').slice(0,90)}${(n.message?.length||0)>90?'…':''}</div><div class="laim">${n.lecturer||''} · ${n.sentAt?new Date(n.sentAt).toLocaleString('en-GB',{day:'numeric',month:'short',hour:'2-digit',minute:'2-digit'}):''}</div></div></div>`).join('')}</div>`;}
+function buildUpcoming(n){const day=DAYS[n.getDay()],mins=n.getHours()*60+n.getMinutes();const up=(TT[day]||[]).filter(l=>toM(l.start)>mins);const el=document.getElementById('upAlerts');if(!el)return;if(!up.length){el.innerHTML='<div class="empty"><div class="eic">✅</div><div class="emg">No more lectures today</div></div>';return;}el.innerHTML='<div class="ll">'+up.map(l=>`<div class="lc"><div class="lct">${l.start}<br><span style="color:var(--mt)">│</span><br>${l.end}</div><div><div class="lcc">${l.code}</div><div class="lcn">${l.name}</div><div style="font-size:10px;color:var(--g);margin-top:2px;">⏰ Alert in ${fCD(toM(l.start)-mins-15)}</div></div></div>`).join('')+'</div>';}
+// TABS
+function goTab(id,el){
+  document.querySelectorAll('.nt').forEach(t=>t.classList.remove('on'));
+  document.querySelectorAll('.sec').forEach(s=>s.classList.remove('on'));
+  if(el)el.classList.add('on');
+  else document.querySelectorAll('.nt').forEach((t,i)=>{if(['today','timetable','modules','ai','downloads','calendar','profile','settings'][i]===id)t.classList.add('on');});
+  document.getElementById('sec-'+id).classList.add('on');
+  // Cinematic: reduce particles on text-heavy tabs, boost on visual tabs
+  if(window._setParticleIntensity){
+    const textHeavy=['modules','downloads','settings','profile'];
+    window._setParticleIntensity(textHeavy.includes(id) ? 0.25 : 0.75);
+  }
+}
+// FULL TT
+function buildFullTT(){document.getElementById('fullTT').innerHTML=Object.entries(TT).map(([d,ls])=>`<div class="dys"><div class="dyh"><span class="dyn">${d}</span><div class="dyl"></div><span class="dyc">${ls.length} lec${ls.length!==1?'s':''}</span></div><div class="ll">${ls.map(l=>`<div class="lc"><div class="lct">${l.start}<br><span style="color:var(--mt)">│</span><br>${l.end}</div><div><div class="lcc">${l.code}</div><div class="lcn">${l.name}</div><div class="lcl">👤 ${l.lec}</div><div class="lcr">📍 ${l.room}</div></div></div>`).join('')}</div></div>`).join('');}
+// MODULES
+function buildMods(){document.getElementById('modG').innerHTML=MODS.map(m=>`<div class="mc"><div class="mh" style="background:linear-gradient(135deg,${m.color},var(--m));"><div class="mco">${m.code}</div><div class="mn">${m.name}</div><div class="ml">👤 ${m.lec}</div></div><div class="mb">${m.res.map(r=>`<a class="rl" href="${r.u}" target="_blank" rel="noopener"><span style="font-size:13px;">${r.i}</span><div><div style="font-size:9px;color:var(--mt);">${r.l}</div><div>${r.t}</div></div><span style="margin-left:auto;color:var(--mt);font-size:10px;">↗</span></a>`).join('')}</div></div>`).join('');}
+// TT UPLOAD
+function ttMode(m){const isD=m==='d';document.getElementById('ttdd').style.display=isD?'block':'none';document.getElementById('ttcc').style.display=isD?'none':'block';document.getElementById('ttmd').classList.toggle('on',isD);document.getElementById('ttmc').classList.toggle('on',!isD);if(!isD){const sv=getJSON(KEYS.customTT,null);if(sv)showTTDisp(sv);else showUpC();}}
+function showUpC(){['tt-uc','tt-pc','tt-mc','tt-dc'].forEach((id,i)=>document.getElementById(id).style.display=i===0?'block':'none');document.getElementById('ttf').value='';}
+function showProc(){['tt-uc','tt-pc','tt-mc','tt-dc'].forEach((id,i)=>document.getElementById(id).style.display=i===1?'block':'none');['ps1','ps2','ps3','ps4'].forEach(id=>{const e=document.getElementById(id);e.classList.remove('act','done');});document.getElementById('ps1').textContent='📷 Analysing your file';document.getElementById('ps2').textContent='📅 Identifying days & times';document.getElementById('ps3').textContent='📚 Extracting subjects & rooms';document.getElementById('ps4').textContent='🏗️ Building your schedule';}
+function showMan(){['tt-uc','tt-pc','tt-mc','tt-dc'].forEach((id,i)=>document.getElementById(id).style.display=i===2?'block':'none');const r=document.getElementById('manRows');if(!r.children.length)addRow();}
+function showTTDisp(d){['tt-uc','tt-pc','tt-mc','tt-dc'].forEach((id,i)=>document.getElementById(id).style.display=i===3?'block':'none');renderCTT(d);}
+function dov(e){e.preventDefault();document.getElementById('dz').classList.add('dov');}
+function dol(){document.getElementById('dz').classList.remove('dov');}
+function dod(e){e.preventDefault();document.getElementById('dz').classList.remove('dov');const f=e.dataTransfer.files[0];if(f)procTTF(f);}
+function onTTf(e){const f=e.target.files[0];if(f)procTTF(f);}
+
+// ══════════════════════════════════════════
+// TIMETABLE PROCESSING — 100% OFFLINE
+// Parses CSV and text files, no API needed
+// ══════════════════════════════════════════
+function animSteps(){
+  const ids=['ps1','ps2','ps3','ps4'];
+  ids.forEach((id,i)=>{
+    setTimeout(()=>{
+      if(i>0){const p=document.getElementById(ids[i-1]);p.classList.remove('act');p.classList.add('done');p.textContent='✅ '+p.textContent.slice(3);}
+      document.getElementById(id).classList.add('act');
+    },i*400);
+  });
+}
+
+function procTTF(file){
+  if(file.size>15*1024*1024){showToast('❌','Too large','Max 15MB');return;}
+  const isImg=file.type.startsWith('image/');
+  const isTxt=file.type==='text/csv'||file.type==='text/plain'||file.name.endsWith('.csv')||file.name.endsWith('.txt');
+  if(!isImg&&!isTxt){showToast('❌','Unsupported','Please upload a photo, screenshot, CSV or TXT file');return;}
+
+  if(isImg){
+    procImageTT(file);
+  } else {
+    procTextTT(file);
+  }
+}
+
+// ── IMAGE PRE-PROCESSING + OCR ──────────────────
+async function procImageTT(file){
+  showProc();
+  document.getElementById('ps1').textContent='🖼️ Enhancing image…';
+  document.getElementById('ps2').textContent='🔍 Running OCR scan…';
+  document.getElementById('ps3').textContent='📅 Extracting timetable data…';
+  document.getElementById('ps4').textContent='🏗️ Building your schedule…';
+
+  // Step 1 active immediately
+  setStep(1,'act');
+
+  try{
+    // ── STEP 1: Load image into canvas and pre-process ──
+    const canvas = await enhanceImage(file);
+    setStep(1,'done','✅ Image enhanced');
+    setStep(2,'act');
+
+    // ── STEP 2: OCR on enhanced canvas (try multiple configs) ──
+    const texts = [];
+
+    // Pass 1: Enhanced greyscale — best for printed docs
+    const dataUrl1 = canvas.toDataURL('image/png');
+    const r1 = await Tesseract.recognize(dataUrl1, 'eng', {
+      logger: m => {
+        if(m.status==='recognizing text'){
+          const pct=Math.round((m.progress||0)*100);
+          const el=document.getElementById('ps2');
+          if(el&&el.classList.contains('act')) el.textContent=`🔍 Scanning text… ${pct}%`;
+        }
+      },
+      tessedit_pageseg_mode: '6',   // Assume uniform block of text
+      tessedit_char_whitelist: 'ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789:.-/ ()',
+    });
+    texts.push(r1.data.text||'');
+
+    // Pass 2: Inverted image — helps with dark backgrounds
+    const canvas2 = invertCanvas(canvas);
+    const dataUrl2 = canvas2.toDataURL('image/png');
+    const r2 = await Tesseract.recognize(dataUrl2, 'eng', {
+      tessedit_pageseg_mode: '6',
+    });
+    texts.push(r2.data.text||'');
+
+    // Pass 3: Original image resized 2x — recovers small text
+    const canvas3 = await upscaleImage(file, 2.5);
+    const dataUrl3 = canvas3.toDataURL('image/png');
+    const r3 = await Tesseract.recognize(dataUrl3, 'eng', {
+      tessedit_pageseg_mode: '4', // Assume single column of text
+    });
+    texts.push(r3.data.text||'');
+
+    // Pick the result with the most usable content
+    const bestText = pickBestText(texts);
+
+    setStep(2,'done','✅ Text extracted');
+    setStep(3,'act');
+
+    if(!bestText.trim()){
+      showUpC();
+      showToast('❌','No text found','Try taking the photo straight-on with good lighting, or use Manual Entry');
+      return;
+    }
+
+    // ── STEP 3: Parse extracted text ──
+    const name = file.name.replace(/\.[^.]+$/,'').replace(/[-_]/g,' ');
+    let tt = parseTextTimetable(bestText, name||'My Timetable');
+
+    // If first parse fails, try cleaned version
+    if(!tt||!tt.lectures.length){
+      const cleaned = cleanOCRText(bestText);
+      tt = parseTextTimetable(cleaned, name||'My Timetable');
+    }
+
+    // Try all three texts if still no result
+    if(!tt||!tt.lectures.length){
+      for(const txt of texts){
+        if(txt.trim()){
+          tt = parseTextTimetable(cleanOCRText(txt), name||'My Timetable');
+          if(tt&&tt.lectures.length) break;
+        }
       }
     }
-    update(){
-      this.wb+=this.ws;
-      if(this.spiral){this.spiralR+=this.spiralSpeed;this.x+=Math.cos(this.spiralR)*0.4;this.y+=Math.sin(this.spiralR)*0.4;}
-      this.x+=this.vx+Math.sin(this.wb)*this.wa;
-      this.y+=this.vy+Math.cos(this.wb*0.7)*this.wa*0.45;
-      // Scroll parallax using page scroll
-      const sy=scrollEl?scrollEl.scrollTop:window.scrollY;
-      sVY=sy-lSY; lSY=sy;
-      this.y-=sVY*0.38*(0.2+this.dp*0.8);
-      const dx=this.x-mouse.x,dy=this.y-mouse.y,d=Math.sqrt(dx*dx+dy*dy);
-      if(d<85){const f=(1-d/85)*0.017;this.cx+=(dx*f*58-this.cx)*0.08;this.cy+=(dy*f*58-this.cy)*0.08;}
-      else{this.cx*=0.94;this.cy*=0.94;}
-      this.a+=(this.at-this.a)*0.025;
-      const M=this.sz+20;
-      if(this.x<-M)this.x=W+M; if(this.x>W+M)this.x=-M;
-      if(this.y<-M||this.y>H+M)this.reset(false);
+
+    setStep(3,'done','✅ Data extracted');
+    setStep(4,'act');
+    await new Promise(r=>setTimeout(r,400));
+    setStep(4,'done','✅ Schedule built!');
+
+    if(!tt||!tt.lectures.length){
+      showUpC();
+      showToast('⚠️','Could not parse timetable','The image may not contain a standard timetable format — try Manual Entry');
+      return;
     }
+
+    setJSON(KEYS.customTT,tt);
+    setTimeout(()=>{showTTDisp(tt);showToast('✅','Photo Processed!','Found '+tt.lectures.length+' lectures');},500);
+
+  }catch(err){
+    console.error('OCR error',err);
+    showUpC();
+    showToast('❌','Processing failed','Please try a clearer photo or use Manual Entry');
+  }
+}
+
+// ── STEP HELPER ────────────────────────────────
+function setStep(n, state, label){
+  const el = document.getElementById('ps'+n);
+  if(!el) return;
+  ['act','done'].forEach(c=>el.classList.remove(c));
+  if(state) el.classList.add(state);
+  if(label) el.textContent = label;
+}
+
+// ── IMAGE ENHANCEMENT ──────────────────────────
+// Applies: greyscale → contrast boost → sharpen → threshold
+async function enhanceImage(file){
+  return new Promise((resolve, reject)=>{
+    const img = new Image();
+    const url = URL.createObjectURL(file);
+    img.onload = ()=>{
+      URL.revokeObjectURL(url);
+      // Scale to reasonable size — too big slows OCR, too small loses text
+      const MAX = 2400;
+      let w = img.naturalWidth, h = img.naturalHeight;
+      if(w > MAX || h > MAX){
+        const ratio = Math.min(MAX/w, MAX/h);
+        w = Math.round(w*ratio); h = Math.round(h*ratio);
+      }
+      // Upscale small images
+      if(w < 800){const r=800/w; w=Math.round(w*r); h=Math.round(h*r);}
+
+      const canvas = document.createElement('canvas');
+      canvas.width = w; canvas.height = h;
+      const ctx = canvas.getContext('2d');
+
+      // Draw with smoothing off for sharper result
+      ctx.imageSmoothingEnabled = true;
+      ctx.imageSmoothingQuality = 'high';
+      ctx.drawImage(img, 0, 0, w, h);
+
+      // Get pixel data
+      const id = ctx.getImageData(0, 0, w, h);
+      const d = id.data;
+
+      for(let i=0; i<d.length; i+=4){
+        // 1. Convert to greyscale (luminance-weighted)
+        const grey = 0.299*d[i] + 0.587*d[i+1] + 0.114*d[i+2];
+
+        // 2. Contrast stretch — push darks darker, lights lighter
+        const contrast = 1.8;
+        const factor = (259*(contrast*255+255))/(255*(259-contrast*255));
+        let v = factor*(grey - 128)+128;
+
+        // 3. Adaptive threshold — binarise for clean black/white
+        v = v < 145 ? 0 : 255;
+
+        d[i] = d[i+1] = d[i+2] = v;
+        d[i+3] = 255;
+      }
+
+      // Apply sharpening kernel
+      ctx.putImageData(id, 0, 0);
+      applySharpening(ctx, w, h);
+
+      resolve(canvas);
+    };
+    img.onerror = reject;
+    img.src = url;
+  });
+}
+
+// ── SHARPEN KERNEL ─────────────────────────────
+function applySharpening(ctx, w, h){
+  const id = ctx.getImageData(0, 0, w, h);
+  const src = new Uint8ClampedArray(id.data);
+  const dst = id.data;
+  // Unsharp mask kernel: centre weight 5, neighbours -1
+  const kernel = [0,-1,0,-1,5,-1,0,-1,0];
+  for(let y=1; y<h-1; y++){
+    for(let x=1; x<w-1; x++){
+      const idx=(y*w+x)*4;
+      let r=0;
+      for(let ky=-1; ky<=1; ky++){
+        for(let kx=-1; kx<=1; kx++){
+          const ki=((y+ky)*w+(x+kx))*4;
+          const kv=kernel[(ky+1)*3+(kx+1)];
+          r+=src[ki]*kv;
+        }
+      }
+      dst[idx]=dst[idx+1]=dst[idx+2]=Math.max(0,Math.min(255,r));
+      dst[idx+3]=255;
+    }
+  }
+  ctx.putImageData(id,0,0);
+}
+
+// ── INVERT CANVAS ──────────────────────────────
+function invertCanvas(src){
+  const c=document.createElement('canvas');
+  c.width=src.width; c.height=src.height;
+  const ctx=c.getContext('2d');
+  ctx.drawImage(src,0,0);
+  const id=ctx.getImageData(0,0,c.width,c.height);
+  const d=id.data;
+  for(let i=0;i<d.length;i+=4){d[i]=255-d[i];d[i+1]=255-d[i+1];d[i+2]=255-d[i+2];}
+  ctx.putImageData(id,0,0);
+  return c;
+}
+
+// ── UPSCALE IMAGE ──────────────────────────────
+async function upscaleImage(file, scale){
+  return new Promise((resolve,reject)=>{
+    const img=new Image();
+    const url=URL.createObjectURL(file);
+    img.onload=()=>{
+      URL.revokeObjectURL(url);
+      const w=Math.round(img.naturalWidth*scale);
+      const h=Math.round(img.naturalHeight*scale);
+      const c=document.createElement('canvas');
+      c.width=Math.min(w,3200); c.height=Math.min(h,3200);
+      const ctx=c.getContext('2d');
+      ctx.imageSmoothingEnabled=true;
+      ctx.imageSmoothingQuality='high';
+      ctx.drawImage(img,0,0,c.width,c.height);
+      resolve(c);
+    };
+    img.onerror=reject;
+    img.src=url;
+  });
+}
+
+// ── PICK BEST OCR RESULT ───────────────────────
+function pickBestText(texts){
+  // Score each by: number of time patterns + day names found
+  const DAYS=['Monday','Tuesday','Wednesday','Thursday','Friday','Saturday','Sunday','Mon','Tue','Wed','Thu','Fri','Sat','Sun'];
+  const TIME=/\d{1,2}[:.]\d{2}/g;
+  let best='', bestScore=-1;
+  for(const t of texts){
+    if(!t.trim()) continue;
+    let score=0;
+    score += (t.match(TIME)||[]).length * 3;
+    for(const d of DAYS){ if(t.toLowerCase().includes(d.toLowerCase())) score+=5; }
+    score += t.length/100; // prefer longer text as tiebreaker
+    if(score>bestScore){ bestScore=score; best=t; }
+  }
+  return best||texts.find(t=>t.trim())||'';
+}
+
+// ── CLEAN OCR TEXT ─────────────────────────────
+// Fixes common OCR errors in timetable text
+function cleanOCRText(text){
+  return text
+    .replace(/[|l1I]\s*(?=\d{1,2}[:.]\d{2})/g, '')   // Remove pipe/l before times
+    .replace(/0(?=[A-Za-z])/g, 'O')                    // Fix 0→O in words
+    .replace(/(?<=[A-Za-z])0/g, 'o')                   // Fix 0→o after letters
+    .replace(/\bMondav\b/gi, 'Monday')                  // Common OCR errors
+    .replace(/\bTuesdav\b/gi, 'Tuesday')
+    .replace(/\bWednesdav\b/gi, 'Wednesday')
+    .replace(/\bThursdav\b/gi, 'Thursday')
+    .replace(/\bFridav\b/gi, 'Friday')
+    .replace(/\bSaturdav\b/gi, 'Saturday')
+    .replace(/\bSundav\b/gi, 'Sunday')
+    .replace(/\bMon\b/gi, 'Monday')
+    .replace(/\bTue\b/gi, 'Tuesday')
+    .replace(/\bWed\b/gi, 'Wednesday')
+    .replace(/\bThu\b/gi, 'Thursday')
+    .replace(/\bFri\b/gi, 'Friday')
+    .replace(/\bSat\b/gi, 'Saturday')
+    .replace(/([0-9])O([0-9])/g, '$10$2')              // Fix O→0 between digits
+    .replace(/([0-9]):([0-9]{2})/g, '$1:$2')            // Normalise time separator
+    .replace(/([0-9])\.([0-9]{2})/g, '$1:$2')           // Convert 8.30 → 8:30
+    .replace(/\s{2,}/g, ' ')
+    .trim();
+}
+
+
+  }catch(err){
+    console.error('OCR error',err);
+    showUpC();
+    showToast('❌','OCR failed','Could not read image — try a clearer photo, CSV, or Manual Entry');
+  }
+}
+
+// ── TEXT / CSV FILE ─────────────────────────────
+function procTextTT(file){
+  showProc();
+  document.getElementById('ps1').textContent='📄 Reading file…';
+  document.getElementById('ps2').textContent='📅 Identifying days & times…';
+  document.getElementById('ps3').textContent='📚 Extracting subjects & rooms…';
+  document.getElementById('ps4').textContent='🏗️ Building your schedule…';
+  animSteps();
+
+  const reader=new FileReader();
+  reader.onload=e=>{
+    const text=e.target.result;
+    setTimeout(()=>{
+      const name=file.name.replace(/\.[^.]+$/,'').replace(/[-_]/g,' ');
+      const tt=parseTextTimetable(text, name||'My Timetable');
+      if(!tt||!tt.lectures.length){
+        showUpC();
+        showToast('❌','Could not parse','Check format — see examples in GUIDE.md, or use Manual Entry');
+        return;
+      }
+      setJSON(KEYS.customTT,tt);
+      showTTDisp(tt);
+      showToast('✅','Timetable Ready!','Found '+tt.lectures.length+' lectures');
+    },1800);
+  };
+  reader.onerror=()=>{showUpC();showToast('❌','Read error','Could not read file');};
+  reader.readAsText(file);
+}
+
+// ── OFFLINE TEXT / CSV PARSER ──────────────────
+function parseTextTimetable(text, fileName){
+  const lines=text.split(/\r?\n/).map(l=>l.trim()).filter(l=>l.length>0);
+  const lectures=[];
+  const DAYS_FULL=['Monday','Tuesday','Wednesday','Thursday','Friday','Saturday','Sunday'];
+  const DAYS_SHORT=['mon','tue','wed','thu','fri','sat','sun'];
+  const TIME_RE=/\b([01]?\d|2[0-3]):([0-5]\d)\b/g;
+
+  // Try detecting CSV columns automatically
+  const isCSV=text.includes(',');
+  let nameFromFile=fileName.replace(/\.(csv|txt)$/i,'').replace(/[-_]/g,' ');
+  nameFromFile=nameFromFile.charAt(0).toUpperCase()+nameFromFile.slice(1);
+
+  if(isCSV){
+    // CSV mode: detect header row then parse columns
+    const rows=lines.map(l=>l.split(',').map(c=>c.trim().replace(/^"|"$/g,'')));
+    const header=rows[0].map(h=>h.toLowerCase());
+    const ci={
+      day:    findCol(header,['day','weekday','date']),
+      subj:   findCol(header,['subject','module','course','class','lecture','name','title']),
+      start:  findCol(header,['start','from','begin','starttime','start_time','time']),
+      end:    findCol(header,['end','to','finish','endtime','end_time','until']),
+      room:   findCol(header,['room','venue','hall','location','lab']),
+      lec:    findCol(header,['lecturer','teacher','instructor','facilitator','tutor','by'])
+    };
+    for(let i=1;i<rows.length;i++){
+      const r=rows[i];
+      if(!r||r.length<2)continue;
+      const dayRaw=ci.day>=0?r[ci.day]:'';
+      const day=normaliseDay(dayRaw);
+      const subj=ci.subj>=0?r[ci.subj]:(r[1]||'');
+      if(!subj||!day)continue;
+      let start='08:00',end='10:00';
+      if(ci.start>=0&&r[ci.start]){start=normaliseTime(r[ci.start]);}
+      if(ci.end>=0&&r[ci.end]){end=normaliseTime(r[ci.end]);}
+      // If only one time col, derive end +2hrs
+      if(ci.start>=0&&ci.end<0){end=addHours(start,2);}
+      const room=ci.room>=0?(r[ci.room]||''):'';
+      const lec=ci.lec>=0?(r[ci.lec]||''):'';
+      lectures.push({day,subject:subj,start,end,room,lecturer:lec});
+    }
+  } else {
+    // Plain text mode: scan each line for day + time + subject
+    let currentDay='';
+    for(const line of lines){
+      const low=line.toLowerCase();
+      // Check if this line declares a day
+      for(let i=0;i<DAYS_FULL.length;i++){
+        if(low.includes(DAYS_FULL[i].toLowerCase())||low.startsWith(DAYS_SHORT[i])){
+          currentDay=DAYS_FULL[i]; break;
+        }
+      }
+      // Extract times
+      const times=[...line.matchAll(/\b([01]?\d|2[0-3]):([0-5]\d)\b/g)];
+      if(times.length>=1&&currentDay){
+        const start=times[0][0];
+        const end=times.length>=2?times[1][0]:addHours(start,2);
+        // Extract subject: remove times and day names, keep what's left
+        let subj=line
+          .replace(/\b([01]?\d|2[0-3]):([0-5]\d)\b/g,'')
+          .replace(new RegExp(currentDay,'gi'),'')
+          .replace(/[–\-|,;:]/g,' ')
+          .replace(/\s+/g,' ').trim();
+        // Remove leading codes like SPU07210
+        subj=subj.replace(/^[A-Z]{2,5}\s?\d{4,6}\s*/,'').trim();
+        if(subj.length>2){
+          lectures.push({day:currentDay,subject:subj,start,end,room:'',lecturer:''});
+        }
+      }
+    }
+  }
+
+  if(!lectures.length) return null;
+
+  const tips=generateTips(lectures);
+  return {name:nameFromFile||'My Timetable',source:'file',lectures,aiTips:tips,uploadedAt:new Date().toISOString(),fileName};
+}
+
+function findCol(headers,keys){
+  for(const k of keys){const i=headers.findIndex(h=>h.includes(k));if(i>=0)return i;}
+  return -1;
+}
+
+function normaliseDay(raw){
+  if(!raw)return'';
+  const r=raw.trim().toLowerCase();
+  const map={monday:'Monday',mon:'Monday',tuesday:'Tuesday',tue:'Tuesday',tues:'Tuesday',wednesday:'Wednesday',wed:'Wednesday',thursday:'Thursday',thu:'Thursday',thur:'Thursday',thurs:'Thursday',friday:'Friday',fri:'Friday',saturday:'Saturday',sat:'Saturday',sunday:'Sunday',sun:'Sunday'};
+  for(const k of Object.keys(map)){if(r.startsWith(k))return map[k];}
+  return'';
+}
+
+function normaliseTime(raw){
+  if(!raw)return'08:00';
+  raw=raw.trim();
+  // Already HH:MM
+  if(/^\d{1,2}:\d{2}$/.test(raw)){
+    const[h,m]=raw.split(':');
+    return h.padStart(2,'0')+':'+m;
+  }
+  // 12h format like 2pm, 10am, 2:30pm
+  const m12=/^(\d{1,2})(?::(\d{2}))?\s*(am|pm)$/i.exec(raw);
+  if(m12){
+    let h=parseInt(m12[1]),mn=parseInt(m12[2]||'0');
+    const pm=m12[3].toLowerCase()==='pm';
+    if(pm&&h!==12)h+=12;
+    if(!pm&&h===12)h=0;
+    return String(h).padStart(2,'0')+':'+String(mn).padStart(2,'0');
+  }
+  // Just a number like 8 or 14
+  if(/^\d{1,4}$/.test(raw)){
+    const n=parseInt(raw);
+    if(n>=0&&n<=23)return String(n).padStart(2,'0')+':00';
+    if(n>=100&&n<=2359){const h=Math.floor(n/100),m=n%100;return String(h).padStart(2,'0')+':'+String(m).padStart(2,'0');}
+  }
+  return'08:00';
+}
+
+function addHours(timeStr,hrs){
+  const[h,m]=timeStr.split(':').map(Number);
+  const total=h*60+m+hrs*60;
+  return String(Math.floor(total/60)%24).padStart(2,'0')+':'+String(total%60).padStart(2,'0');
+}
+
+function generateTips(lectures){
+  const tips=[];
+  const days=[...new Set(lectures.map(l=>l.day))];
+  const total=lectures.length;
+  tips.push(`Your timetable has ${total} lecture${total!==1?'s':''} across ${days.length} day${days.length!==1?'s':''}.`);
+  // Find busiest day
+  const dayCt={};lectures.forEach(l=>{dayCt[l.day]=(dayCt[l.day]||0)+1;});
+  const busiest=Object.entries(dayCt).sort((a,b)=>b[1]-a[1])[0];
+  if(busiest)tips.push(`${busiest[0]} is your busiest day with ${busiest[1]} lecture${busiest[1]!==1?'s':''} — plan your energy accordingly.`);
+  // Free days
+  const DAYS_ORD2=['Monday','Tuesday','Wednesday','Thursday','Friday','Saturday','Sunday'];
+  const freeDays=DAYS_ORD2.filter(d=>!days.includes(d)&&d!=='Sunday');
+  if(freeDays.length)tips.push(`${freeDays[0]} appears free — a great day for self-study and revision.`);
+  else tips.push('Use gaps between lectures for quick revision and note review.');
+  return tips;
+}
+
+// ── TT UI HELPERS ──────────────────────────────
+function renderCTT(tt){
+  document.getElementById('cttN').textContent=tt.name||'My Timetable';
+  document.getElementById('cttM').textContent=`${tt.lectures.length} lectures · Uploaded ${tt.uploadedAt?new Date(tt.uploadedAt).toLocaleDateString('en-GB',{day:'numeric',month:'short',year:'numeric'}):''}`;
+  const grp={};tt.lectures.forEach(l=>{const d=l.day||'Other';if(!grp[d])grp[d]=[];grp[d].push(l);});
+  Object.keys(grp).forEach(d=>grp[d].sort((a,b)=>a.start.localeCompare(b.start)));
+  const days=DAYS_ORD.filter(d=>grp[d]).concat(Object.keys(grp).filter(d=>!DAYS_ORD.includes(d)));
+  document.getElementById('cttB').innerHTML=days.map(d=>`<div class="dys"><div class="dyh"><span class="dyn">${d}</span><div class="dyl"></div><span class="dyc">${grp[d].length} lec${grp[d].length!==1?'s':''}</span></div><div class="ll">${grp[d].map(l=>`<div class="lc"><div class="lct">${l.start}<br><span style="color:var(--mt)">│</span><br>${l.end}</div><div><div class="lcn">${l.subject}</div>${l.lecturer?`<div class="lcl">👤 ${l.lecturer}</div>`:''}${l.room?`<div class="lcr">📍 ${l.room}</div>`:''}</div></div>`).join('')}</div></div>`).join('');
+  const sg=document.getElementById('aiSg');
+  if(tt.aiTips&&tt.aiTips.length){sg.style.display='block';document.getElementById('aiSgB').innerHTML=tt.aiTips.map(t=>`<div class="aitip"><span>💡</span><span>${t}</span></div>`).join('');}
+  else sg.style.display='none';
+}
+function delTT(){if(!confirm('Delete this timetable?'))return;localStorage.removeItem(KEYS.customTT);showUpC();showToast('🗑','Deleted','Custom timetable removed');}
+function expTT(){const tt=getJSON(KEYS.customTT,null);if(!tt)return;const now=new Date();tt.lectures.forEach((l,i)=>{setTimeout(()=>{const di=['Sunday','Monday','Tuesday','Wednesday','Thursday','Friday','Saturday'].indexOf(l.day);const d=new Date(now);const diff=di-d.getDay();d.setDate(d.getDate()+(diff<0?diff+7:diff));const[sh,sm]=l.start.split(':').map(Number);const[eh,em]=l.end.split(':').map(Number);const sd=new Date(d);sd.setHours(sh,sm,0,0);const ed=new Date(d);ed.setHours(eh,em,0,0);const fmt=x=>x.toISOString().replace(/[-:]/g,'').slice(0,15)+'Z';window.open(`https://calendar.google.com/calendar/render?action=TEMPLATE&text=${encodeURIComponent(l.subject)}&dates=${fmt(sd)}/${fmt(ed)}&details=${encodeURIComponent('Room: '+(l.room||'—')+'\nLecturer: '+(l.lecturer||'—'))}&location=${encodeURIComponent(l.room||'')}`, '_blank');},i*700);});showToast('📅','Opening Calendar','Adding all to Google Calendar');}
+
+// ── MANUAL ENTRY ───────────────────────────────
+function addRow(){mrCt++;const id='mr'+mrCt;const div=document.createElement('div');div.className='mrow';div.id=id;div.innerHTML=`<select class="mcel">${DAYS_ORD.map(d=>`<option>${d}</option>`).join('')}</select><input class="mcel" type="text" placeholder="Subject"><input class="mcel" type="time" value="08:00"><input class="mcel" type="time" value="10:00"><input class="mcel" type="text" placeholder="Room"><button class="mdel" onclick="document.getElementById('${id}').remove()">✕</button>`;document.getElementById('manRows').appendChild(div);}
+function saveMan(){const nm=document.getElementById('manName').value.trim()||'My Timetable';const rows=document.querySelectorAll('#manRows .mrow');if(!rows.length){showToast('❌','No lectures','Add at least one');return;}const lecs=[];rows.forEach(r=>{const c=r.querySelectorAll('.mcel');const s=c[1].value.trim();if(s)lecs.push({day:c[0].value,subject:s,start:c[2].value||'08:00',end:c[3].value||'10:00',room:c[4].value.trim(),lecturer:''});});if(!lecs.length){showToast('❌','Empty','Fill in at least one subject');return;}const tips=generateTips(lecs);const tt={name:nm,source:'manual',lectures:lecs,aiTips:tips,uploadedAt:new Date().toISOString(),fileName:'manual'};setJSON(KEYS.customTT,tt);showTTDisp(tt);showToast('✅','Saved!',lecs.length+' lectures added');}
+
+// ══════════════════════════════════════════
+// TIDO AI — 100% OFFLINE KNOWLEDGE BASE
+// No internet, no API key required
+// ══════════════════════════════════════════
+const KB=[
+  // Fleet Management
+  {k:['fleet management','fleet','ships management'],a:`**Fleet Management (SPU 07212)**\n\nFleet management is the administration and control of a company's vehicles or vessels to ensure efficiency, safety and cost-effectiveness.\n\n**Key Functions:**\n• Vessel acquisition and disposal\n• Maintenance scheduling and dry-docking\n• Crew recruitment and management\n• Fuel and voyage cost control\n• Safety and compliance (SOLAS, MARPOL)\n• Insurance and risk management\n\n**In Tanzania:** TAZARA and Tanzania Shipping Lines manage fleets on Lake Victoria and the Indian Ocean coast, including ports at Dar es Salaam, Tanga and Mtwara.\n\n**Tip:** Think of fleet management as running many vehicles — you must keep them working, safe, staffed and profitable. 🚢`},
+  // Maritime Transport
+  {k:['maritime transport','maritime transport management','shipping'],a:`**Maritime Transport Management (SPU 07213)**\n\nMaritime transport is the movement of people and cargo by sea. It carries over 80% of global trade by volume.\n\n**Types of Shipping:**\n• Liner shipping — fixed schedules (e.g. container lines)\n• Tramp shipping — no fixed schedule, follows cargo\n• Tanker shipping — oil, LNG, chemicals\n• Bulk carriers — grain, coal, minerals\n\n**Key Organisations:**\n• IMO (International Maritime Organization) — sets global standards\n• UNCTAD — monitors world shipping statistics\n• Tanzania Ports Authority (TPA) — manages Dar es Salaam port\n\n**Tanzania Context:** The Port of Dar es Salaam handles over 95% of Tanzania's international trade and serves as a gateway for landlocked countries like Uganda, Rwanda and Zambia. 🌍`},
+  // Port Performance
+  {k:['port performance','port competition','port management','port'],a:`**Port Performance & Competition (SPU 07210)**\n\nPort performance measures how efficiently a port moves cargo. Competition exists between ports for shipping lines and cargo owners.\n\n**Key Performance Indicators (KPIs):**\n• Ship turnaround time\n• Container dwell time\n• Berth occupancy rate\n• Cargo throughput (TEUs per year)\n• Equipment productivity (moves per crane hour)\n\n**Port Competition Factors:**\n• Location and hinterland access\n• Tariffs and port dues\n• Infrastructure quality\n• Customs efficiency\n• Availability of services (bunkering, repairs)\n\n**Dar es Salaam Port** competes with Mombasa (Kenya) for East African transit cargo. Reducing dwell times and improving rail connections are key strategies. 🏗️`},
+  // HRM
+  {k:['hrm','human resource','human resource management','recruitment','motivation','performance management'],a:`**Human Resource Management (SPU 07207)**\n\nHRM is the strategic approach to managing people in an organisation to achieve its goals.\n\n**Core HRM Functions:**\n• **Recruitment & Selection** — attracting and hiring the right people\n• **Training & Development** — building employee skills\n• **Performance Management** — appraisals and feedback\n• **Compensation & Benefits** — fair pay and rewards\n• **Employee Relations** — resolving conflicts, maintaining morale\n• **HR Planning** — forecasting future staffing needs\n\n**Key Theories:**\n• Maslow's Hierarchy of Needs\n• Herzberg's Two-Factor Theory\n• McGregor's Theory X and Theory Y\n\n**Tip:** HRM links people strategy to business strategy. A motivated, skilled workforce is an organisation's greatest asset. 👔`},
+  // Research Methodology
+  {k:['research methodology','research design','research methods','qualitative','quantitative','sampling','hypothesis'],a:`**Research Methodology (SPU 07208)**\n\nResearch methodology is the systematic framework for conducting research — it explains HOW you will answer your research question.\n\n**Types of Research:**\n• **Qualitative** — words, themes, interviews, focus groups\n• **Quantitative** — numbers, statistics, surveys, experiments\n• **Mixed Methods** — combines both\n\n**Research Design Steps:**\n1. Identify research problem\n2. Review literature\n3. State objectives/hypotheses\n4. Choose research design\n5. Select sampling method\n6. Collect data\n7. Analyse data\n8. Interpret and report findings\n\n**Sampling Methods:**\n• Random sampling — everyone has equal chance\n• Stratified sampling — divided into groups\n• Purposive sampling — chosen for specific reasons\n\n**Tip:** Your methodology must match your research question — qualitative for "why/how" questions, quantitative for "how many/how much". 📊`},
+  // Entrepreneurship
+  {k:['entrepreneurship','entrepreneur','business plan','startup','innovation','swot'],a:`**Entrepreneurship Skills (SPU 07209)**\n\nEntrepreneurship is the process of identifying opportunities, taking risks, and creating value through a new business or innovation.\n\n**Key Characteristics of an Entrepreneur:**\n• Risk-taking and decision-making\n• Innovation and creativity\n• Leadership and communication\n• Resilience and adaptability\n• Financial management skills\n\n**Business Plan Components:**\n1. Executive Summary\n2. Business Description\n3. Market Analysis\n4. Products/Services\n5. Marketing Strategy\n6. Operations Plan\n7. Financial Projections\n\n**SWOT Analysis:**\n• **S**trengths — internal advantages\n• **W**eaknesses — internal limitations\n• **O**pportunities — external chances\n• **T**hreats — external risks\n\n**Tanzania Example:** Mobile money services like M-Pesa and Tigo Pesa are examples of entrepreneurial innovation that transformed financial access. 💡`},
+  // Strategic Management
+  {k:['strategic management','maritime strategy','corporate strategy','strategy','porter','competitive advantage'],a:`**Strategic Management & Maritime Strategy (SPU 07211)**\n\nStrategic management is the formulation and implementation of major goals and initiatives to achieve a competitive advantage.\n\n**Strategic Management Process:**\n1. Environmental scanning (PESTEL, SWOT)\n2. Strategy formulation\n3. Strategy implementation\n4. Strategy evaluation\n\n**Porter's Five Forces (Maritime):**\n• Rivalry among existing competitors (shipping lines)\n• Threat of new entrants (new operators)\n• Bargaining power of buyers (cargo shippers)\n• Bargaining power of suppliers (shipyards, fuel)\n• Threat of substitutes (air freight, pipeline)\n\n**Maritime Strategy Examples:**\n• Maersk's hub-and-spoke port strategy\n• Alliance formation between shipping lines\n• Tanzania's Blue Economy strategy\n\n**PESTEL Framework:**\nPolitical · Economic · Social · Technological · Environmental · Legal 🎯`},
+  // General NIT
+  {k:['nit','national institute of transport','tanzania','hdsplm','stream a','semester'],a:`**About NIT – HDSPLM I Stream A**\n\nThe National Institute of Transport (NIT) is Tanzania's premier institution for transport education, located in Dar es Salaam.\n\n**Your Modules This Semester:**\n• SPU 07207 – Human Resource Management (Haika Mzava)\n• SPU 07208 – Research Methodology (Bakari Pandu)\n• SPU 07209 – Entrepreneurship Skills (Mwanaisha Ally)\n• SPU 07210 – Port Performance & Competition (Mathew Swila)\n• SPU 07211 – Strategic Management & Maritime Strategy (Machungwa Limbu)\n• SPU 07212 – Fleet Management (Rehema Mzee)\n• SPU 07213 – Maritime Transport Management (Epimachus Burchard)\n\n**Campus:** Dar es Salaam · LR 01 – B18 · Capacity 340\n📚 Study hard and use CHEERS55 to stay organised!`},
+  // Dar es Salaam Port
+  {k:['dar es salaam port','dsmport','port dar','tpa'],a:`**Port of Dar es Salaam**\n\nThe Port of Dar es Salaam is the largest port in Tanzania and the busiest in East Africa.\n\n**Key Facts:**\n• Operated by Tanzania Ports Authority (TPA)\n• Handles over 14 million tonnes of cargo per year\n• Gateway for Uganda, Rwanda, Burundi, DRC, Zambia, Malawi\n• Container Terminal handles over 900,000 TEUs per year\n• Part of the Central Corridor linking the interior of Africa to the sea\n\n**Challenges:**\n• Congestion and long dwell times\n• Infrastructure limitations\n• Competition from Mombasa Port (Kenya)\n\n**Improvements:**\n• Expansion of berths\n• Introduction of terminal operating systems\n• Rail link improvements to hinterland 🚢`},
+  // Ships types
+  {k:['types of ships','vessel types','tanker','container ship','bulk carrier','cargo'],a:`**Types of Ships in Maritime Transport**\n\n🚢 **Container Ships** — carry standardised containers (TEUs); largest are 24,000+ TEU\n🛢️ **Tankers** — carry liquid cargo (crude oil, chemicals, LNG)\n⚓ **Bulk Carriers** — carry dry bulk (grain, coal, iron ore)\n🚗 **Ro-Ro (Roll-on Roll-off)** — vehicles drive on and off\n🐟 **Fishing Vessels** — important for Tanzania's Lake Victoria and coastal fisheries\n🏗️ **General Cargo Ships** — mixed cargo, smaller ports\n⛴️ **Ferries/Passenger Ships** — people and vehicles\n🛥️ **Tugboats** — assist large ships in port manoeuvring\n\n**In Tanzania:** The main vessel types at Dar es Salaam are container ships, bulk carriers and tankers. Lake Victoria uses ferries (MV Victoria etc.) 🌊`},
+  // MARPOL SOLAS
+  {k:['marpol','solas','imo convention','maritime law','convention'],a:`**Key Maritime Conventions**\n\n📋 **SOLAS** (Safety of Life at Sea, 1974)\n• Sets minimum safety standards for ship construction, equipment and operations\n• Requires fire protection, lifesaving appliances, radio communications\n\n🌊 **MARPOL** (Marine Pollution, 1973/78)\n• Prevents pollution from ships\n• Annexes cover: oil, chemicals, harmful substances, sewage, garbage, air emissions\n\n👷 **MLC** (Maritime Labour Convention, 2006)\n• Sets minimum working and living standards for seafarers\n• Covers wages, hours of work, health and safety\n\n🎓 **STCW** (Standards of Training, Certification and Watchkeeping, 1978)\n• Sets minimum standards for training and certification of seafarers\n\n**Tanzania** is a signatory to all major IMO conventions through TPA and the Government. ⚖️`},
+  // Greetings/help
+  {k:['hello','hi','hey','greet','help','what can you do','who are you'],a:`**Hello! I'm TIDO AI 🤖**\n\nI'm your built-in CHEERS55 tutor — and I work completely **offline**, no internet required!\n\nI can help you with all 7 of your NIT modules:\n\n• 🚢 Fleet Management\n• 🌊 Maritime Transport Management\n• 🏗️ Port Performance & Competition\n• 👔 Human Resource Management\n• 📊 Research Methodology\n• 💡 Entrepreneurship Skills\n• 🎯 Strategic Management & Maritime Strategy\n\nJust type your question or tap one of the suggestion chips below. I'm here to help you revise, understand concepts and prepare for exams! 📚`},
+  // Exam tips
+  {k:['exam tips','study tips','revision','how to pass','prepare for exam'],a:`**Exam Preparation Tips for NIT 📚**\n\n**Before the Exam:**\n✅ Review all lecture notes — use the Downloads tab\n✅ Practice with past papers — available in Downloads (Premium)\n✅ Ask TIDO AI to explain any concept you don't understand\n✅ Form study groups with classmates\n✅ Use the CHEERS55 timetable to plan study sessions\n\n**During the Exam:**\n✏️ Read all questions carefully before starting\n✏️ Start with questions you know best\n✏️ Manage your time — don't spend too long on one question\n✏️ Define key terms first in essay answers\n✏️ Use examples from Tanzania and East Africa\n\n**Key Topics to Revise:**\n• Port KPIs and competition factors\n• HRM functions and motivational theories\n• Research design types and steps\n• Porter's Five Forces\n• SOLAS and MARPOL conventions\n• Fleet management functions\n\nGood luck! You've got this! 🌟`}
+];
+
+function findAnswer(question){
+  const q=question.toLowerCase().replace(/[?!.,]/g,'');
+  const words=q.split(/\s+/);
+  let best=null,bestScore=0;
+  for(const entry of KB){
+    let score=0;
+    for(const kw of entry.k){
+      if(q.includes(kw))score+=kw.split(' ').length*3;
+      for(const w of words){if(kw.includes(w)&&w.length>3)score+=1;}
+    }
+    if(score>bestScore){bestScore=score;best=entry;}
+  }
+  if(bestScore>0)return best.a;
+  // Generic fallback
+  return `I don't have a specific answer for that in my knowledge base yet.\n\nTry asking about:\n• Fleet Management\n• Maritime Transport\n• Port Performance\n• Human Resource Management\n• Research Methodology\n• Entrepreneurship\n• Strategic Management\n\nOr tap one of the suggestion chips above! 📚`;
+}
+
+function sendAI(){
+  const inp=document.getElementById('aiInp');
+  const q=inp.value.trim(); if(!q)return;
+  inp.value='';
+  appMsg('u',q);
+  showTyping();
+  // Simulate a brief thinking delay
+  setTimeout(()=>{
+    rmTyping();
+    const answer=findAnswer(q);
+    appMsg('b',answer);
+  },600);
+}
+function chip(el){document.getElementById('aiInp').value=el.textContent;sendAI();}
+function appMsg(who,text){const box=document.getElementById('aiCh');const div=document.createElement('div');div.className='abub'+(who==='u'?' u':'');div.innerHTML=`<div class="aav${who==='u'?' u':''}">${who==='u'?'👤':'🤖'}</div><div class="amsg">${text.replace(/\n/g,'<br>').replace(/\*\*(.*?)\*\*/g,'<strong>$1</strong>')}</div>`;box.appendChild(div);box.scrollTop=box.scrollHeight;}
+function showTyping(){const box=document.getElementById('aiCh');const div=document.createElement('div');div.className='abub';div.id='aiTyp';div.innerHTML=`<div class="aav">🤖</div><div class="amsg"><div class="adts"><div class="adt"></div><div class="adt"></div><div class="adt"></div></div></div>`;box.appendChild(div);box.scrollTop=box.scrollHeight;}
+function rmTyping(){const el=document.getElementById('aiTyp');if(el)el.remove();}
+
+// GATE
+function gate(gid,aid,title,desc,feats){const g=document.getElementById(gid);if(!g)return;if(isPremium()){g.style.display='none';const a=document.getElementById(aid);if(a)a.style.display='block';}else{g.innerHTML=`<div class="gate"><span class="gcr">👑</span><div class="gtt">${title}</div><div class="gds">${desc}</div><div class="gfs">${feats.map(f=>`<div class="gf">✨ ${f}</div>`).join('')}</div><button class="gbtn" onclick="location.href='premium.html'">Unlock Premium – TZS 500</button><div class="gnote">Pay to 142274076 · All networks · Lifetime access</div></div>`;const a=document.getElementById(aid);if(a)a.style.display='none';}}
+// DOWNLOADS
+function dlTab(f,el){dlFilter=f;document.querySelectorAll('.dlt').forEach(t=>t.classList.remove('on'));if(el)el.classList.add('on');renderDL();}
+function dlStats(){const sv=[...savedDL];document.getElementById('dlCt').textContent=sv.length;document.getElementById('dlBk').textContent=sv.filter(x=>x.startsWith('b')).length;document.getElementById('dlPp').textContent=sv.filter(x=>x.startsWith('p')).length;}
+function renderDL(){
+  const gn=getJSON(KEYS.globalNotes,[]);
+  const lecNotes=gn.map((n,i)=>({id:'ln'+i,cat:'notes',i:'📝',t:n.title,a:n.lecturer+' · NIT',m:n.module?.split('–')[0]?.trim()||'Module',s:'From lecturer',isLN:true,content:n.content}));
+  let items=[...DL,...lecNotes];
+  if(dlFilter==='saved')items=items.filter(x=>savedDL.has(x.id));
+  else if(dlFilter!=='all')items=items.filter(x=>x.cat===dlFilter);
+  const el=document.getElementById('dlList');
+  if(!items.length){el.innerHTML='<div class="empty"><div class="eic">📭</div><div class="emg">Nothing here yet</div></div>';dlStats();return;}
+  el.innerHTML=items.map(x=>`<div class="dli ${savedDL.has(x.id)?'sv':''}" id="dli-${x.id}"><div class="dlic">${x.i}</div><div style="flex:1;min-width:0;"><div class="dltit">${x.t}</div><div class="dlmt">${x.a} · ${x.m} · ${x.s}</div>${x.isLN&&x.content?`<div style="font-size:9px;color:var(--mt);margin-top:2px;">${x.content.slice(0,60)}${x.content.length>60?'…':''}</div>`:''}</div><div style="display:flex;flex-direction:column;gap:4px;flex-shrink:0;">${savedDL.has(x.id)?`<button class="dlb done" onclick="rmDL('${x.id}')">✓ Saved</button>`:`<button class="dlb" id="dlb-${x.id}" onclick="svDL('${x.id}','${x.t.replace(/'/g,"\\'")}')">⬇ Save</button>`}${x.isLN&&x.content?`<button class="dlb opn" onclick="alert('${x.t.replace(/'/g,"\\'")}\\n\\n${(x.content||'').replace(/'/g,"\\'")}')">📖 Read</button>`:''}</div></div>`).join('');
+  dlStats();
+}
+function svDL(id,t){const b=document.getElementById('dlb-'+id);if(b){b.textContent='⏳';b.disabled=true;}setTimeout(()=>{savedDL.add(id);setJSON(KEYS.downloads,[...savedDL]);renderDL();showToast('✅','Saved!',t.slice(0,40));},900);}
+function rmDL(id){savedDL.delete(id);setJSON(KEYS.downloads,[...savedDL]);renderDL();showToast('🗑','Removed','File removed from saved');}
+// CALENDAR
+function conCal(){calConn=true;document.getElementById('gcBtn').textContent='✅ Connected';document.getElementById('gcBtn').className='gcbtn cn';document.getElementById('calSt').textContent='Connected';document.getElementById('syOpts').style.display='block';buildSyList();showToast('✅','Connected!','Add lectures to Google Calendar');}
+function buildSyList(){const day=DAYS[new Date().getDay()];const lecs=TT[day]||[];if(!lecs.length){document.getElementById('syList').innerHTML='<div style="color:var(--mt);font-size:11px;padding:7px 0;">No lectures today</div>';return;}document.getElementById('syList').innerHTML=lecs.map(l=>`<div class="syi"><div><div style="font-size:12px;color:var(--cr);">${l.name}</div><div style="font-size:10px;color:var(--mt);">${l.start}–${l.end} · ${l.lec}</div></div><button class="syb ${syncedL.has(l.code+l.start)?'done':''}" onclick="addLCal('${l.code}','${l.name.replace(/'/g,"\\'")}','${l.start}','${l.end}','${l.lec}','${l.room}')">${syncedL.has(l.code+l.start)?'✓ Added':'+ Add'}</button></div>`).join('');}
+function addLCal(code,name,start,end,lec,room){const now=new Date();const ds=now.toISOString().slice(0,10).replace(/-/g,'');const ss=ds+'T'+start.replace(':','')+'00',es=ds+'T'+end.replace(':','')+'00';window.open(`https://calendar.google.com/calendar/render?action=TEMPLATE&text=${encodeURIComponent(name+' (NIT)')}&dates=${ss}/${es}&details=${encodeURIComponent(`Lecturer: ${lec}\nRoom: ${room}\nCHEERS55 · NIT Tanzania`)}&location=${encodeURIComponent(room+', NIT Tanzania')}`, '_blank');syncedL.add(code+start);buildSyList();showToast('📅','Opening Calendar','Complete the event in Google Calendar');}
+function addAllCal(){const day=DAYS[new Date().getDay()];(TT[day]||[]).forEach((l,i)=>setTimeout(()=>addLCal(l.code,l.name,l.start,l.end,l.lec,l.room),i*700));showToast('📅','Adding all…','Opening Google Calendar for each lecture');}
+function dlICS(){let ics='BEGIN:VCALENDAR\r\nVERSION:2.0\r\nPRODID:-//CHEERS55//NIT//EN\r\nCALSCALE:GREGORIAN\r\nX-WR-CALNAME:CHEERS55 NIT Lectures\r\n';const now=new Date();Object.entries(TT).forEach(([day,lecs])=>{lecs.forEach(l=>{const di=['Sunday','Monday','Tuesday','Wednesday','Thursday','Friday','Saturday'].indexOf(day);const d=new Date(now);const diff=di-d.getDay();d.setDate(d.getDate()+(diff<0?diff+7:diff));const[sh,sm]=l.start.split(':').map(Number);const[eh,em]=l.end.split(':').map(Number);const sd=new Date(d);sd.setHours(sh,sm,0,0);const ed=new Date(d);ed.setHours(eh,em,0,0);const fmt=x=>x.toISOString().replace(/[-:]/g,'').slice(0,15)+'Z';ics+=`BEGIN:VEVENT\r\nUID:${l.code.replace(/\s/g,'')}${fmt(sd)}@cheers55\r\nDTSTART:${fmt(sd)}\r\nDTEND:${fmt(ed)}\r\nSUMMARY:${l.name}\r\nDESCRIPTION:${l.code}\\n${l.lec}\\nCHEERS55 NIT\r\nLOCATION:${l.room}\r\nBEGIN:VALARM\r\nTRIGGER:-PT15M\r\nACTION:DISPLAY\r\nDESCRIPTION:15-min reminder\r\nEND:VALARM\r\nEND:VEVENT\r\n`;});});ics+='END:VCALENDAR';const blob=new Blob([ics],{type:'text/calendar'});const a=document.createElement('a');a.href=URL.createObjectURL(blob);a.download='CHEERS55_NIT.ics';a.click();showToast('⬇️','Downloaded!','Import into any calendar app');}
+// PROFILE
+function buildProf(){if(!usr)return;const fn=usr.fullName,init=fn.split(' ').map(n=>n[0]).join('').slice(0,2).toUpperCase();document.getElementById('profIn').textContent=init;document.getElementById('pNm').textContent=fn;document.getElementById('pUn').textContent='@'+usr.username;document.getElementById('pN').textContent=fn;document.getElementById('pU').textContent='@'+usr.username;document.getElementById('pPh').textContent=usr.phone;document.getElementById('pSi').textContent=new Date(usr.createdAt||Date.now()).toLocaleDateString('en-GB',{year:'numeric',month:'long'});document.getElementById('pSb').textContent=isPremium()?'👑 Premium (Lifetime)':'Free';if(isPremium())document.getElementById('pPrem').style.display='inline-block';const sv=localStorage.getItem('c55_pic_'+usr.username);if(sv){document.getElementById('profImg').src=sv;document.getElementById('profImg').style.display='block';document.getElementById('profIn').style.display='none';}}
+function onPic(e){const f=e.target.files[0];if(!f)return;if(f.size>3*1024*1024){showToast('❌','Too large','Max 3MB');return;}const r=new FileReader();r.onload=ev=>{const d=ev.target.result;document.getElementById('profImg').src=d;document.getElementById('profImg').style.display='block';document.getElementById('profIn').style.display='none';if(usr)localStorage.setItem('c55_pic_'+usr.username,d);showToast('📷','Updated!','Profile picture saved');};r.readAsDataURL(f);}
+// PUSH
+async function reqPush(){if(!('Notification' in window)){showToast('❌','Not Supported','Push not available here');return;}const r=await Notification.requestPermission();const btn=document.getElementById('pushTg');if(r==='granted'){btn.classList.add('on');document.getElementById('pushLbl').textContent='Push Active';showToast('🔔','Enabled!','You will receive alerts when app is closed');}else{btn.classList.remove('on');showToast('❌','Denied','Enable in browser settings');}}
+// AUTH
+function doLogout(){if(confirm('Sign out of CHEERS55?')){clearCurrentUser();window.location.href='login.html';}}
+// ENTER APP
+function enterApp(){usr=getCurrentUser();if(!usr){window.location.href='login.html';return;}document.getElementById('cover').style.display='none';document.getElementById('app').classList.add('on');buildFullTT();buildMods();buildProf();gate('aiGate','aiApp','TIDO AI Tutor','Ask unlimited questions on all 7 NIT modules — answered by TIDO AI, your CHEERS55 tutor.',['Unlimited Q&A on all 7 modules','Exam tips & revision help','Available 24/7 on your phone','Tailored for NIT Tanzania']);gate('dlGate','dlApp','Downloads Library','Save textbooks, lecture notes & past papers for offline reading.',['Core textbooks for all modules','Lecturer-published notes','Past papers 2022–2024','Practice quiz bank (200+ Q)']);if(isPremium())renderDL();const fn=usr.fullName.split(' ')[0];const h=new Date().getHours();const gr=h<12?'Good morning':h<17?'Good afternoon':'Good evening';document.getElementById('enterBtn').textContent=`${gr}, ${fn}! →`;setTimeout(()=>showToast('🎓',`${gr}, ${fn}!`,'CHEERS55 · TIDO AI'),700);tick();chkLecNotifs();if(Notification.permission==='granted')document.getElementById('pushTg').classList.add('on');}
+// LOAD
+window.addEventListener('load',()=>{usr=getCurrentUser();if(!usr){window.location.href='login.html';return;}const fn=usr.fullName.split(' ')[0];const h=new Date().getHours();const gr=h<12?'Good morning':h<17?'Good afternoon':'Good evening';document.getElementById('enterBtn').textContent=`${gr}, ${fn}! →`;});
+</script>
+<script>
+// ══════════════════════════════════════════════════════════════════
+//  CHEERS55 · CINEMATIC PARTICLE SYSTEM
+//  Canvas-based floating particles with GSAP animation
+//  Low density · premium feel · cursor + scroll reactive
+// ══════════════════════════════════════════════════════════════════
+
+(function(){
+  'use strict';
+
+  // ── CONFIG ────────────────────────────────────────────────────
+  const CFG = {
+    count:        42,          // Total particles — low for premium feel
+    minSize:      1.2,         // px
+    maxSize:      4.8,         // px
+    minSpeed:     0.08,        // px/frame
+    maxSpeed:     0.38,
+    minOpacity:   0.04,
+    maxOpacity:   0.55,
+    glowStrength: 14,          // blur radius px
+    cursorForce:  90,          // cursor repel radius px
+    cursorStrength: 0.018,     // how hard cursor pushes
+    scrollStrength: 0.4,       // scroll parallax multiplier
+    colors: [
+      'rgba(201,150,58,',      // gold
+      'rgba(232,184,75,',      // amber
+      'rgba(106,163,248,',     // blue glow
+      'rgba(255,255,255,',     // white
+      'rgba(78,203,140,',      // teal
+      'rgba(192,132,252,',     // purple
+    ]
+  };
+
+  // ── STATE ─────────────────────────────────────────────────────
+  let canvas, ctx, W, H, particles = [], raf;
+  let mouse = { x: -9999, y: -9999 };
+  let scrollY = 0, lastScrollY = 0, scrollVY = 0;
+  let gsapReady = false;
+
+  // ── PARTICLE CLASS ─────────────────────────────────────────────
+  class Particle {
+    constructor(){
+      this.reset(true);
+    }
+
+    reset(init = false){
+      // Position — random across canvas
+      this.x  = Math.random() * W;
+      this.y  = init ? Math.random() * H : (Math.random() > 0.5 ? -10 : H + 10);
+
+      // Size determines depth layer
+      this.size     = rand(CFG.minSize, CFG.maxSize);
+      this.depth    = (this.size - CFG.minSize) / (CFG.maxSize - CFG.minSize); // 0=far, 1=near
+
+      // Speed proportional to size (closer = faster)
+      const spd     = lerp(CFG.minSpeed, CFG.maxSpeed, this.depth * 0.7 + Math.random() * 0.3);
+      const angle   = Math.random() * Math.PI * 2;
+      this.vx       = Math.cos(angle) * spd;
+      this.vy       = Math.sin(angle) * spd * 0.6 - 0.05; // slight upward drift
+
+      // Visual
+      this.colorBase= CFG.colors[Math.floor(Math.random() * CFG.colors.length)];
+      this.baseAlpha= rand(CFG.minOpacity, CFG.maxOpacity) * (0.4 + this.depth * 0.6);
+      this.alpha    = this.baseAlpha;
+      this.glow     = this.size * 2.8;
+
+      // GSAP-driven breathing
+      this.alphaTarget = this.baseAlpha;
+      this.gsapTween   = null;
+      this.scaleX      = 1;
+      this.scaleY      = 1;
+      this.blurAmount  = (1 - this.depth) * CFG.glowStrength; // far particles = more blur
+
+      // Cursor interaction
+      this.cx = 0; // cursor push offset
+      this.cy = 0;
+
+      // Wobble
+      this.wobble      = Math.random() * Math.PI * 2;
+      this.wobbleSpeed = rand(0.004, 0.018);
+      this.wobbleAmp   = rand(0.12, 0.55);
+
+      if(gsapReady) this.startGSAP();
+    }
+
+    startGSAP(){
+      if(this.gsapTween) this.gsapTween.kill();
+      // Random breathing cycle 3–9s
+      const dur = rand(3, 9);
+      this.gsapTween = gsap.to(this, {
+        alphaTarget: this.baseAlpha * rand(0.1, 1.0),
+        duration: dur,
+        ease: 'sine.inOut',
+        repeat: -1,
+        yoyo: true,
+        delay: Math.random() * dur
+      });
+    }
+
+    update(){
+      // Wobble drift
+      this.wobble += this.wobbleSpeed;
+      this.x += this.vx + Math.sin(this.wobble) * this.wobbleAmp;
+      this.y += this.vy + Math.cos(this.wobble * 0.7) * this.wobbleAmp * 0.5;
+
+      // Scroll parallax — deeper particles move slower
+      this.y -= scrollVY * CFG.scrollStrength * (0.2 + this.depth * 0.8);
+
+      // Cursor repulsion
+      const dx = this.x - mouse.x;
+      const dy = this.y - mouse.y;
+      const dist = Math.sqrt(dx*dx + dy*dy);
+      if(dist < CFG.cursorForce){
+        const force = (1 - dist / CFG.cursorForce) * CFG.cursorStrength;
+        this.cx = lerp(this.cx, dx * force * 60, 0.08);
+        this.cy = lerp(this.cy, dy * force * 60, 0.08);
+      } else {
+        this.cx = lerp(this.cx, 0, 0.05);
+        this.cy = lerp(this.cy, 0, 0.05);
+      }
+
+      // Smooth alpha toward GSAP target
+      this.alpha = lerp(this.alpha, this.alphaTarget, 0.03);
+
+      // Wrap around edges with margin
+      const M = this.size + 20;
+      if(this.x < -M)  this.x = W + M;
+      if(this.x > W+M) this.x = -M;
+      if(this.y < -M)  this.reset(false);
+      if(this.y > H+M) this.reset(false);
+    }
+
     draw(){
-      const px=this.x+this.cx,py=this.y+this.cy;
+      const px = this.x + this.cx;
+      const py = this.y + this.cy;
+      const color = this.colorBase + this.alpha + ')';
+
       ctx.save();
-      if(this.bl>0.5)ctx.filter=`blur(${this.bl.toFixed(1)}px)`;
-      // Outer soft halo
-      const g=ctx.createRadialGradient(px,py,0,px,py,this.sz*4);
-      g.addColorStop(0,this.cb+this.a*0.85+')');
-      g.addColorStop(0.45,this.cb+this.a*0.3+')');
-      g.addColorStop(1,this.cb+'0)');
-      ctx.fillStyle=g; ctx.beginPath(); ctx.arc(px,py,this.sz*4,0,Math.PI*2); ctx.fill();
-      // Inner glow ring — gives premium shimmer
-      ctx.filter='none';
-      const g2=ctx.createRadialGradient(px,py,0,px,py,this.sz*1.2);
-      g2.addColorStop(0,'rgba(255,240,180,'+Math.min(this.a*3,0.95)+')');
-      g2.addColorStop(1,this.cb+Math.min(this.a*1.8,0.7)+')');
-      ctx.fillStyle=g2; ctx.beginPath(); ctx.arc(px,py,this.sz*1.2,0,Math.PI*2); ctx.fill();
+
+      // Blur for depth — far particles appear out of focus
+      if(this.blurAmount > 0.5){
+        ctx.filter = `blur(${this.blurAmount.toFixed(1)}px)`;
+      }
+
+      // Outer glow halo
+      const grd = ctx.createRadialGradient(px, py, 0, px, py, this.size * 3.5);
+      grd.addColorStop(0,   this.colorBase + (this.alpha * 0.9) + ')');
+      grd.addColorStop(0.5, this.colorBase + (this.alpha * 0.4) + ')');
+      grd.addColorStop(1,   this.colorBase + '0)');
+      ctx.fillStyle = grd;
+      ctx.beginPath();
+      ctx.arc(px, py, this.size * 3.5, 0, Math.PI * 2);
+      ctx.fill();
+
+      // Core particle — solid bright centre
+      ctx.filter = 'none';
+      ctx.fillStyle = this.colorBase + Math.min(this.alpha * 2.5, 0.9) + ')';
+      ctx.beginPath();
+      ctx.arc(px, py, this.size * 0.45, 0, Math.PI * 2);
+      ctx.fill();
+
       ctx.restore();
     }
   }
-  function resize(){
-    const dpr=window.devicePixelRatio||1;
-    W=window.innerWidth; H=window.innerHeight;
-    canvas.width=W*dpr; canvas.height=H*dpr;
-    canvas.style.width=W+'px'; canvas.style.height=H+'px';
-    ctx.scale(dpr,dpr);
-  }
+
+  // ── INIT ──────────────────────────────────────────────────────
   function init(){
-    canvas=document.getElementById('particleCanvas'); if(!canvas)return;
-    ctx=canvas.getContext('2d'); resize();
-    scrollEl=document.querySelector('.wrap')||null;
-    window.addEventListener('resize',resize,{passive:true});
-    window.addEventListener('mousemove',e=>{mouse.x=e.clientX;mouse.y=e.clientY;},{passive:true});
-    window.addEventListener('touchmove',e=>{mouse.x=e.touches[0].clientX;mouse.y=e.touches[0].clientY;},{passive:true});
-    window.addEventListener('touchend',()=>{mouse.x=-9999;mouse.y=-9999;},{passive:true});
-    gsapOK=typeof gsap!=='undefined';
-    // Stagger particles with GSAP entrance
-    for(let i=0;i<CFG.count;i++)setTimeout(()=>pts.push(new P()),i*55);
-    if(gsapOK){
-      gsap.fromTo(canvas,{opacity:0},{opacity:1,duration:4,ease:'power3.out',delay:0.2});
-      // Pulse canvas glow on load for dramatic premium entrance
-      gsap.fromTo(canvas,{filter:'brightness(2)'},{filter:'brightness(1)',duration:2.5,ease:'power2.out',delay:0.5});
+    canvas = document.getElementById('particleCanvas');
+    if(!canvas) return;
+    ctx = canvas.getContext('2d');
+
+    resize();
+    window.addEventListener('resize', resize, { passive: true });
+
+    // Mouse tracking
+    window.addEventListener('mousemove', e => {
+      mouse.x = e.clientX;
+      mouse.y = e.clientY;
+    }, { passive: true });
+
+    // Touch tracking
+    window.addEventListener('touchmove', e => {
+      const t = e.touches[0];
+      mouse.x = t.clientX;
+      mouse.y = t.clientY;
+    }, { passive: true });
+    window.addEventListener('touchend', () => {
+      mouse.x = -9999; mouse.y = -9999;
+    }, { passive: true });
+
+    // Scroll tracking
+    window.addEventListener('scroll', () => {
+      scrollVY = window.scrollY - lastScrollY;
+      lastScrollY = window.scrollY;
+    }, { passive: true });
+    // Also track scrollable content div
+    const ct = document.querySelector('.ct');
+    if(ct){
+      ct.addEventListener('scroll', () => {
+        scrollVY = ct.scrollTop - lastScrollY;
+        lastScrollY = ct.scrollTop;
+      }, { passive: true });
     }
-    (function loop(){
-      requestAnimationFrame(loop);
-      sVY*=0.85;
-      ctx.clearRect(0,0,W,H);
-      pts.sort((a,b)=>a.dp-b.dp).forEach(p=>{p.update();p.draw();});
-    })();
+
+    // Wait for GSAP then create particles
+    if(typeof gsap !== 'undefined'){
+      gsapReady = true;
+    } else {
+      document.addEventListener('DOMContentLoaded', ()=>{
+        if(typeof gsap !== 'undefined') gsapReady = true;
+      });
+    }
+
+    // Stagger particle creation for smooth intro
+    for(let i = 0; i < CFG.count; i++){
+      setTimeout(() => {
+        const p = new Particle();
+        particles.push(p);
+      }, i * 60);
+    }
+
+    loop();
   }
-  if(document.readyState==='loading')document.addEventListener('DOMContentLoaded',init);
-  else init();
+
+  // ── RESIZE ────────────────────────────────────────────────────
+  function resize(){
+    const dpr = window.devicePixelRatio || 1;
+    W = canvas.width  = window.innerWidth  * dpr;
+    H = canvas.height = window.innerHeight * dpr;
+    canvas.style.width  = window.innerWidth  + 'px';
+    canvas.style.height = window.innerHeight + 'px';
+    ctx.scale(dpr, dpr);
+    W = window.innerWidth;
+    H = window.innerHeight;
+  }
+
+  // ── ANIMATION LOOP ────────────────────────────────────────────
+  function loop(){
+    raf = requestAnimationFrame(loop);
+
+    // Decay scroll velocity
+    scrollVY = lerp(scrollVY, 0, 0.12);
+
+    // Clear with slight trail for motion blur effect
+    ctx.clearRect(0, 0, W, H);
+
+    // Draw particles sorted by depth (far first)
+    const sorted = particles.slice().sort((a,b) => a.depth - b.depth);
+    for(const p of sorted){
+      p.update();
+      p.draw();
+    }
+  }
+
+  // ── GSAP CINEMATIC ENTRANCE ───────────────────────────────────
+  // Fades canvas in gently on page load
+  function cinematicEntrance(){
+    if(typeof gsap === 'undefined') return;
+    gsap.fromTo(canvas,
+      { opacity: 0 },
+      { opacity: 1, duration: 3.5, ease: 'power2.out', delay: 0.5 }
+    );
+  }
+
+  // ── GSAP PAGE TRANSITION ──────────────────────────────────────
+  // Dimmer particles during content sections for readability
+  function setParticleIntensity(level /* 0–1 */){
+    if(typeof gsap === 'undefined') return;
+    gsap.to(canvas, {
+      opacity: 0.3 + level * 0.7,
+      duration: 1.2,
+      ease: 'power1.inOut'
+    });
+  }
+
+  // ── HELPERS ───────────────────────────────────────────────────
+  function rand(a, b){ return a + Math.random() * (b - a); }
+  function lerp(a, b, t){ return a + (b - a) * t; }
+
+  // ── START ─────────────────────────────────────────────────────
+  if(document.readyState === 'loading'){
+    document.addEventListener('DOMContentLoaded', ()=>{
+      init();
+      setTimeout(cinematicEntrance, 200);
+    });
+  } else {
+    init();
+    setTimeout(cinematicEntrance, 200);
+  }
+
+  // Reduce particles when app section is active (text readability)
+  window._setParticleIntensity = setParticleIntensity;
+
 })();
 </script>
+
 </body>
-</html>

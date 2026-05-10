@@ -1,55 +1,356 @@
-{
-  "name": "CHEERS55 – TIDO AI Student Hub",
-  "short_name": "CHEERS55",
-  "description": "Smart student hub powered by TIDO AI · NIT Tanzania · HDSPLM I",
-  "start_url": "./login.html",
-  "scope": "./",
-  "display": "standalone",
-  "orientation": "portrait",
-  "background_color": "#0a1628",
-  "theme_color": "#c9963a",
-  "lang": "en",
-  "categories": ["education", "productivity"],
-  "icons": [
-    {
-      "src": "icons/icon-192.png",
-      "sizes": "192x192",
-      "type": "image/png",
-      "purpose": "any"
-    },
-    {
-      "src": "icons/icon-192.png",
-      "sizes": "192x192",
-      "type": "image/png",
-      "purpose": "maskable"
-    },
-    {
-      "src": "icons/icon-512.png",
-      "sizes": "512x512",
-      "type": "image/png",
-      "purpose": "any"
-    },
-    {
-      "src": "icons/icon-512.png",
-      "sizes": "512x512",
-      "type": "image/png",
-      "purpose": "maskable"
-    }
-  ],
-  "shortcuts": [
-    {
-      "name": "Today's Lectures",
-      "short_name": "Today",
-      "url": "./index.html",
-      "icons": [{ "src": "icons/icon-192.png", "sizes": "192x192" }]
-    },
-    {
-      "name": "TIDO AI Tutor",
-      "short_name": "TIDO AI",
-      "url": "./index.html",
-      "icons": [{ "src": "icons/icon-192.png", "sizes": "192x192" }]
-    }
-  ],
-  "screenshots": [],
-  "prefer_related_applications": false
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width,initial-scale=1.0,viewport-fit=cover">
+<meta name="theme-color" content="#c9963a">
+<meta name="mobile-web-app-capable" content="yes">
+<meta name="apple-mobile-web-app-capable" content="yes">
+<meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+<meta name="apple-mobile-web-app-title" content="CHEERS55">
+<meta name="application-name" content="CHEERS55">
+<meta name="description" content="CHEERS55 – Smart Student Hub powered by TIDO AI · NIT Tanzania">
+<link rel="manifest" href="manifest.json">
+<link rel="apple-touch-icon" href="icons/icon-192.png">
+<link rel="apple-touch-startup-image" href="icons/icon-512.png"><title>CHEERS55 – Premium</title>
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@700;900&family=DM+Sans:wght@400;500;600;700&family=DM+Mono:wght@400;500&display=swap" rel="stylesheet">
+<style>
+:root{--n:#0a1628;--m:#132040;--b:#1a3a6b;--g:#c9963a;--gl:#e8b84b;--cr:#f5f0e8;--w:#fff;--gr:#1a7a4a;--r:#c0392b;--mt:#8a9ab5;--cd:#111e35;--bd:rgba(201,150,58,.25);}
+*{margin:0;padding:0;box-sizing:border-box;}
+body{background:var(--n);color:var(--cr);font-family:'DM Sans',sans-serif;min-height:100vh;padding:0 0 60px;}
+body::before{content:'';position:fixed;inset:0;background:radial-gradient(ellipse at 20% 10%,rgba(201,150,58,.13) 0%,transparent 50%),radial-gradient(ellipse at 80% 90%,rgba(26,58,107,.3) 0%,transparent 50%);pointer-events:none;z-index:0;}
+.wrap{max-width:440px;margin:0 auto;padding:0 15px;position:relative;z-index:1;}
+.phdr{display:flex;align-items:center;gap:10px;padding:16px 0;}
+.bk{background:var(--cd);border:1px solid var(--bd);color:var(--cr);width:36px;height:36px;border-radius:50%;display:flex;align-items:center;justify-content:center;cursor:pointer;font-size:15px;text-decoration:none;}
+.ptit{font-family:'Playfair Display',serif;font-size:1.1rem;color:var(--w);}
+.ptit em{color:var(--g);font-style:normal;}
+/* HERO */
+.hero{text-align:center;padding:24px 16px;background:linear-gradient(135deg,var(--b),var(--m));border:1px solid var(--bd);border-radius:14px;margin-bottom:16px;}
+.crown{font-size:48px;display:block;margin-bottom:10px;animation:flt 3s ease-in-out infinite;}
+@keyframes flt{0%,100%{transform:translateY(0)}50%{transform:translateY(-7px)}}
+.hbadge{display:inline-block;background:linear-gradient(135deg,var(--g),var(--gl));color:var(--n);font-family:'DM Mono',monospace;font-size:10px;font-weight:700;letter-spacing:2px;padding:4px 14px;border-radius:20px;margin-bottom:12px;}
+.htit{font-family:'Playfair Display',serif;font-size:1.8rem;font-weight:900;color:var(--w);margin-bottom:7px;}
+.htit em{color:var(--gl);font-style:normal;}
+.hdsc{font-size:12px;color:var(--mt);line-height:1.6;}
+/* PRICE */
+.price-card{background:var(--cd);border:2px solid var(--g);border-radius:14px;padding:20px;margin-bottom:16px;position:relative;overflow:hidden;}
+.price-card::before{content:'BEST VALUE';position:absolute;top:13px;right:-18px;background:var(--g);color:var(--n);font-size:9px;font-weight:700;letter-spacing:2px;padding:3px 26px;transform:rotate(35deg);font-family:'DM Mono',monospace;}
+.prow{display:flex;align-items:flex-end;gap:6px;margin-bottom:4px;}
+.pamt{font-family:'Playfair Display',serif;font-size:2.6rem;font-weight:900;color:var(--g);line-height:1;}
+.pcur{font-size:1.1rem;color:var(--g);margin-bottom:5px;}
+.pper{font-size:11px;color:var(--mt);margin-bottom:13px;}
+.pnote{background:rgba(26,122,74,.14);border:1px solid rgba(26,122,74,.3);border-radius:7px;padding:7px 11px;font-size:11px;color:#4ecb8c;display:flex;align-items:center;gap:7px;}
+/* FEATURES */
+.sec-lbl{font-family:'DM Mono',monospace;font-size:10px;color:var(--g);letter-spacing:2px;text-transform:uppercase;margin-bottom:11px;}
+.feat-list{display:flex;flex-direction:column;gap:8px;margin-bottom:16px;}
+.fi{background:var(--cd);border:1px solid var(--bd);border-radius:9px;padding:12px;display:flex;align-items:flex-start;gap:10px;transition:border-color .2s;}
+.fi.prem{border-color:rgba(201,150,58,.38);}
+.fic{font-size:20px;flex-shrink:0;}
+.fn{font-weight:600;font-size:12px;color:var(--w);margin-bottom:1px;}
+.fd{font-size:10px;color:var(--mt);line-height:1.4;}
+.ftag{margin-left:auto;font-size:9px;font-weight:700;letter-spacing:1px;padding:2px 7px;border-radius:9px;white-space:nowrap;font-family:'DM Mono',monospace;flex-shrink:0;}
+.ftag.p{background:rgba(201,150,58,.14);color:var(--gl);border:1px solid rgba(201,150,58,.3);}
+.ftag.f{background:rgba(100,120,150,.14);color:var(--mt);border:1px solid rgba(100,120,150,.3);}
+/* COMPARE */
+.cmp{background:var(--cd);border:1px solid var(--bd);border-radius:12px;overflow:hidden;margin-bottom:16px;}
+.cmp-h{display:grid;grid-template-columns:1fr 70px 70px;background:var(--m);padding:10px 13px;border-bottom:1px solid var(--bd);}
+.cmp-h span{font-size:10px;font-family:'DM Mono',monospace;color:var(--mt);text-align:center;}
+.cmp-h span:first-child{text-align:left;color:var(--g);}
+.cmp-r{display:grid;grid-template-columns:1fr 70px 70px;padding:9px 13px;border-bottom:1px solid rgba(201,150,58,.05);align-items:center;}
+.cmp-r:last-child{border-bottom:none;}
+.cmp-l{font-size:11px;color:var(--cr);}
+.cmp-c{text-align:center;font-size:13px;}
+.cy{color:#4ecb8c;}.cn{color:#333;}.cp{color:var(--gl);}
+/* PAYMENT */
+.pay-card{background:var(--cd);border:1px solid var(--bd);border-radius:13px;padding:18px;margin-bottom:14px;}
+.pay-t{font-family:'Playfair Display',serif;font-size:1rem;color:var(--w);margin-bottom:14px;}
+.net-grid{display:grid;grid-template-columns:1fr 1fr;gap:8px;margin-bottom:14px;}
+.net-btn{padding:12px 8px;border:2px solid var(--bd);border-radius:9px;background:var(--m);cursor:pointer;text-align:center;transition:all .22s;font-family:'DM Sans',sans-serif;}
+.net-btn.on{border-color:var(--g);background:rgba(201,150,58,.1);}
+.net-ic{font-size:22px;display:block;margin-bottom:4px;}
+.net-nm{font-size:12px;font-weight:700;color:var(--cr);}
+.net-sm{font-size:10px;color:var(--mt);margin-top:1px;font-family:'DM Mono',monospace;}
+/* PAY FORM */
+.pay-form{display:none;}
+.pay-form.on{display:block;}
+.divr{display:flex;align-items:center;gap:8px;margin:12px 0;}
+.divl{flex:1;height:1px;background:var(--bd);}
+.divt{font-size:10px;color:var(--mt);font-family:'DM Mono',monospace;white-space:nowrap;}
+.fg{margin-bottom:11px;}
+.fl{display:block;font-size:10px;color:var(--mt);font-family:'DM Mono',monospace;letter-spacing:1px;text-transform:uppercase;margin-bottom:5px;}
+.fip{width:100%;background:var(--m);border:1px solid var(--bd);border-radius:8px;padding:10px 11px;color:var(--cr);font-family:'DM Sans',sans-serif;font-size:13px;outline:none;transition:border-color .2s;}
+.fip:focus{border-color:var(--g);}
+.fip::placeholder{color:#354a65;}
+/* PAYING NUMBER BOX */
+.pay-num-box{background:var(--n);border:2px solid var(--g);border-radius:10px;padding:14px;text-align:center;margin:12px 0;}
+.pay-num-lbl{font-size:10px;color:var(--mt);font-family:'DM Mono',monospace;letter-spacing:1px;margin-bottom:5px;}
+.pay-num{font-family:'DM Mono',monospace;font-size:24px;font-weight:700;color:var(--g);letter-spacing:3px;}
+.pay-num-sub{font-size:10px;color:var(--mt);margin-top:3px;}
+.steps{display:flex;flex-direction:column;gap:8px;margin-bottom:14px;}
+.step{display:flex;align-items:flex-start;gap:10px;}
+.step-n{background:var(--g);color:var(--n);width:22px;height:22px;border-radius:50%;display:flex;align-items:center;justify-content:center;font-weight:700;font-size:11px;flex-shrink:0;}
+.step-tx{font-size:12px;color:var(--cr);line-height:1.5;margin-top:2px;}
+/* PAY BUTTON */
+.pay-btn{width:100%;background:linear-gradient(135deg,var(--g),var(--gl));color:var(--n);border:none;padding:14px;border-radius:10px;font-family:'DM Sans',sans-serif;font-weight:700;font-size:14px;cursor:pointer;transition:all .3s;display:flex;align-items:center;justify-content:center;gap:8px;margin-bottom:9px;}
+.pay-btn:hover{transform:translateY(-2px);box-shadow:0 10px 28px rgba(201,150,58,.4);}
+.pay-btn:disabled{opacity:.6;cursor:not-allowed;transform:none;}
+.pay-note{font-size:10px;color:var(--mt);text-align:center;line-height:1.5;}
+/* SUCCESS */
+#successScreen{display:none;text-align:center;padding:30px 15px;}
+.sic{font-size:65px;margin-bottom:14px;animation:pop .5s ease;display:block;}
+@keyframes pop{0%{transform:scale(0)}70%{transform:scale(1.2)}100%{transform:scale(1)}}
+.stit{font-family:'Playfair Display',serif;font-size:1.6rem;color:var(--g);margin-bottom:8px;}
+.sdsc{font-size:13px;color:var(--mt);line-height:1.6;margin-bottom:20px;}
+.sfeats{background:var(--cd);border:1px solid var(--bd);border-radius:11px;padding:16px;margin-bottom:20px;text-align:left;}
+.sf{display:flex;align-items:center;gap:9px;padding:7px 0;border-bottom:1px solid rgba(201,150,58,.07);font-size:12px;color:var(--cr);}
+.sf:last-child{border-bottom:none;}
+.open-btn{width:100%;background:var(--g);color:var(--n);border:none;padding:14px;border-radius:10px;font-weight:700;font-size:14px;cursor:pointer;font-family:'DM Sans',sans-serif;}
+/* TOAST */
+.toast{position:fixed;bottom:18px;left:50%;transform:translateX(-50%) translateY(100px);background:var(--cd);border:1px solid var(--g);border-radius:9px;padding:10px 14px;display:flex;align-items:center;gap:8px;z-index:1000;transition:transform .32s;max-width:90vw;box-shadow:0 8px 30px rgba(0,0,0,.6);}
+.toast.on{transform:translateX(-50%) translateY(0);}
+#tT{font-weight:700;color:var(--g);font-size:12px;}
+#tM{font-size:11px;color:var(--cr);}
+</style>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/gsap.min.js"></script>
+<style>
+#particleCanvas{position:fixed;inset:0;width:100%;height:100%;pointer-events:none;z-index:0;}
+.wrap{position:relative;z-index:1;}
+</style>
+</head>
+<body>
+<canvas id="particleCanvas" aria-hidden="true"></canvas>
+<div class="wrap">
+  <div class="phdr">
+    <a class="bk" href="index.html">←</a>
+    <div class="ptit">NIT <em>Premium</em></div>
+  </div>
+  <div id="mainScreen">
+    <!-- HERO -->
+    <div class="hero">
+      <span class="crown">👑</span>
+      <div class="hbadge">ONE-TIME · LIFETIME ACCESS</div>
+      <h1 class="htit">Go <em>Premium</em></h1>
+      <p class="hdsc">Unlock TIDO AI tutor, offline reading library, past exam papers and more — everything you need to excel at NIT.</p>
+    </div>
+    <!-- PRICE -->
+    <div class="price-card">
+      <div class="prow"><span class="pcur">TZS</span><span class="pamt">500</span></div>
+      <div class="pper">One-time payment · Lifetime access · No recurring charges</div>
+      <div class="pnote">✅ Pay once, use forever — all future updates included</div>
+    </div>
+    <!-- FEATURES -->
+    <div class="sec-lbl">What's Included</div>
+    <div class="feat-list">
+      <div class="fi"><span class="fic">📅</span><div><div class="fn">Timetable & Notifications</div><div class="fd">Live alerts, countdown, Google Calendar sync</div></div><span class="ftag f">FREE</span></div>
+      <div class="fi"><span class="fic">📚</span><div><div class="fn">Basic Study Resources</div><div class="fd">Textbook links and online course references</div></div><span class="ftag f">FREE</span></div>
+      <div class="fi prem"><span class="fic">🤖</span><div><div class="fn">TIDO AI Tutor — 24/7</div><div class="fd">Ask unlimited questions on all 7 NIT modules, get instant explanations and exam tips</div></div><span class="ftag p">👑 PREMIUM</span></div>
+      <div class="fi prem"><span class="fic">📖</span><div><div class="fn">Offline Reading Library</div><div class="fd">Download core textbooks, lecture notes & revision guides for offline use</div></div><span class="ftag p">👑 PREMIUM</span></div>
+      <div class="fi prem"><span class="fic">📄</span><div><div class="fn">Past Exam Papers 2022–2024</div><div class="fd">Previous exam papers for all 7 modules with model answers</div></div><span class="ftag p">👑 PREMIUM</span></div>
+      <div class="fi prem"><span class="fic">🏆</span><div><div class="fn">Practice Quiz Bank</div><div class="fd">200+ practice questions with answers across all modules</div></div><span class="ftag p">👑 PREMIUM</span></div>
+      <div class="fi prem"><span class="fic">🔮</span><div><div class="fn">All Future Updates</div><div class="fd">New materials and features added every semester — included free</div></div><span class="ftag p">👑 PREMIUM</span></div>
+    </div>
+    <!-- COMPARE -->
+    <div class="sec-lbl">Free vs Premium</div>
+    <div class="cmp">
+      <div class="cmp-h"><span>Feature</span><span>Free</span><span>Premium</span></div>
+      <div class="cmp-r"><div class="cmp-l">Timetable & Alerts</div><div class="cmp-c cy">✓</div><div class="cmp-c cy">✓</div></div>
+      <div class="cmp-r"><div class="cmp-l">Calendar Sync</div><div class="cmp-c cy">✓</div><div class="cmp-c cy">✓</div></div>
+      <div class="cmp-r"><div class="cmp-l">Basic Resources</div><div class="cmp-c cy">✓</div><div class="cmp-c cy">✓</div></div>
+      <div class="cmp-r"><div class="cmp-l">🤖 TIDO AI Tutor</div><div class="cmp-c cn">✗</div><div class="cmp-c cp">✓</div></div>
+      <div class="cmp-r"><div class="cmp-l">📖 Offline Library</div><div class="cmp-c cn">✗</div><div class="cmp-c cp">✓</div></div>
+      <div class="cmp-r"><div class="cmp-l">Past Exam Papers</div><div class="cmp-c cn">✗</div><div class="cmp-c cp">✓</div></div>
+      <div class="cmp-r"><div class="cmp-l">Practice Quiz Bank</div><div class="cmp-c cn">✗</div><div class="cmp-c cp">✓</div></div>
+      <div class="cmp-r"><div class="cmp-l">Future Updates</div><div class="cmp-c cn">✗</div><div class="cmp-c cp">✓</div></div>
+    </div>
+    <!-- PAYMENT -->
+    <div class="pay-card">
+      <div class="pay-t">🔐 Secure Payment</div>
+      <div class="sec-lbl" style="margin-bottom:9px;">SELECT YOUR NETWORK</div>
+      <div class="net-grid">
+        <button class="net-btn on" id="nb-mpesa" onclick="selNet('mpesa',this)"><span class="net-ic">📱</span><div class="net-nm">M-Pesa</div><div class="net-sm">Vodacom</div></button>
+        <button class="net-btn" id="nb-tigo" onclick="selNet('tigo',this)"><span class="net-ic">💚</span><div class="net-nm">Tigo Pesa</div><div class="net-sm">Tigo</div></button>
+        <button class="net-btn" id="nb-airtel" onclick="selNet('airtel',this)"><span class="net-ic">🔴</span><div class="net-nm">Airtel Money</div><div class="net-sm">Airtel</div></button>
+        <button class="net-btn" id="nb-halo" onclick="selNet('halo',this)"><span class="net-ic">🟡</span><div class="net-nm">Halotel</div><div class="net-sm">HaloPesa</div></button>
+      </div>
+      <!-- PAYMENT FORM (shared for all networks) -->
+      <div class="pay-form on" id="payForm">
+        <div class="sec-lbl" style="margin-bottom:8px;" id="netLabel">M-PESA PAYMENT</div>
+        <div class="steps">
+          <div class="step"><div class="step-n">1</div><div class="step-tx">Open your <span id="netName" style="color:var(--gl);font-weight:600;">M-Pesa</span> app or dial its USSD code</div></div>
+          <div class="step"><div class="step-n">2</div><div class="step-tx">Select <strong style="color:var(--gl);">Send Money</strong> or <strong style="color:var(--gl);">Lipa Pesa</strong></div></div>
+          <div class="step"><div class="step-n">3</div><div class="step-tx">Send <strong style="color:#4ecb8c;">TZS 500</strong> to this number:<div class="pay-num-box"><div class="pay-num-lbl">CHEERS55 PAYMENT NUMBER</div><div class="pay-num">142274076</div><div class="pay-num-sub">All networks accepted</div></div></div></div>
+          <div class="step"><div class="step-n">4</div><div class="step-tx">Enter your PIN and confirm the payment</div></div>
+          <div class="step"><div class="step-n" style="background:var(--gr);color:#fff;">5</div><div class="step-tx">Come back here and enter your phone number and transaction ID to activate Premium</div></div>
+        </div>
+        <div class="fg"><label class="fl">Your Phone Number (Used to Pay)</label><input class="fip" type="tel" id="payPhone" placeholder="e.g. 0744 123 456" maxlength="13"></div>
+        <div class="fg"><label class="fl">Your Full Name</label><input class="fip" type="text" id="payName" placeholder="Name as on your mobile money account"></div>
+        <div class="fg"><label class="fl">Transaction ID / Reference</label><input class="fip" type="text" id="payTxId" placeholder="e.g. ABC123456 (from your payment SMS)" style="font-family:'DM Mono',monospace;letter-spacing:1px;"><div style="font-size:10px;color:var(--mt);margin-top:4px;">📩 This is in the SMS you received after paying</div></div>
+        <button class="pay-btn" id="payBtn" onclick="confirmPayment()"><span id="payBtnIc">📱</span> Confirm TZS 500 & Unlock Premium</button>
+        <p class="pay-note">After submitting, your Premium access will be activated · All networks · <strong style="color:var(--g);">142274076</strong></p>
+      </div>
+    </div>
+    <p style="text-align:center;font-size:11px;color:var(--mt);line-height:1.6;margin-bottom:28px;">Questions? Contact <strong style="color:var(--g);">support@cheers55.app</strong><br>30-day money-back guarantee if not satisfied</p>
+  </div>
+  <!-- SUCCESS -->
+  <div id="successScreen">
+    <span class="sic">🎉</span>
+    <h2 class="stit">Welcome to Premium,<br><span id="succName" style="color:var(--gl);">Student</span>!</h2>
+    <p class="sdsc">Your payment of <strong style="color:#4ecb8c;">TZS 500</strong> has been received. You now have lifetime access to all premium features.</p>
+    <div class="sfeats">
+      <div class="sf">🤖 TIDO AI Tutor — Unlimited questions 24/7</div>
+      <div class="sf">📖 Offline Reading Library — 15+ resources</div>
+      <div class="sf">📄 Past Exam Papers — All 7 modules</div>
+      <div class="sf">🏆 Practice Quiz Bank — 200+ questions</div>
+      <div class="sf">🔮 All Future Updates — Free forever</div>
+    </div>
+    <button class="open-btn" onclick="location.href='index.html'">Open CHEERS55 Dashboard →</button>
+  </div>
+</div>
+<div class="toast" id="toast"><div><div id="tT"></div><div id="tM"></div></div></div>
+<script src="shared.js"></script>
+<script>
+const nets = { mpesa:{name:'M-Pesa',ic:'📱'}, tigo:{name:'Tigo Pesa',ic:'💚'}, airtel:{name:'Airtel Money',ic:'🔴'}, halo:{name:'HaloPesa',ic:'🟡'} };
+let selNet2 = 'mpesa';
+function selNet(k, el) {
+  selNet2 = k;
+  Object.keys(nets).forEach(n => document.getElementById('nb-'+n).classList.remove('on'));
+  el.classList.add('on');
+  document.getElementById('netLabel').textContent = nets[k].name.toUpperCase() + ' PAYMENT';
+  document.getElementById('netName').textContent = nets[k].name;
+  document.getElementById('payBtnIc').textContent = nets[k].ic;
 }
+function confirmPayment() {
+  const phone = document.getElementById('payPhone').value.trim();
+  const name = document.getElementById('payName').value.trim();
+  const txId = document.getElementById('payTxId').value.trim().toUpperCase();
+  if (!phone || phone.length < 10) { showToast('❌','Invalid number','Enter the phone number you used to pay'); return; }
+  if (!name) { showToast('❌','Name required','Enter your full name'); return; }
+  if (!txId || txId.length < 4) { showToast('❌','Transaction ID required','Enter the reference from your payment SMS'); return; }
+  const btn = document.getElementById('payBtn');
+  btn.disabled = true; btn.innerHTML = '⏳ Verifying payment…';
+  showToast('🔍','Verifying…','Checking your transaction details');
+  // In production: POST to backend to verify via mobile money API
+  // For demo: trust entry and activate after delay
+  setTimeout(() => {
+    const usr = getCurrentUser();
+    const pData = { unlocked:true, method:nets[selNet2].name, phone, name, txId, amount:500, currency:'TZS', paymentNumber:'142274076', unlockedBy:usr?.username||'unknown', date:new Date().toISOString() };
+    setJSON(KEYS.premium, pData);
+    // Update user record
+    try { const users=getUsers(); const idx=users.findIndex(u=>u.username===usr?.username); if(idx!==-1){users[idx].premium=true;saveUsers(users);} } catch(e){}
+    const fn = usr ? usr.fullName.split(' ')[0] : 'Student';
+    document.getElementById('succName').textContent = fn;
+    document.getElementById('mainScreen').style.display = 'none';
+    document.getElementById('successScreen').style.display = 'block';
+    window.scrollTo(0,0);
+  }, 2000);
+}
+// Check already premium
+window.addEventListener('load', () => {
+  const usr = getCurrentUser();
+  if (!usr) { window.location.href='login.html'; return; }
+  if (isPremium()) {
+    document.getElementById('succName').textContent = usr.fullName.split(' ')[0];
+    document.getElementById('mainScreen').style.display='none';
+    document.getElementById('successScreen').style.display='block';
+  }
+});
+</script>
+<script>
+// ── PREMIUM PAGE PARTICLES — gold-heavy for premium feel ──────────
+(function(){
+  const CFG={count:36,minSize:0.9,maxSize:5.2,minSpeed:0.05,maxSpeed:0.30,minOpacity:0.03,maxOpacity:0.52,
+    colors:['rgba(201,150,58,','rgba(232,184,75,','rgba(201,150,58,','rgba(255,215,100,','rgba(255,255,255,','rgba(232,184,75,']};
+  let canvas,ctx,W,H,pts=[],mouse={x:-9999,y:-9999},sVY=0,lSY=0,gsapOK=false,scrollEl=null;
+  class P{
+    constructor(){this.reset(true);}
+    reset(init){
+      this.x=Math.random()*W; this.y=init?Math.random()*H:(Math.random()>0.5?-10:H+10);
+      this.sz=CFG.minSize+Math.random()*(CFG.maxSize-CFG.minSize);
+      this.dp=(this.sz-CFG.minSize)/(CFG.maxSize-CFG.minSize);
+      const spd=CFG.minSpeed+Math.random()*(CFG.maxSpeed-CFG.minSpeed),ang=Math.random()*Math.PI*2;
+      this.vx=Math.cos(ang)*spd; this.vy=Math.sin(ang)*spd*0.55-0.03;
+      this.cb=CFG.colors[Math.floor(Math.random()*CFG.colors.length)];
+      this.ba=(CFG.minOpacity+Math.random()*(CFG.maxOpacity-CFG.minOpacity))*(0.4+this.dp*0.6);
+      this.a=this.ba; this.at=this.ba; this.bl=(1-this.dp)*9; this.cx=0; this.cy=0;
+      this.wb=Math.random()*Math.PI*2; this.ws=0.003+Math.random()*0.014; this.wa=0.09+Math.random()*0.5;
+      // Premium: some particles slowly rotate/spiral
+      this.spiral=Math.random()<0.25; this.spiralR=0; this.spiralSpeed=0.008+Math.random()*0.012;
+      if(gsapOK&&typeof gsap!=='undefined'){
+        if(this.tw)this.tw.kill();
+        const d=4+Math.random()*9;
+        // Gold particles breathe more dramatically
+        this.tw=gsap.to(this,{at:this.ba*(0.05+Math.random()*0.85),duration:d,ease:'sine.inOut',repeat:-1,yoyo:true,delay:Math.random()*d});
+      }
+    }
+    update(){
+      this.wb+=this.ws;
+      if(this.spiral){this.spiralR+=this.spiralSpeed;this.x+=Math.cos(this.spiralR)*0.4;this.y+=Math.sin(this.spiralR)*0.4;}
+      this.x+=this.vx+Math.sin(this.wb)*this.wa;
+      this.y+=this.vy+Math.cos(this.wb*0.7)*this.wa*0.45;
+      // Scroll parallax using page scroll
+      const sy=scrollEl?scrollEl.scrollTop:window.scrollY;
+      sVY=sy-lSY; lSY=sy;
+      this.y-=sVY*0.38*(0.2+this.dp*0.8);
+      const dx=this.x-mouse.x,dy=this.y-mouse.y,d=Math.sqrt(dx*dx+dy*dy);
+      if(d<85){const f=(1-d/85)*0.017;this.cx+=(dx*f*58-this.cx)*0.08;this.cy+=(dy*f*58-this.cy)*0.08;}
+      else{this.cx*=0.94;this.cy*=0.94;}
+      this.a+=(this.at-this.a)*0.025;
+      const M=this.sz+20;
+      if(this.x<-M)this.x=W+M; if(this.x>W+M)this.x=-M;
+      if(this.y<-M||this.y>H+M)this.reset(false);
+    }
+    draw(){
+      const px=this.x+this.cx,py=this.y+this.cy;
+      ctx.save();
+      if(this.bl>0.5)ctx.filter=`blur(${this.bl.toFixed(1)}px)`;
+      // Outer soft halo
+      const g=ctx.createRadialGradient(px,py,0,px,py,this.sz*4);
+      g.addColorStop(0,this.cb+this.a*0.85+')');
+      g.addColorStop(0.45,this.cb+this.a*0.3+')');
+      g.addColorStop(1,this.cb+'0)');
+      ctx.fillStyle=g; ctx.beginPath(); ctx.arc(px,py,this.sz*4,0,Math.PI*2); ctx.fill();
+      // Inner glow ring — gives premium shimmer
+      ctx.filter='none';
+      const g2=ctx.createRadialGradient(px,py,0,px,py,this.sz*1.2);
+      g2.addColorStop(0,'rgba(255,240,180,'+Math.min(this.a*3,0.95)+')');
+      g2.addColorStop(1,this.cb+Math.min(this.a*1.8,0.7)+')');
+      ctx.fillStyle=g2; ctx.beginPath(); ctx.arc(px,py,this.sz*1.2,0,Math.PI*2); ctx.fill();
+      ctx.restore();
+    }
+  }
+  function resize(){
+    const dpr=window.devicePixelRatio||1;
+    W=window.innerWidth; H=window.innerHeight;
+    canvas.width=W*dpr; canvas.height=H*dpr;
+    canvas.style.width=W+'px'; canvas.style.height=H+'px';
+    ctx.scale(dpr,dpr);
+  }
+  function init(){
+    canvas=document.getElementById('particleCanvas'); if(!canvas)return;
+    ctx=canvas.getContext('2d'); resize();
+    scrollEl=document.querySelector('.wrap')||null;
+    window.addEventListener('resize',resize,{passive:true});
+    window.addEventListener('mousemove',e=>{mouse.x=e.clientX;mouse.y=e.clientY;},{passive:true});
+    window.addEventListener('touchmove',e=>{mouse.x=e.touches[0].clientX;mouse.y=e.touches[0].clientY;},{passive:true});
+    window.addEventListener('touchend',()=>{mouse.x=-9999;mouse.y=-9999;},{passive:true});
+    gsapOK=typeof gsap!=='undefined';
+    // Stagger particles with GSAP entrance
+    for(let i=0;i<CFG.count;i++)setTimeout(()=>pts.push(new P()),i*55);
+    if(gsapOK){
+      gsap.fromTo(canvas,{opacity:0},{opacity:1,duration:4,ease:'power3.out',delay:0.2});
+      // Pulse canvas glow on load for dramatic premium entrance
+      gsap.fromTo(canvas,{filter:'brightness(2)'},{filter:'brightness(1)',duration:2.5,ease:'power2.out',delay:0.5});
+    }
+    (function loop(){
+      requestAnimationFrame(loop);
+      sVY*=0.85;
+      ctx.clearRect(0,0,W,H);
+      pts.sort((a,b)=>a.dp-b.dp).forEach(p=>{p.update();p.draw();});
+    })();
+  }
+  if(document.readyState==='loading')document.addEventListener('DOMContentLoaded',init);
+  else init();
+})();
+</script>
+</body>
+</html>
